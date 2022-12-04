@@ -4,12 +4,9 @@ import SideNavigation from "./SideNavigation";
 import TopNavigation from "./TopNavigation";
 
 const Navigation = () => {
-    const { collapseSidebar } = useProSidebar();
+    // const { collapseSidebar } = useProSidebar();
     return (
         <div>
-            <main>
-                
-            </main>
             <TopNavigation />
             <SideNavigation />
         </div>

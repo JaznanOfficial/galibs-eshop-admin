@@ -1,11 +1,16 @@
-
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import HomePage from "./Pages/HomePage";
+import Navigation from "./Components/Homepage/Navigation/Navigation";
+import RoutesComponents from "./Components/Routes/RoutesComponents";
+import DashboardPage from "./Pages/DashboardPage";
 
 function App() {
     return (
         <div className="App">
-            <HomePage />
+            <Navigation />
+            <div className="md:hidden">
+                <RoutesComponents />
+            </div>
         </div>
     );
 }

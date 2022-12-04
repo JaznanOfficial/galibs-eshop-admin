@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useProSidebar } from "react-pro-sidebar";
+import { NavLink } from "react-router-dom";
 
 const TopNavigation = () => {
     const { collapseSidebar } = useProSidebar();
     const [collapsed, setCollapsed] = useState(true);
-    // const {value} = collapseSidebar
-    // console.log({collapseSidebar}, value);
 
     const collapsedFunction = (e) => {
         e.preventDefault();
@@ -17,7 +16,134 @@ const TopNavigation = () => {
         <div>
             <div className="navbar border-b border-inherit md:pr-20 ">
                 <div className="navbar-start">
-                    <div className="dropdown">
+                    {/* small device */}
+                    <div className="dropdown md:hidden">
+                        <label tabIndex={0} className="btn btn-ghost md:hidden">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5 text-primary"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M4 6h16M4 12h8m-8 6h16"
+                                />
+                            </svg>
+                        </label>
+                        <ul
+                            tabIndex={0}
+                            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 border border-green-300"
+                        >
+                            <li>
+                                <NavLink
+                                    to={"/"}
+                                    className="btn  rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                >
+                                    <h1>
+                                        <i class="fa-solid fa-table-cells-large"></i>
+                                    </h1>
+                                    <div className="w-2/3 mx-auto">
+                                        <h1>Dashboard</h1>
+                                    </div>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to={"/products"}
+                                    className="btn  rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                >
+                                    <h1>
+                                        <i class="fa-solid fa-bag-shopping"></i>
+                                    </h1>
+                                    <div className="w-2/3 mx-auto">
+                                        <h1>Products</h1>
+                                    </div>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to={"/customers"}
+                                    className="btn  rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                >
+                                    <h1>
+                                        <i class="fa-solid fa-users"></i>
+                                    </h1>
+                                    <div className="w-2/3 mx-auto">
+                                        <h1>Customers</h1>
+                                    </div>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to={"/orders"}
+                                    className="btn  rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                >
+                                    <h1>
+                                        <i class="fa-solid fa-list"></i>
+                                    </h1>
+                                    <div className="w-2/3 mx-auto">
+                                        <h1>Orders</h1>
+                                    </div>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to={"/coupons"}
+                                    className="btn  rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                >
+                                    <h1>
+                                        <i class="fa-solid fa-gift"></i>
+                                    </h1>
+                                    <div className="w-2/3 mx-auto">
+                                        <h1>Coupons</h1>
+                                    </div>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to={"/staffs"}
+                                    className="btn  rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                >
+                                    <h1>
+                                        <i class="fa-solid fa-user"></i>
+                                    </h1>
+                                    <div className="w-2/3 mx-auto">
+                                        <h1>Staffs</h1>
+                                    </div>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to={"/settings"}
+                                    className="btn  rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                >
+                                    <h1>
+                                        <i class="fa-solid fa-gear"></i>
+                                    </h1>
+                                    <div className="w-2/3 mx-auto">
+                                        <h1>Settings</h1>
+                                    </div>
+                                </NavLink>
+                            </li>
+                            <div>
+                                <button className="btn w-full flex text-start justify-start rounded-md">
+                                    <h1>
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                    </h1>
+                                    <div className="w-2/3 mx-auto">
+                                        <h1>Logout</h1>
+                                    </div>
+                                </button>
+                            </div>
+                        </ul>
+                    </div>
+                    {/* small device */}
+                    {/* medium and above device */}
+                    {<div className="dropdown md:flex hidden">
                         <label
                             tabIndex={0}
                             className="btn btn-ghost btn-circle"
@@ -60,7 +186,8 @@ const TopNavigation = () => {
                                 </button>
                             )}
                         </label>
-                    </div>
+                    </div>}
+                    {/* medium and above device */}
                 </div>
                 <div className="navbar-center">
                     <h1 className="text-xl text-primary font-extrabold">G-shop Admin</h1>
