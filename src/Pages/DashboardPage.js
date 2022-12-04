@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import OrderMoneyMonitor from "../Components/DashboardPage/OrderMoneyMonitor";
 
 const DashboardPage = () => {
     return (
         <div>
-            this is dashboard
+        <OrderMoneyMonitor/>
         </div>
     );
 };

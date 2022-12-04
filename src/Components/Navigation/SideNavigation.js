@@ -1,8 +1,8 @@
 import React from "react";
 import { Menu, MenuItem, Sidebar, SubMenu, useProSidebar } from "react-pro-sidebar";
 import { NavLink, Route, Routes } from "react-router-dom";
-import DashboardPage from "../../../Pages/DashboardPage";
-import RoutesComponents from "../../Routes/RoutesComponents";
+import DashboardPage from "../../Pages/DashboardPage";
+import RoutesComponents from "../Routes/RoutesComponents";
 
 const SideNavigation = () => {
     const activeStyle = {
@@ -123,7 +123,9 @@ const SideNavigation = () => {
                     </button>
                 </div>
             </Sidebar>
-            <RoutesComponents />
+            <div>
+                <RoutesComponents />
+            </div>
         </div>
     );
 };
