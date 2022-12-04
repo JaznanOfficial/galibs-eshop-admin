@@ -12,6 +12,11 @@ const TopNavigation = () => {
         console.log(collapsed);
     };
 
+    const activeStyle = {
+        backgroundColor: "#0E9F6E",
+        color: "white",
+    };
+
     return (
         <div>
             <div className="navbar border-b border-inherit md:pr-20 ">
@@ -42,6 +47,7 @@ const TopNavigation = () => {
                                 <NavLink
                                     to={"/"}
                                     className="btn  rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                    style={({ isActive }) => (isActive ? activeStyle : undefined)}
                                 >
                                     <h1>
                                         <i class="fa-solid fa-table-cells-large"></i>
@@ -55,6 +61,7 @@ const TopNavigation = () => {
                                 <NavLink
                                     to={"/products"}
                                     className="btn  rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                    style={({ isActive }) => (isActive ? activeStyle : undefined)}
                                 >
                                     <h1>
                                         <i class="fa-solid fa-bag-shopping"></i>
@@ -68,6 +75,7 @@ const TopNavigation = () => {
                                 <NavLink
                                     to={"/customers"}
                                     className="btn  rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                    style={({ isActive }) => (isActive ? activeStyle : undefined)}
                                 >
                                     <h1>
                                         <i class="fa-solid fa-users"></i>
@@ -81,6 +89,7 @@ const TopNavigation = () => {
                                 <NavLink
                                     to={"/orders"}
                                     className="btn  rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                    style={({ isActive }) => (isActive ? activeStyle : undefined)}
                                 >
                                     <h1>
                                         <i class="fa-solid fa-list"></i>
@@ -94,6 +103,7 @@ const TopNavigation = () => {
                                 <NavLink
                                     to={"/coupons"}
                                     className="btn  rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                    style={({ isActive }) => (isActive ? activeStyle : undefined)}
                                 >
                                     <h1>
                                         <i class="fa-solid fa-gift"></i>
@@ -107,6 +117,7 @@ const TopNavigation = () => {
                                 <NavLink
                                     to={"/staffs"}
                                     className="btn  rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                    style={({ isActive }) => (isActive ? activeStyle : undefined)}
                                 >
                                     <h1>
                                         <i class="fa-solid fa-user"></i>
@@ -120,6 +131,7 @@ const TopNavigation = () => {
                                 <NavLink
                                     to={"/settings"}
                                     className="btn  rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                    style={({ isActive }) => (isActive ? activeStyle : undefined)}
                                 >
                                     <h1>
                                         <i class="fa-solid fa-gear"></i>
@@ -143,35 +155,20 @@ const TopNavigation = () => {
                     </div>
                     {/* small device */}
                     {/* medium and above device */}
-                    {<div className="dropdown md:flex hidden">
-                        <label
-                            tabIndex={0}
-                            className="btn btn-ghost btn-circle"
-                            onClick={(e) => {
-                                collapseSidebar();
-                                collapsedFunction(e);
-                            }}
-                        >
-                            {collapsed ? (
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5 text-primary"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M4 6h16M4 12h16M4 18h7"
-                                    />
-                                </svg>
-                            ) : (
-                                <button className="btn btn-circle btn-outline text-primary">
+                    {
+                        <div className="dropdown md:flex hidden">
+                            <label
+                                tabIndex={0}
+                                className="btn btn-ghost btn-circle"
+                                onClick={(e) => {
+                                    collapseSidebar();
+                                    collapsedFunction(e);
+                                }}
+                            >
+                                {collapsed ? (
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        className="h-6 w-6"
+                                        className="h-5 w-5 text-primary"
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
@@ -180,13 +177,30 @@ const TopNavigation = () => {
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
                                             strokeWidth="2"
-                                            d="M6 18L18 6M6 6l12 12"
+                                            d="M4 6h16M4 12h16M4 18h7"
                                         />
                                     </svg>
-                                </button>
-                            )}
-                        </label>
-                    </div>}
+                                ) : (
+                                    <button className="btn btn-circle btn-outline text-primary">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-6 w-6"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="2"
+                                                d="M6 18L18 6M6 6l12 12"
+                                            />
+                                        </svg>
+                                    </button>
+                                )}
+                            </label>
+                        </div>
+                    }
                     {/* medium and above device */}
                 </div>
                 <div className="navbar-center">
