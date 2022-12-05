@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { useProSidebar } from "react-pro-sidebar";
+// import { useProSidebar } from "react-pro-sidebar";
 import { NavLink } from "react-router-dom";
 
 const TopNavigation = () => {
-    const { collapseSidebar } = useProSidebar();
-    const [collapsed, setCollapsed] = useState(true);
+    // const { collapseSidebar } = useProSidebar();
+    // const [collapsed, setCollapsed] = useState(true);
 
-    const collapsedFunction = (e) => {
-        e.preventDefault();
-        setCollapsed(!collapsed);
-        console.log(collapsed);
-    };
+    // const collapsedFunction = (e) => {
+    //     e.preventDefault();
+    //     setCollapsed(!collapsed);
+    //     console.log(collapsed);
+    // };
 
     const activeStyle = {
         backgroundColor: "#0E9F6E",
@@ -19,7 +19,7 @@ const TopNavigation = () => {
 
     return (
         <div>
-            <div className="navbar border-b border-inherit md:pr-20 ">
+            <div className="navbar border-b border-inherit md:px-16 ">
                 <div className="navbar-start">
                     {/* small device */}
                     <div className="dropdown md:hidden">
@@ -156,7 +156,7 @@ const TopNavigation = () => {
                     {/* small device */}
                     {/* medium and above device */}
                     {
-                        <div className="dropdown md:flex hidden">
+                        /* <div className="dropdown md:flex hidden">
                             <label
                                 tabIndex={0}
                                 className="btn btn-ghost btn-circle"
@@ -199,11 +199,13 @@ const TopNavigation = () => {
                                     </button>
                                 )}
                             </label>
-                        </div>
+                        </div> */
                     }
+                    <h1 className="md:flex hidden text-xl text-primary font-extrabold">G-shop Admin</h1>
                     {/* medium and above device */}
                 </div>
-                <div className="navbar-center">
+                
+                <div className="navbar-center flex md:hidden">
                     <h1 className="text-xl text-primary font-extrabold">G-shop Admin</h1>
                 </div>
                 <div className="navbar-end">

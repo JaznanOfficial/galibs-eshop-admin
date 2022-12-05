@@ -11,7 +11,7 @@ const SideNavigation = () => {
     };
     return (
         <div className="md:flex hidden h-full">
-            <Sidebar defaultCollapsed collapsedWidth="50px" width="200px">
+            <Sidebar  collapsedWidth="50px" width="170px">
                 <Menu>
                     <MenuItem style={{ padding: "0px" }}>
                         <NavLink
