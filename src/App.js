@@ -6,7 +6,7 @@ import DashboardPage from "./Pages/DashboardPage";
 
 function App() {
     return (
-        <div className="App">
+        <div className="App bg-green-50">
             <Navigation />
             <div className="md:hidden">
                 <RoutesComponents />

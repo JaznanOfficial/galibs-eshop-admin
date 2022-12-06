@@ -3,8 +3,8 @@ import React from "react";
 
 const OrderMonitor = () => {
     return (
-        <div>
-            <div class="flex items-center bg-sky-200 text-gray-800">
+        
+            <div class="flex items-center bg-sky-200 text-gray-800 w-11/12 mx-auto">
                 <div class="p-4 w-full">
                     <div class="grid grid-cols-12 gap-4">
                         <div class="col-span-12 sm:col-span-6 md:col-span-3">
@@ -54,7 +54,7 @@ const OrderMonitor = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        
     );
 };
 
