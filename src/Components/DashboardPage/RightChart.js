@@ -19,16 +19,16 @@ const RightChart = () => {
         },
     };
 
-    const labels = ["January", "February", "March", "April", "May", "June"];
+    const labels = ["Asus", "Lenovo", "Hp", "Dell", "Apple", "Msi"];
 
     const data = {
         labels,
         datasets: [
             {
                 label: "Monthly orders",
-                data: [0, 10, 5, 2, 20, 45],
+                data: [54, 10, 87,41,95,49,],
                 borderColor: ["red", "blue", "green", "purple", "ske", "orange"],
-                backgroundColor: ["red", "blue", "green", "purple", "ske", "orange"],
+                backgroundColor: ["red", "blue", "green", "purple", "ske", "orange",],
             },
         ],
     };
