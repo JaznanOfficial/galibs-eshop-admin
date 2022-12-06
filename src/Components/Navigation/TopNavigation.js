@@ -19,7 +19,7 @@ const TopNavigation = () => {
 
     return (
         <div>
-            <div className="navbar border-b border-inherit md:px-16 ">
+            <div className="navbar border-b border-inherit md:px-16">
                 <div className="navbar-start">
                     {/* small device */}
                     <div className="dropdown md:hidden">
