@@ -7,8 +7,8 @@ const Navigation = () => {
     // const { collapseSidebar } = useProSidebar();
     return (
         <div>
-            <TopNavigation />
-            <SideNavigation />
+        <TopNavigation />
+        <SideNavigation />
         </div>
     );
 };

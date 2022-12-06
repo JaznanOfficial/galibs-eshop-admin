@@ -125,7 +125,7 @@ const SideNavigation = () => {
                     </div>
                 </Sidebar>
             </div>
-            <div className="absolute right-0">
+            <div className="absolute right-0 bg-green-50">
                 <RoutesComponents />
             </div>
         </div>
