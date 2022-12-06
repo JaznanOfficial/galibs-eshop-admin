@@ -48,7 +48,7 @@ const LeftChart = () => {
     };
 
     return (
-        <div className="md:w-11/12 w-full bg-white border border-solid rounded-lg p-5 ">
+        <div className="md:w-full w-full bg-white border border-solid rounded-lg p-5 ">
             <Line options={options} data={data}  />
         </div>
     );

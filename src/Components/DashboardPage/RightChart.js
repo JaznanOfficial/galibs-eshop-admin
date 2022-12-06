@@ -33,7 +33,7 @@ const RightChart = () => {
         ],
     };
     return (
-        <div className="md:w-11/12 w-full bg-white border border-solid rounded-lg p-5 ">
+        <div className=" w-full bg-white border border-solid rounded-lg p-5 ">
             
                 <Pie options={options} data={data} />
             
