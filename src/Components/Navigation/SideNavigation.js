@@ -12,7 +12,7 @@ const SideNavigation = () => {
     return (
         <div className="md:flex hidden h-full relative">
             <div className="fixed left-0">
-                <Sidebar collapsedWidth="50px" width="170px">
+                <Sidebar collapsedWidth="50px" width="225px">
                     <Menu>
                         <MenuItem style={{ padding: "0px" }}>
                             <NavLink
@@ -125,7 +125,7 @@ const SideNavigation = () => {
                     </div>
                 </Sidebar>
             </div>
-            <div className="absolute right-0 bg-green-50">
+            <div className=" bg-green-50 w-5/6 absolute right-0">
                 <RoutesComponents />
             </div>
         </div>

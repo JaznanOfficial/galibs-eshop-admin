@@ -5,7 +5,10 @@ import OrderMonitor from "../Components/DashboardPage/OrderMonitor";
 
 const DashboardPage = () => {
     return (
-        <div>
+        <div className="py-10">
+            <div>
+                <h1 className="text-2xl font-extrabold text-black">Dashboard Overview</h1>
+            </div>
             <OrderMoneyMonitor />
             <OrderMonitor />
             <ChartComponent />
