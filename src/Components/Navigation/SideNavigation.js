@@ -21,7 +21,7 @@ const SideNavigation = () => {
                                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
                             >
                                 <h1>
-                                    <i class="fa-solid fa-table-cells-large"></i>
+                                    <i className="fa-solid fa-table-cells-large"></i>
                                 </h1>
                                 <div className="w-2/3 mx-auto">
                                     <h1>Dashboard</h1>
@@ -35,7 +35,7 @@ const SideNavigation = () => {
                                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
                             >
                                 <h1>
-                                    <i class="fa-solid fa-bag-shopping"></i>
+                                    <i className="fa-solid fa-bag-shopping"></i>
                                 </h1>
                                 <div className="w-2/3 mx-auto">
                                     <h1>Products</h1>
@@ -49,7 +49,7 @@ const SideNavigation = () => {
                                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
                             >
                                 <h1>
-                                    <i class="fa-solid fa-users"></i>
+                                    <i className="fa-solid fa-users"></i>
                                 </h1>
                                 <div className="w-2/3 mx-auto">
                                     <h1>Customers</h1>
@@ -63,7 +63,7 @@ const SideNavigation = () => {
                                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
                             >
                                 <h1>
-                                    <i class="fa-solid fa-list"></i>
+                                    <i className="fa-solid fa-list"></i>
                                 </h1>
                                 <div className="w-2/3 mx-auto">
                                     <h1>Orders</h1>
@@ -77,7 +77,7 @@ const SideNavigation = () => {
                                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
                             >
                                 <h1>
-                                    <i class="fa-solid fa-gift"></i>
+                                    <i className="fa-solid fa-gift"></i>
                                 </h1>
                                 <div className="w-2/3 mx-auto">
                                     <h1>Coupons</h1>
@@ -91,7 +91,7 @@ const SideNavigation = () => {
                                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
                             >
                                 <h1>
-                                    <i class="fa-solid fa-user"></i>
+                                    <i className="fa-solid fa-user"></i>
                                 </h1>
                                 <div className="w-2/3 mx-auto">
                                     <h1>Our Staffs</h1>
@@ -105,7 +105,7 @@ const SideNavigation = () => {
                                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
                             >
                                 <h1>
-                                    <i class="fa-solid fa-gear"></i>
+                                    <i className="fa-solid fa-gear"></i>
                                 </h1>
                                 <div className="w-2/3 mx-auto">
                                     <h1>Settings</h1>
@@ -116,7 +116,7 @@ const SideNavigation = () => {
                     <div>
                         <button className="btn btn-wide mx-auto rounded-none bg-rose-600 border-none hover:bg-rose-700 flex text-start justify-start">
                             <h1>
-                                <i class="fa-solid fa-right-from-bracket"></i>
+                                <i className="fa-solid fa-right-from-bracket"></i>
                             </h1>
                             <div className="w-2/3 mx-auto">
                                 <h1>Logout</h1>

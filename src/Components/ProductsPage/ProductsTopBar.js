@@ -35,7 +35,7 @@ const ProductsTopBar = () => {
                     </div>
                     <div className=" w-full">
                         <button className="btn btn-wide bg-primary text-white hover:bg-white hover:text-primary hover:border-primary">
-                            <i class="fa-solid fa-plus"></i>{" "}
+                            <i className="fa-solid fa-plus"></i>{" "}
                             <span className="ml-1">Add Product</span>
                         </button>
                     </div>
