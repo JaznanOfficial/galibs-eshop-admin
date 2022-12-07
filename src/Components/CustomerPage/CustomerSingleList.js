@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 const CustomerSingleList = () => {
+    const [status, setStatus] = useState(false);
+
+    const statusHandler = () => {
+        setStatus(!status);
+    };
+    // console.log(status);
+
     return (
         <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="p-3 text-center font-medium">
@@ -35,13 +42,23 @@ const CustomerSingleList = () => {
                 </button>
             </td>
             <td className="p-3 text-center font-medium">
-                <input type="checkbox" className="toggle checked:toggle-error" />
+                <input
+                    type="checkbox"
+                    className="toggle checked:toggle-error"
+                    onClick={statusHandler}
+                />
             </td>
 
             <td className="p-3  text-center">
-                <span className="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">
-                    Active
-                </span>
+                {status ? (
+                    <span className="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs text-center">
+                        Blocked
+                    </span>
+                ) : (
+                    <span className="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs text-center">
+                        Active
+                    </span>
+                )}
             </td>
             <td className="py-3 px-3 text-center">
                 <button className="btn btn-circle hover:bg-red-500 hover:text-white hover:border-red-500 text-red-500">

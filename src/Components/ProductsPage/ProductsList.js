@@ -13,14 +13,14 @@ const ProductsList = () => {
                                     <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                                         <th className="py-3 px-3 text-center">Id</th>
                                         <th className="py-3 px-3 text-center">Name</th>
-                                        <th className="py-3 px-3 text-centerer">Category</th>
-                                        <th className="py-3 px-3 text-centerer">Price</th>
-                                        <th className="py-3 px-3 text-centerer">Stock</th>
+                                        <th className="py-3 px-3 text-center">Category</th>
+                                        <th className="py-3 px-3 text-center">Price</th>
+                                        <th className="py-3 px-3 text-center">Stock</th>
                                         <th className="py-3 px-3 text-center">Details</th>
                                         {/* <th className="py-3 px-3 text-center">Discount</th> */}
-                                        <th className="py-3 px-3 text-centerer">Published</th>
-                                        <th className="py-3 px-3 text-centerer">Status</th>
-                                        <th className="py-3 px-3 text-centerer">Actions</th>
+                                        <th className="py-3 px-3 text-center">Hide</th>
+                                        <th className="py-3 px-3 text-center">Status</th>
+                                        <th className="py-3 px-3 text-center">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody className="text-gray-600 text-sm font-light">
