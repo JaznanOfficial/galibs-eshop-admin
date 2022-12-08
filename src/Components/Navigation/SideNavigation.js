@@ -30,20 +30,6 @@ const SideNavigation = () => {
                         </MenuItem>
                         <MenuItem style={{ padding: "0px" }}>
                             <NavLink
-                                to={"/products"}
-                                className="btn btn-wide mx-auto rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
-                                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-                            >
-                                <h1>
-                                    <i className="fa-solid fa-bag-shopping"></i>
-                                </h1>
-                                <div className="w-2/3 mx-auto">
-                                    <h1>Products</h1>
-                                </div>
-                            </NavLink>
-                        </MenuItem>
-                        <MenuItem style={{ padding: "0px" }}>
-                            <NavLink
                                 to={"/customers"}
                                 className="btn btn-wide mx-auto rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
                                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -70,6 +56,35 @@ const SideNavigation = () => {
                                 </div>
                             </NavLink>
                         </MenuItem>
+                        <MenuItem style={{ padding: "0px" }}>
+                            <NavLink
+                                to={"/brands"}
+                                className="btn btn-wide mx-auto rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                            >
+                                <h1>
+                                    <i class="fa-solid fa-desktop"></i>
+                                </h1>
+                                <div className="w-2/3 mx-auto">
+                                    <h1>Brands</h1>
+                                </div>
+                            </NavLink>
+                        </MenuItem>
+                        <MenuItem style={{ padding: "0px" }}>
+                            <NavLink
+                                to={"/products"}
+                                className="btn btn-wide mx-auto rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white "
+                                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                            >
+                                <h1>
+                                    <i className="fa-solid fa-bag-shopping"></i>
+                                </h1>
+                                <div className="w-2/3 mx-auto">
+                                    <h1>Products</h1>
+                                </div>
+                            </NavLink>
+                        </MenuItem>
+
                         <MenuItem style={{ padding: "0px" }}>
                             <NavLink
                                 to={"/coupons"}
