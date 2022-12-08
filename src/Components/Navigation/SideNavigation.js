@@ -123,7 +123,7 @@ const SideNavigation = () => {
                                     <i className="fa-solid fa-gear"></i>
                                 </h1>
                                 <div className="w-2/3 mx-auto">
-                                    <h1>Settings</h1>
+                                    <h1>Edit Profile</h1>
                                 </div>
                             </NavLink>
                         </MenuItem>
