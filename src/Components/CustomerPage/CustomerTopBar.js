@@ -12,33 +12,13 @@ const CustomerTopBar = () => {
                             className="input w-full focus:bg-white bg-green-100 text-black"
                         />
                     </div>
-                    <div className=" w-full">
-                        <select className="select w-full focus:bg-white bg-green-100 text-black">
-                            <option disabled selected>
-                                Category
-                            </option>
-                            <option>Homer</option>
-                            <option>Marge</option>
-                            <option>Bart</option>
-                            <option>Lisa</option>
-                            <option>Maggie</option>
-                        </select>
-                    </div>
-                    <div className=" w-full">
-                        <select className="select w-full focus:bg-white bg-green-100 text-black">
-                            <option disabled selected>
-                                Price
-                            </option>
-                            <option>Low to high</option>
-                            <option>High to low</option>
-                        </select>
-                    </div>
-                    <div className=" w-full">
-                        <button className="btn btn-wide bg-primary text-white hover:bg-white hover:text-primary hover:border-primary">
+                    
+                    {/* <div className=" w-full">
+                        <button className="btn btn-block bg-primary text-white hover:bg-white hover:text-primary hover:border-primary">
                             <i className="fa-solid fa-plus"></i>{" "}
                             <span className="ml-1">Add Product</span>
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         
