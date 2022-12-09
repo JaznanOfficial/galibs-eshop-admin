@@ -8,6 +8,7 @@ import CouponsPage from '../../Pages/CouponsPage';
 import StaffsPage from '../../Pages/StaffsPage';
 import SettingsPage from '../../Pages/SettingsPage';
 import BrandsPage from "../../Pages/BrandsPage";
+import NotFoundPage from "../../Pages/NotFoundPage";
 
 const RoutesComponents = () => {
     return (
@@ -20,6 +21,7 @@ const RoutesComponents = () => {
             <Route path="/coupons" element={<CouponsPage />}></Route>
             <Route path="/staffs" element={<StaffsPage />}></Route>
             <Route path="/settings" element={<SettingsPage />}></Route>
+            <Route path="/*" element={<NotFoundPage />}></Route>
         </Routes>
     );
 };
