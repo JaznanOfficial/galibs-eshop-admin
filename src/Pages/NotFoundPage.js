@@ -7,7 +7,7 @@ const NotFoundPage = () => {
             <div class="xl:pt-24 w-full xl:w-1/2 relative pb-12 lg:pb-0">
                 <div class="relative">
                     <div>
-                        <img src="https://i.ibb.co/rZRbb9F/not-found.png" alt="not found img" />
+                        <img src="https://i.ibb.co/QDTbXbk/not-found.png" alt="not found img" />
                     </div>
                     <div>
                         <div class="">
