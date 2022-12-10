@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CustomerSingleList = () => {
     const [status, setStatus] = useState(false);
@@ -37,9 +38,9 @@ const CustomerSingleList = () => {
                 <p className="break-words whitespace-wrap w-24 mx-auto text-center">01643282147</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <button className="btn btn-circle text-primary hover:bg-primary hover:text-white hover:border-primary">
+                <Link to={'customers-details'} className="btn btn-circle text-primary hover:bg-primary hover:text-white hover:border-primary">
                     <i className="fa-solid fa-file-lines"></i>
-                </button>
+                </Link>
             </td>
             <td className="p-3 text-center font-medium">
                 <input
