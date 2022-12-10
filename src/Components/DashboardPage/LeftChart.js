@@ -14,7 +14,8 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const LeftChart = () => {
+const LeftChart = ({label}) => {
+    console.log({label});
     const options = {
         responsive: true,
         plugins: {
@@ -28,11 +29,8 @@ const LeftChart = () => {
         },
     };
 
-    const labels_1 = ["January", "February", "March", "April", "May", "June"];
-    
-
     const data = {
-        labels: labels_1,
+        labels: label,
         datasets: [
             {
                 label: "Monthly orders",
@@ -49,6 +47,7 @@ const LeftChart = () => {
             },
         ],
     };
+    
 
     return (
         <div className="md:w-full w-full bg-white border border-solid rounded-lg p-5 ">
