@@ -57,10 +57,9 @@ const OrderSingleList = () => {
                 </select>
             </td>
             <td className="py-3 px-3 text-center">
-                <button className="btn w-full md:w-1/5 bg-primary text-white hover:bg-white hover:text-primary hover:border-primary">
-                            <i className="fa-solid fa-plus"></i>{" "}
-                            <span className="ml-1">Update Profile</span>
-                        </button>
+                <Link to={'/orders/12648'} className="btn btn-circle hover:bg-green-500 hover:text-white hover:border-green-500 text-green-500">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                </Link>
             </td>
         </tr>
     );

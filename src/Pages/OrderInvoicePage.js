@@ -1,11 +1,17 @@
 import React from "react";
+import { useRef } from "react";
+import ReactToPrint from "react-to-print";
 
 const OrderInvoicePage = () => {
+
+
+    const printContent = useRef()
+
     return (
         <div>
             <section class="p-5 ">
                 <div class="max-w-5xl mx-auto py-16 bg-white">
-                    <article class="overflow-hidden">
+                    <article class="overflow-hidden" ref={printContent}>
                         <div class="bg-[white] rounded-b-md">
                             <div class="p-9 flex flex-col md:flex-row md:justify-between justify-center items center gap-10">
                                 <div class="flex flex-col justify-center md:items-start items-center">
@@ -196,7 +202,7 @@ const OrderInvoicePage = () => {
                                 </div>
                             </div>
 
-                            <div class="mt-48 p-9">
+                            <div class="mt-30 p-9">
                                 <div class="border-t pt-9 border-slate-200">
                                     <div class="text-sm font-light text-slate-700">
                                         <p>
@@ -218,10 +224,15 @@ const OrderInvoicePage = () => {
                         </div>
                     </article>
                     <div className="flex flex-row justify-center md:justify-end items-center w-11/12 mx-auto">
-                        <button className="btn w-full md:w-1/5 bg-primary text-white hover:bg-white hover:text-primary hover:border-primary">
-                            <i className="fa-solid fa-plus"></i>{" "}
-                            <span className="ml-1">Print</span>
-                        </button>
+                        <ReactToPrint
+                            trigger={() => (
+                                <button className="btn w-full md:w-1/5 bg-primary text-white hover:bg-white hover:text-primary hover:border-primary">
+                                    <i className="fa-solid fa-plus"></i>{" "}
+                                    <span className="ml-1">Print</span>
+                                </button>
+                            )}
+                            content={() => printContent.current}
+                        />
                     </div>
                 </div>
             </section>
