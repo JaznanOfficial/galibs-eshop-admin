@@ -48,7 +48,9 @@ const OrderInvoicePage = () => {
                                         <p className="text-black text-lg font-bold text-start">
                                             To:
                                         </p>
-                                        <p className="text-gray-600"> Md Abdur Rahman</p>
+                                        <p className="text-gray-600  text-start"> Md Abdur Rahman</p>
+                                        <p className="text-gray-600  text-start"> jaznanofficial@gmail.com</p>
+                                        <p className="text-gray-600  text-start"> 01641254841</p>
                                     </div>
                                 </div>
                             </div>

@@ -25,7 +25,7 @@ const CustomerDetailsOrderList = () => {
 
             
             <td className="py-3 px-3 text-center">
-                <Link to={"/orders/abc"} className="btn btn-circle hover:bg-green-500 hover:text-white hover:border-green-500 text-green-500">
+                <Link to={"/customers/orders/abc"} className="btn btn-circle hover:bg-green-500 hover:text-white hover:border-green-500 text-green-500">
                     <i class="fa-solid fa-magnifying-glass-plus"></i>
                 </Link>
             </td>
