@@ -20,7 +20,9 @@ const OrderInvoicePage = () => {
                                     <p class="text-xl font-extrabold tracking-tight uppercase font-body text-start text-primary">
                                         Galib's E-shop
                                     </p>
-                                    <p className="text-start text-gray-600">123, Shapla chottor, </p>
+                                    <p className="text-start text-gray-600">
+                                        123, Shapla chottor,{" "}
+                                    </p>
                                     <p className="text-start text-gray-600">Dhaka-1212 </p>
                                 </div>
                                 <div className="text-black flex flex-col justify-center md:items-end items-center">
@@ -28,47 +30,19 @@ const OrderInvoicePage = () => {
                                     <h3 className="text-gray-600">0123489646515648456</h3>
                                 </div>
                             </div>
-                            <div class="p-9">
-                                <div class="flex justify-between w-full">
-                                    <div class="grid grid-cols-4 gap-12">
-                                        <div class="text-sm font-light text-slate-500">
-                                            <p class="text-sm font-normal text-slate-700">
-                                                Invoice Detail:
-                                            </p>
-                                            <p>Unwrapped</p>
-                                            <p>Fake Street 123</p>
-                                            <p>San Javier</p>
-                                            <p>CA 1234</p>
-                                        </div>
-                                        <div class="text-sm font-light text-slate-500">
-                                            <p class="text-sm font-normal text-slate-700">
-                                                Billed To
-                                            </p>
-                                            <p>The Boring Company</p>
-                                            <p>Tesla Street 007</p>
-                                            <p>Frisco</p>
-                                            <p>CA 0000</p>
-                                        </div>
-                                        <div class="text-sm font-light text-slate-500">
-                                            <p class="text-sm font-normal text-slate-700">
-                                                Invoice Number
-                                            </p>
-                                            <p>000000</p>
-
-                                            <p class="mt-2 text-sm font-normal text-slate-700">
-                                                Date of Issue
-                                            </p>
-                                            <p>00.00.00</p>
-                                        </div>
-                                        <div class="text-sm font-light text-slate-500">
-                                            <p class="text-sm font-normal text-slate-700">Terms</p>
-                                            <p>0 Days</p>
-
-                                            <p class="mt-2 text-sm font-normal text-slate-700">
-                                                Due
-                                            </p>
-                                            <p>00.00.00</p>
-                                        </div>
+                            <div className="bg-green-100">
+                                <div className="flex flex-col md:flex-row md:justify-between items-start justify-center p-9 mx-auto">
+                                    <div>
+                                        <p className="text-black text-lg font-bold text-start">
+                                            Date:
+                                        </p>
+                                        <p className="text-gray-600">10 Dec 2022</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-black text-lg font-bold text-start">
+                                            To:
+                                        </p>
+                                        <p className="text-gray-600"> Md Abdur Rahman</p>
                                     </div>
                                 </div>
                             </div>
@@ -243,6 +217,12 @@ const OrderInvoicePage = () => {
                             </div>
                         </div>
                     </article>
+                    <div className="flex flex-row justify-center md:justify-end items-center w-11/12 mx-auto">
+                        <button className="btn w-full md:w-1/5 bg-primary text-white hover:bg-white hover:text-primary hover:border-primary">
+                            <i className="fa-solid fa-plus"></i>{" "}
+                            <span className="ml-1">Print</span>
+                        </button>
+                    </div>
                 </div>
             </section>
         </div>
