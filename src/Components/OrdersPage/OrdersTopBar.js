@@ -17,11 +17,12 @@ const OrdersTopBar = () => {
                             <option disabled selected>
                                 Status
                             </option>
-                            <option>Homer</option>
-                            <option>Marge</option>
-                            <option>Bart</option>
-                            <option>Lisa</option>
-                            <option>Maggie</option>
+                            <option>Pending</option>
+                            <option>Processing</option>
+                            <option>Shipping</option>
+                            <option>Delivered</option>
+                            <option>Cancelled</option>
+                            
                         </select>
                     </div>
                     <div className=" w-full">

@@ -15,13 +15,13 @@ const ProductsTopBar = () => {
                     <div className=" w-full">
                         <select className="select w-full focus:bg-white bg-green-100 text-black">
                             <option disabled selected>
-                                Category
+                                Brands
                             </option>
-                            <option>Homer</option>
-                            <option>Marge</option>
-                            <option>Bart</option>
-                            <option>Lisa</option>
-                            <option>Maggie</option>
+                            <option>Asus</option>
+                            <option>Lenovo</option>
+                            <option>Dell </option>
+                            <option>Apple</option>
+                            <option>Msi</option>
                         </select>
                     </div>
                     <div className=" w-full">

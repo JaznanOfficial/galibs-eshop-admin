@@ -5,15 +5,15 @@ const CustomerDetailsTop = () => {
         <div class="bg-white rounded-lg shadow-xl pb-8 w-11/12 mx-auto my-5">
             <div class="w-full h-[250px]">
                 <img
-                    src="https://vojislavd.com/ta-template-demo/assets/img/profile-background.jpg"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFKeFAXZs4gY-lgX6qzNJN3aJyQvkffdGALJKLoaAXYvxRvdYdNplnrBPn9U2FAJQ3GHk&usqp=CAU"
                     class="w-full h-full rounded-tl-lg rounded-tr-lg"
                     alt="banner img"
                 />
             </div>
             <div class="flex flex-col items-center -mt-20">
                 <img
-                    src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg"
-                    class="w-40 border-4 border-white rounded-full"
+                    src="https://i.ibb.co/0mKh0Zb/profile-1-removebg-preview-3.png"
+                    class="w-40 h-40 border-4 border-white rounded-full"
                     alt="profile-img"
                 />
                 <div class="flex items-center space-x-2 mt-2">

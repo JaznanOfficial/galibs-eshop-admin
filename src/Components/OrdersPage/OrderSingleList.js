@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const OrderSingleList = () => {
     // {<span className="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs text-center">
@@ -47,18 +48,18 @@ const OrderSingleList = () => {
 
             <td className="p-3  text-center">
                 <select className="select w-28 select-primary ">
-                    <option selected>Pending</option>
-                    <option>Homer</option>
-                    <option>Marge</option>
-                    <option>Bart</option>
-                    <option>Lisa</option>
-                    <option>Maggie</option>
+                    <option selected>Status</option>
+                    <option>Pending</option>
+                    <option>Processing</option>
+                    <option>Shipping</option>
+                    <option>Delivered</option>
+                    <option>Cancel</option>
                 </select>
             </td>
             <td className="py-3 px-3 text-center">
-                <button className="btn btn-circle hover:bg-green-500 hover:text-white hover:border-green-500 text-green-500">
+                <Link to="/orders/abc" className="btn btn-circle hover:bg-green-500 hover:text-white hover:border-green-500 text-green-500">
                     <i class="fa-solid fa-magnifying-glass-plus"></i>
-                </button>
+                </Link>
             </td>
         </tr>
     );

@@ -16,11 +16,9 @@ const StaffsTopBar = () => {
                         <option disabled selected>
                             Role
                         </option>
-                        <option>Asus</option>
-                        <option>Lenovo</option>
-                        <option>Apple</option>
-                        <option>Dell</option>
-                        <option>Hp</option>
+                        <option>Admin</option>
+                        <option>Moderator</option>
+                        
                     </select>
                 </div>
                 {/* <div className=" w-full">

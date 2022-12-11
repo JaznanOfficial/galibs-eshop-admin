@@ -10,6 +10,7 @@ import SettingsPage from "../../Pages/SettingsPage";
 import BrandsPage from "../../Pages/BrandsPage";
 import NotFoundPage from "../../Pages/NotFoundPage";
 import CustomerDetailsPage from "../../Pages/CustomerDetailsPage";
+import OrderInvoicePage from "../../Pages/OrderInvoicePage";
 
 const RoutesComponents = () => {
     return (
@@ -20,6 +21,7 @@ const RoutesComponents = () => {
             <Route path="/customers/:id" element={<CustomerDetailsPage />}></Route>
             <Route path="/brands" element={<BrandsPage />}></Route>
             <Route path="/orders" element={<OrdersPage />}></Route>
+            <Route path="/orders/:id" element={<OrderInvoicePage />}></Route>
             <Route path="/coupons" element={<CouponsPage />}></Route>
             <Route path="/staffs" element={<StaffsPage />}></Route>
             <Route path="/settings" element={<SettingsPage />}></Route>
