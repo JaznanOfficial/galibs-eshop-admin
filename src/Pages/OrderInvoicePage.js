@@ -3,9 +3,7 @@ import { useRef } from "react";
 import ReactToPrint from "react-to-print";
 
 const OrderInvoicePage = () => {
-
-
-    const printContent = useRef()
+    const printContent = useRef();
 
     return (
         <div>
@@ -48,8 +46,14 @@ const OrderInvoicePage = () => {
                                         <p className="text-black text-lg font-bold text-start">
                                             To:
                                         </p>
-                                        <p className="text-gray-600  text-start"> Md Abdur Rahman</p>
-                                        <p className="text-gray-600  text-start"> jaznanofficial@gmail.com</p>
+                                        <p className="text-gray-600  text-start">
+                                            {" "}
+                                            Md Abdur Rahman
+                                        </p>
+                                        <p className="text-gray-600  text-start">
+                                            {" "}
+                                            jaznanofficial@gmail.com
+                                        </p>
                                         <p className="text-gray-600  text-start"> 01641254841</p>
                                     </div>
                                 </div>
@@ -97,13 +101,13 @@ const OrderInvoicePage = () => {
                                                     </div>
                                                 </td>
                                                 <td class="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
-                                                    48
+                                                    <strong>48</strong>
                                                 </td>
                                                 <td class="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
-                                                    $0.00
+                                                    <strong>$0.00</strong>
                                                 </td>
-                                                <td class="py-4 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
-                                                    $0.00
+                                                <td class="py-4 pl-3 pr-4 text-sm text-right text-primary sm:pr-6 md:pr-0">
+                                                    <strong>$0.00</strong>
                                                 </td>
                                             </tr>
                                             <tr class="border-b border-slate-200">
@@ -116,13 +120,13 @@ const OrderInvoicePage = () => {
                                                     </div>
                                                 </td>
                                                 <td class="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
-                                                    4
+                                                    <strong>4</strong>
                                                 </td>
                                                 <td class="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
-                                                    $0.00
+                                                    <strong>$0.00</strong>
                                                 </td>
-                                                <td class="py-4 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
-                                                    $0.00
+                                                <td class="py-4 pl-3 pr-4 text-sm text-right text-primary sm:pr-6 md:pr-0">
+                                                    <strong>$0.00</strong>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -141,8 +145,8 @@ const OrderInvoicePage = () => {
                                                 >
                                                     Subtotal
                                                 </th>
-                                                <td class="pt-6 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
-                                                    $0.00
+                                                <td class="pt-6 pl-3 pr-4 text-sm text-right text-primary sm:pr-6 md:pr-0">
+                                                <strong>$0.00</strong>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -159,8 +163,8 @@ const OrderInvoicePage = () => {
                                                 >
                                                     Discount
                                                 </th>
-                                                <td class="pt-6 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
-                                                    $0.00
+                                                <td class="pt-6 pl-3 pr-4 text-sm text-right text-primary sm:pr-6 md:pr-0">
+                                                <strong>$0.00</strong>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -177,26 +181,26 @@ const OrderInvoicePage = () => {
                                                 >
                                                     Tax
                                                 </th>
-                                                <td class="pt-4 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
-                                                    $0.00
+                                                <td class="pt-4 pl-3 pr-4 text-sm text-right text-primary sm:pr-6 md:pr-0">
+                                                <strong>$0.00</strong>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th
                                                     scope="row"
                                                     colspan="3"
-                                                    class="hidden pt-4 pl-6 pr-3 text-sm font-normal text-right text-slate-700 sm:table-cell md:pl-0"
+                                                    class="hidden pt-4 pl-6 pr-3 text-lg font-bolder text-right text-slate-700 sm:table-cell md:pl-0"
                                                 >
                                                     Total
                                                 </th>
                                                 <th
                                                     scope="row"
-                                                    class="pt-4 pl-4 pr-3 text-sm font-normal text-left text-slate-700 sm:hidden"
+                                                    class="pt-4 pl-4 pr-3 text-lg font-bolder text-left text-slate-700 sm:hidden"
                                                 >
                                                     Total
                                                 </th>
-                                                <td class="pt-4 pl-3 pr-4 text-sm font-normal text-right text-slate-700 sm:pr-6 md:pr-0">
-                                                    $0.00
+                                                <td class="pt-4 pl-3 pr-4 text-sm font-normal text-right text-primary sm:pr-6 md:pr-0">
+                                                <strong>$0.00</strong>
                                                 </td>
                                             </tr>
                                         </tfoot>
