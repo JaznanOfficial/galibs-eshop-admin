@@ -34,12 +34,7 @@ const OrdersTopBar = () => {
                             <option>High to low</option>
                         </select>
                     </div>
-                    <div className=" w-full">
-                        <button className="btn btn-block bg-primary text-white hover:bg-white hover:text-primary hover:border-primary">
-                            <i className="fa-solid fa-plus"></i>{" "}
-                            <span className="ml-1">Download All Orders</span>
-                        </button>
-                    </div>
+                    
                 </div>
             </div>
         </div>
