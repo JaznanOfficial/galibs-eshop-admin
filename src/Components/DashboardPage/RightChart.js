@@ -26,17 +26,16 @@ const RightChart = () => {
         datasets: [
             {
                 label: "Monthly orders",
-                data: [54, 10, 87,41,95,49,],
+                data: [54, 20, 77, 41, 95, 49],
                 borderColor: "white",
-                backgroundColor: ["red", "blue", "green", "purple", "ske", "orange",],
+                backgroundColor: ["#EF4444", "blue", "orange", "#7E22CE", "#22C55E","#A3E635"],
+                
             },
         ],
     };
     return (
         <div className=" w-full bg-white border border-solid rounded-lg p-5 ">
-            
-                <Pie options={options} data={data} />
-            
+            <Pie options={options} data={data} />
         </div>
     );
 };

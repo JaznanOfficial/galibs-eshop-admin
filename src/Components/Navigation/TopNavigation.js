@@ -234,7 +234,7 @@ const TopNavigation = () => {
                         <label tabIndex={0} className="btn btn-ghost btn-circle">
                             <div className="indicator">
                                 <i className="fa-sharp fa-solid fa-bell  text-primary text-xl md:text-2xl"></i>
-                                <span className="badge badge-sm indicator-item">8</span>
+                                <span className="badge w-5 h-5 rounded-full indicator-item bg-red-500 text-white">8</span>
                             </div>
                         </label>
                         <div

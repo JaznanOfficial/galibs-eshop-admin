@@ -17,7 +17,7 @@ const SideNavigation = () => {
                         <MenuItem style={{ padding: "0px" }}>
                             <NavLink
                                 to={"/"}
-                                className="btn btn-wide mx-auto rounded-none flex text-start  justify-start bg-white text-gray-500 border-none hover:bg-primary hover:text-white"
+                                className="btn btn-wide mx-auto rounded-none flex text-start  justify-start bg-white text-gray-500 border-none border-white hover:bg-primary hover:text-white"
                                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
                             >
                                 <h1>
