@@ -4,8 +4,9 @@ const CustomerDetailsTop = () => {
     return (
         <div class="bg-white rounded-lg shadow-xl pb-8 w-11/12 mx-auto my-5">
             <div class="w-full h-[250px]">
-                <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFKeFAXZs4gY-lgX6qzNJN3aJyQvkffdGALJKLoaAXYvxRvdYdNplnrBPn9U2FAJQ3GHk&usqp=CAU"
+            <img
+                     src="https://i.pinimg.com/originals/54/54/52/54545221509ad97d8632e5108e5d8d13.jpg" 
+                    /* src="https://freedesignfile.com/upload/2017/05/Flowers-green-leaves-spring-background.jpg" */
                     class="w-full h-full rounded-tl-lg rounded-tr-lg"
                     alt="banner img"
                 />
@@ -39,7 +40,8 @@ const CustomerDetailsTop = () => {
                 <p class="text-sm text-gray-500">New York, USA</p>
             </div>
             <div class="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2">
-                <div class="flex items-center space-x-4 mt-2">
+                {/* <div class="flex items-center space-x-4 mt-2">
+                    
                     <button class="btn bg-primary text-white hover:bg-white hover:text-primary hover:border-primary px-4 py-2 rounded text-sm space-x-2 ">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +53,7 @@ const CustomerDetailsTop = () => {
                         </svg>
                         Connect
                     </button>
+
                     <button class="btn bg-primary text-white hover:bg-white hover:text-primary hover:border-primary px-4 py-2 rounded text-sm space-x-2 transition duration-100">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +69,8 @@ const CustomerDetailsTop = () => {
                         </svg>
                         <span>Message</span>
                     </button>
-                </div>
+
+                </div> */}
             </div>
         </div>
     );
