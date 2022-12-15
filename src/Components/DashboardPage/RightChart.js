@@ -28,7 +28,7 @@ const RightChart = () => {
                 label: "Monthly orders",
                 data: [54, 20, 77, 41, 95, 49],
                 borderColor: "white",
-                backgroundColor: ["#EF4444", "blue", "orange", "#7E22CE", "#22C55E","#A3E635"],
+                backgroundColor: ["#EC4899", "#35A2EB", "#F97316", "#6366F1", "#22C55E","#EF4444"],
                 
             },
         ],
