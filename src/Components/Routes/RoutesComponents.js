@@ -11,6 +11,7 @@ import BrandsPage from "../../Pages/BrandsPage";
 import NotFoundPage from "../../Pages/NotFoundPage";
 import CustomerDetailsPage from "../../Pages/CustomerDetailsPage";
 import OrderInvoicePage from "../../Pages/OrderInvoicePage";
+import Login from "../../Pages/Login";
 
 const RoutesComponents = () => {
     return (
@@ -26,6 +27,7 @@ const RoutesComponents = () => {
             <Route path="/coupons" element={<CouponsPage />}></Route>
             <Route path="/staffs" element={<StaffsPage />}></Route>
             <Route path="/settings" element={<SettingsPage />}></Route>
+            <Route path="/login" element={<Login />}></Route>
             <Route path="/*" element={<NotFoundPage />}></Route>
         </Routes>
     );

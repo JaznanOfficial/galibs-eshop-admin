@@ -20,6 +20,7 @@ const OrderMoneyMonitor = () => {
                             </div>
                         </div>
                     </div>
+                    
                     <div className="card md:w-96 w-full  bg-indigo-500 shadow-xl  md:my-0">
                         <div className="card-body ">
                             <div className="flex flex-col justify-center items-center text-white">
