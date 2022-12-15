@@ -12,12 +12,12 @@ const CouponTopBar = () => {
                         />
                     </div>
                     
-                    {/* <div className=" w-full">
+                     <div className=" w-full">
                         <button className="btn btn-block bg-primary text-white hover:bg-white hover:text-primary hover:border-primary">
                             <i className="fa-solid fa-plus"></i>{" "}
                             <span className="ml-1">Add Product</span>
                         </button>
-                    </div> */}
+                    </div> 
                 </div>
             </div>
     );
