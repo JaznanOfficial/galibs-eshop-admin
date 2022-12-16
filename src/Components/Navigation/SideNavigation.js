@@ -28,6 +28,7 @@ const SideNavigation = () => {
                                 </div>
                             </NavLink>
                         </MenuItem>
+
                         <MenuItem style={{ padding: "0px" }}>
                             <NavLink
                                 to={"/customers"}
@@ -42,6 +43,7 @@ const SideNavigation = () => {
                                 </div>
                             </NavLink>
                         </MenuItem>
+
                         <MenuItem style={{ padding: "0px" }}>
                             <NavLink
                                 to={"/orders"}
@@ -56,6 +58,7 @@ const SideNavigation = () => {
                                 </div>
                             </NavLink>
                         </MenuItem>
+
                         <MenuItem style={{ padding: "0px" }}>
                             <NavLink
                                 to={"/brands"}
@@ -70,6 +73,7 @@ const SideNavigation = () => {
                                 </div>
                             </NavLink>
                         </MenuItem>
+
                         <MenuItem style={{ padding: "0px" }}>
                             <NavLink
                                 to={"/products"}
@@ -99,6 +103,7 @@ const SideNavigation = () => {
                                 </div>
                             </NavLink>
                         </MenuItem>
+
                         <MenuItem style={{ padding: "0px" }}>
                             <NavLink
                                 to={"/staffs"}
@@ -113,6 +118,7 @@ const SideNavigation = () => {
                                 </div>
                             </NavLink>
                         </MenuItem>
+
                         <MenuItem style={{ padding: "0px" }}>
                             <NavLink
                                 to={"/settings"}
@@ -127,17 +133,22 @@ const SideNavigation = () => {
                                 </div>
                             </NavLink>
                         </MenuItem>
+
+                        <MenuItem style={{ padding: "0px" }}>
+                            <NavLink
+                                to={"/login"}
+                                className="btn btn-wide mx-auto rounded-none bg-rose-600 border-none hover:bg-rose-700 flex text-start justify-start"
+                            >
+                                <h1>
+                                    <i className="fa-solid fa-right-from-bracket"></i>
+                                </h1>
+                                <div className="w-2/3 mx-auto">
+                                    <h1>Logout</h1>
+                                </div>
+                            </NavLink>
+                        </MenuItem>
                     </Menu>
-                    <div>
-                        <button className="btn btn-wide mx-auto rounded-none bg-rose-600 border-none hover:bg-rose-700 flex text-start justify-start">
-                            <h1>
-                                <i className="fa-solid fa-right-from-bracket"></i>
-                            </h1>
-                            <div className="w-2/3 mx-auto">
-                                <h1>Logout</h1>
-                            </div>
-                        </button>
-                    </div>
+                    
                 </Sidebar>
             </div>
             <div className=" bg-green-50 w-5/6 absolute right-0">
