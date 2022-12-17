@@ -1,10 +1,12 @@
 import React from "react";
 import { Menu, MenuItem, Sidebar, SubMenu, useProSidebar } from "react-pro-sidebar";
 import { NavLink, Route, Routes } from "react-router-dom";
+import useFirebase from "../../Hooks/useFirebase";
 import DashboardPage from "../../Pages/DashboardPage";
 import RoutesComponents from "../Routes/RoutesComponents";
 
 const SideNavigation = () => {
+    const {logOut} = useFirebase()
     const activeStyle = {
         backgroundColor: "#0E9F6E",
         color: "white",
@@ -135,9 +137,10 @@ const SideNavigation = () => {
                         </MenuItem>
 
                         <MenuItem style={{ padding: "0px" }}>
-                            <NavLink
-                                to={"/login"}
+                            <button
+                                
                                 className="btn btn-wide mx-auto rounded-none bg-rose-600 border-none hover:bg-rose-700 flex text-start justify-start"
+                                onClick={logOut}
                             >
                                 <h1>
                                     <i className="fa-solid fa-right-from-bracket"></i>
@@ -145,7 +148,7 @@ const SideNavigation = () => {
                                 <div className="w-2/3 mx-auto">
                                     <h1>Logout</h1>
                                 </div>
-                            </NavLink>
+                            </button>
                         </MenuItem>
                     </Menu>
                     

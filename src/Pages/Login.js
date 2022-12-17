@@ -1,7 +1,9 @@
 import React from "react";
 import { FcGoogle } from 'react-icons/fc';
+import useFirebase from "../Hooks/useFirebase";
 
 const Login = () => {
+    const {signInWithGoogle} = useFirebase()
     return (
         <>
             <div className="w-full px-5 md:px-0 flex justify-center items-center">
@@ -19,7 +21,7 @@ const Login = () => {
                                 <div className=" w-full mt-10">
                                     <button
                                         className="input w-full bg-white hover:bg-green-50 hover:shadow-xl text-gray-600 flex flex-row justify-center items-center"
-                                        // onClick={() => setShowModal(false)}
+                                        onClick={signInWithGoogle}
                                     >
                                         <FcGoogle />
                                         <span className="ml-5">Login With Google</span>

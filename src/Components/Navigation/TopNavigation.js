@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 // import { useProSidebar } from "react-pro-sidebar";
 import { NavLink } from "react-router-dom";
+import useFirebase from "../../Hooks/useFirebase";
 
 const TopNavigation = () => {
-    // const { collapseSidebar } = useProSidebar();
-    // const [collapsed, setCollapsed] = useState(true);
-
-    // const collapsedFunction = (e) => {
-    //     e.preventDefault();
-    //     setCollapsed(!collapsed);
-    //     console.log(collapsed);
-    // };
+    const { user,logOut } = useFirebase()
+    // console.log(user);
 
     const activeStyle = {
         backgroundColor: "#0E9F6E",
@@ -142,7 +137,9 @@ const TopNavigation = () => {
                                 </NavLink>
                             </li>
                             <div>
-                                <button className="btn w-full flex text-start justify-start rounded-md bg-rose-600 border-none hover:bg-rose-700">
+                                <button className="btn w-full flex text-start justify-start rounded-md bg-rose-600 border-none hover:bg-rose-700"
+                                onClick={logOut}
+                                >
                                     <h1>
                                         <i className="fa-solid fa-right-from-bracket"></i>
                                     </h1>
@@ -155,50 +152,7 @@ const TopNavigation = () => {
                     </div>
                     {/* small device */}
                     {/* medium and above device */}
-                    {/* <div className="dropdown md:flex hidden">
-                            <label
-                                tabIndex={0}
-                                className="btn btn-ghost btn-circle"
-                                onClick={(e) => {
-                                    collapseSidebar();
-                                    collapsedFunction(e);
-                                }}
-                            >
-                                {collapsed ? (
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-5 w-5 text-primary"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M4 6h16M4 12h16M4 18h7"
-                                        />
-                                    </svg>
-                                ) : (
-                                    <button className="btn btn-circle btn-outline text-primary">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="h-6 w-6"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth="2"
-                                                d="M6 18L18 6M6 6l12 12"
-                                            />
-                                        </svg>
-                                    </button>
-                                )}
-                            </label>
-                        </div> */}
+
                     <h1 className="md:flex hidden text-xl text-primary font-extrabold">
                         G-shop Admin
                     </h1>
@@ -230,11 +184,13 @@ const TopNavigation = () => {
                             </svg>
                         </label>
                     </button>
-                    <div className="dropdown dropdown-end">
+                    <div className="dropdown dropdown-end mx-2">
                         <label tabIndex={0} className="btn btn-ghost btn-circle">
                             <div className="indicator">
                                 <i className="fa-sharp fa-solid fa-bell  text-primary text-xl md:text-2xl"></i>
-                                <span className="badge w-5 h-5 rounded-full indicator-item bg-red-500 text-white">8</span>
+                                <span className="badge w-5 h-5 rounded-full indicator-item bg-red-500 text-white">
+                                    8
+                                </span>
                             </div>
                         </label>
                         <div
@@ -248,6 +204,11 @@ const TopNavigation = () => {
                                     <button className="btn btn-primary btn-block">View cart</button>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div className="avatar">
+                        <div className="w-8 rounded-full">
+                            <img src={user.photoURL} alt="user" />
                         </div>
                     </div>
                 </div>
