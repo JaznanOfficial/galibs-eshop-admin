@@ -56,7 +56,7 @@ const BrandSingleList = () => {
             </td>
             <td className="py-3 px-3 text-center">
                 <div className="flex item-center justify-center">
-                    <div className="w-4 mr-2 transform hover:text-primary hover:scale-110"
+                    <div className="w-4 mr-2 transform hover:text-primary hover:scale-110 cursor-pointer"
                     onClick={() => setShowModal(true)}
                     >
                         <i className="fa-solid fa-pen-to-square"></i>
