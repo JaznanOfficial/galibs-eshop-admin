@@ -1,5 +1,5 @@
 // import { Route, Routes } from "react-router-dom";
-import { Bars } from "react-loader-spinner";
+import { Watch } from "react-loader-spinner";
 import "./App.css";
 import Navigation from "./Components/Navigation/Navigation";
 import RoutesComponents from "./Components/Routes/RoutesComponents";
@@ -13,7 +13,7 @@ function App() {
     if (loading) {
         return (
             <div className="flex justify-center items-center w-screen h-screen">
-                <Bars
+                <Watch
                     height="80"
                     width="80"
                     color="#4fa94d"
