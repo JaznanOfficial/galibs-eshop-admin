@@ -3,6 +3,7 @@ import ChartComponent from "../Components/DashboardPage/ChartComponent";
 import OrderMoneyMonitor from "../Components/DashboardPage/OrderMoneyMonitor";
 import OrderMonitor from "../Components/DashboardPage/OrderMonitor";
 
+
 const DashboardPage = () => {
     return (
         <div className="py-10">
@@ -12,6 +13,7 @@ const DashboardPage = () => {
             <OrderMoneyMonitor />
             <OrderMonitor />
             <ChartComponent />
+            
         </div>
     );
 };
