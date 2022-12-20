@@ -70,7 +70,7 @@ const ProductsTopBar = () => {
                                             <div className="h-96 overflow-y-scroll">
                                                 <div className="w-full  md:px-0 my-5 flex justify-center items-center">
                                                     <div className="w-11/12 mx-auto p-5 bg-white border ">
-                                                        <div className="w-full flex flex-col md:flex-row justify-between items-start mt-10 mb-32">
+                                                        <div className="w-full flex flex-col md:flex-row justify-between items-start sm:mt-10 mt-16 sm:mb-32 mb-52">
                                                             <div className="md:w-1/5">
                                                                 <h1 className="text-md font-semibold text-primary">
                                                                     Product Picture
