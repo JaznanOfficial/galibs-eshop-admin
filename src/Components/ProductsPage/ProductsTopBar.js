@@ -1,43 +1,9 @@
-import React from "react";
-import { useState } from "react";
-import { RMIUploader } from "react-multiple-image-uploader";
-
-const dataSources = [
-    {
-        id: 1,
-        dataURL: "https://picsum.photos/seed/1/600",
-    },
-    {
-        id: 2,
-        dataURL: "https://picsum.photos/seed/2/600",
-    },
-    {
-        id: 3,
-        dataURL: "https://picsum.photos/seed/3/600",
-    },
-    {
-        id: 4,
-        dataURL: "https://picsum.photos/seed/4/600",
-    },
-];
+import React, { useState } from "react";
+import MultiImageInput from "react-multiple-image-input";
 
 const ProductsTopBar = () => {
-    const [visible, setVisible] = useState(false);
-    const handleSetVisible = () => {
-        setVisible(true);
-    };
-    const hideModal = () => {
-        setVisible(false);
-    };
-    const onUpload = (data) => {
-        console.log("Upload files", data);
-    };
-    const onSelect = (data) => {
-        console.log("Select files", data);
-    };
-    const onRemove = (id) => {
-        console.log("Remove image id", id);
-    };
+    const [images, setImages] = useState({});
+    console.log(images);
 
     const [showModal, setShowModal] = React.useState(false);
     return (
@@ -100,62 +66,36 @@ const ProductsTopBar = () => {
                                                 </button>
                                             </div>
                                             {/*body*/}
+
                                             <div className="h-96 overflow-y-scroll">
                                                 <div className="w-full  md:px-0 my-5 flex justify-center items-center">
                                                     <div className="w-11/12 mx-auto p-5 bg-white border ">
-                                                        
-                                                        <div>
-                                                            <button onClick={handleSetVisible}>
-                                                                Show Me
-                                                            </button>
-                                                            <RMIUploader
-                                                                isOpen={visible}
-                                                                hideModal={hideModal}
-                                                                onSelect={onSelect}
-                                                                onUpload={onUpload}
-                                                                onRemove={onRemove}
-                                                                dataSources={dataSources}
-                                                            />
-                                                        </div>
-
-                                                        {/* <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
+                                                        <div className="w-full flex flex-col md:flex-row justify-between items-start mt-10 mb-32">
                                                             <div className="md:w-1/5">
                                                                 <h1 className="text-md font-semibold text-primary">
                                                                     Product Picture
                                                                 </h1>
                                                             </div>
+
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
-                                                                <div class="flex items-center justify-center w-full">
-                                                                    <label
-                                                                        for="dropzone-file"
-                                                                        class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
-                                                                    >
-                                                                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                                                            <i class="fa-solid fa-cloud-arrow-up text-primary text-3xl"></i>
-                                                                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                                                                                <span class="font-semibold">
-                                                                                    Click to upload
-                                                                                </span>{" "}
-                                                                                or drag and drop
-                                                                            </p>
-                                                                           
-                                                                        </div>
-                                                                        <input
-                                                                            id="dropzone-file"
-                                                                            type="file"
-                                                                            class="hidden"
-                                                                        />
-                                                                    </label>
-                                                                </div>
-                                                                <div className="mt-5">
-                                                                    <img
-                                                                        class="w-40 h-40  rounded-full"
-                                                                        src="https://i.ibb.co/0mKh0Zb/profile-1-removebg-preview-3.png"
-                                                                        alt="description"
+                                                                <div class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                                                    <MultiImageInput
+                                                                        style={{
+                                                                            width: "300px",
+                                                                            height: "300px",
+                                                                        }}
+                                                                        theme="light"
+                                                                        max={4}
+                                                                        images={images}
+                                                                        setImages={setImages}
+                                                                        cropConfig={{
+                                                                            ruleOfThirds: true,
+                                                                        }}
                                                                     />
                                                                 </div>
                                                             </div>
-                                                        </div> */}
+                                                        </div>
+
                                                         <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
                                                             <div className="md:w-1/5">
                                                                 <h1 className="text-md font-semibold text-primary">

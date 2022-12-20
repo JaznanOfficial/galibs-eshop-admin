@@ -11327,6 +11327,11 @@ react-modern-drawer@^1.1.2:
   resolved "https://registry.npmjs.org/react-modern-drawer/-/react-modern-drawer-1.1.2.tgz"
   integrity sha512-v7I6gGHZnJo7mVLFV74NyazEgl7IXJSmnmFE98olhH7sP9O0ul/1l/d7YQOARWyyLPd96P0odriX+nRusDJr6g==
 
+react-multiple-image-input@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-multiple-image-input/-/react-multiple-image-input-1.0.0.tgz#0ad4763aac1686c350f4ec6a60936e6bbdfa7915"
+  integrity sha512-gyhrZMvgd5F9jTUrD84T2CpZiNIUWNzLNIavwOu/d5oQKxD4DtnPCN08q4YH2Gf3CPkoM59UrBOQJbcUG+7aTg==
+
 react-multiple-image-uploader@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/react-multiple-image-uploader/-/react-multiple-image-uploader-1.0.3.tgz#53c3847e201ced26768ef7d5691d0be6b4c43fc2"
