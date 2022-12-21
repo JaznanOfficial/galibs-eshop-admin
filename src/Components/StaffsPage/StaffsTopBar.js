@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 const StaffsTopBar = () => {
+    const [images, setImages] = useState({});
+    console.log(images);
+
     const [showModal, setShowModal] = React.useState(false);
 
     return (
@@ -54,13 +57,13 @@ const StaffsTopBar = () => {
                                     <div className="h-96 overflow-y-scroll">
                                         <div className="w-full  md:px-0 my-5 flex justify-center items-center">
                                             <div className="w-11/12 mx-auto p-5 bg-white border ">
+                                                
                                                 <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
                                                     <div className="md:w-1/5">
                                                         <h1 className="text-md font-semibold text-primary">
-                                                            Profile Picture
+                                                        Profile Picture
                                                         </h1>
                                                     </div>
-
                                                     <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                         <div class="flex items-center justify-center w-full">
                                                             <label
@@ -72,26 +75,42 @@ const StaffsTopBar = () => {
                                                                     <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
                                                                         <span class="font-semibold">
                                                                             Click to upload
-                                                                        </span>{" "}
-                                                                        or drag and drop
+                                                                        </span>
                                                                     </p>
                                                                 </div>
                                                                 <input
+                                                                    onChange={(e) => {
+                                                                        setImages(e.target.files);
+                                                                    }}
+                                                                    
                                                                     id="dropzone-file"
                                                                     type="file"
                                                                     class="hidden"
                                                                 />
                                                             </label>
                                                         </div>
-                                                        <div className="mt-5">
-                                                            <img
-                                                                class="w-40 h-40  rounded-full"
-                                                                src="https://i.ibb.co/0mKh0Zb/profile-1-removebg-preview-3.png"
-                                                                alt="description"
-                                                            />
+                                                        <div className="my-5 flex items-center justify-center gap-5">
+                                                            {Array.from(images).map((image) => {
+                                                                return (
+                                                                    <span>
+                                                                        <img
+                                                                            class="sm:w-40 w-10 sm:h-40 h-10  sm:rounded-lg rounded-3xl"
+                                                                            src={
+                                                                                image
+                                                                                    ? URL.createObjectURL(
+                                                                                          image
+                                                                                      )
+                                                                                    : null
+                                                                            }
+                                                                            alt="description"
+                                                                        />
+                                                                    </span>
+                                                                );
+                                                            })}
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
                                                     <div className="md:w-1/5">
                                                         <h1 className="text-md font-semibold text-primary">
@@ -147,16 +166,16 @@ const StaffsTopBar = () => {
                                                             ROLE
                                                         </h1>
                                                     </div>
-                                                    
+
                                                     <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                         <div className=" w-full">
-                                                        <select className="select w-full focus:bg-white bg-green-100 text-black">
-                                                        <option disabled selected>
-                                                            Role
-                                                        </option>
-                                                        <option>Admin</option>
-                                                        <option>Moderator</option>
-                                                    </select>
+                                                            <select className="select w-full focus:bg-white bg-green-100 text-black">
+                                                                <option disabled selected>
+                                                                    Role
+                                                                </option>
+                                                                <option>Admin</option>
+                                                                <option>Moderator</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
