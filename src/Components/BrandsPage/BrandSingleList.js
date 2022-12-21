@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const BrandSingleList = () => {
 
-
+    const [images, setImages] = useState({});
+    console.log(images);
+    
     const [status, setStatus] = useState(false);
     const [showModal, setShowModal] = React.useState(false);
 
-
     const statusHandler = () => {
-
         setStatus(!status);
     };
 
@@ -28,13 +28,12 @@ const BrandSingleList = () => {
                             alt="product-img"
                         />
                     </div>
-                    
                 </div>
             </td>
             <td className="p-3 text-center font-medium">
                 <p className="break-words whitespace-wrap w-full text-center">Lenovo</p>
             </td>
-            
+
             <td className="p-3 text-center font-medium">
                 <input
                     type="checkbox"
@@ -56,12 +55,13 @@ const BrandSingleList = () => {
             </td>
             <td className="py-3 px-3 text-center">
                 <div className="flex item-center justify-center">
-                    <div className="w-4 mr-2 transform hover:text-primary hover:scale-110 cursor-pointer"
-                    onClick={() => setShowModal(true)}
+                    <div
+                        className="w-4 mr-2 transform hover:text-primary hover:scale-110 cursor-pointer"
+                        onClick={() => setShowModal(true)}
                     >
                         <i className="fa-solid fa-pen-to-square"></i>
                     </div>
-                    
+
                     <div className="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
                         <i className="fa-solid fa-trash-can"></i>
                     </div>
@@ -74,7 +74,6 @@ const BrandSingleList = () => {
                                 <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                                     {/*header*/}
                                     <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                                        
                                         <button
                                             className="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                                             onClick={() => setShowModal(false)}
@@ -105,27 +104,41 @@ const BrandSingleList = () => {
                                                                     <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
                                                                         <span class="font-semibold">
                                                                             Click to upload
-                                                                        </span>{" "}
-                                                                        or drag and drop
+                                                                        </span>
                                                                     </p>
-                                                                    
                                                                 </div>
                                                                 <input
+                                                                    onChange={(e) => {
+                                                                        setImages(e.target.files);
+                                                                    }}
                                                                     id="dropzone-file"
                                                                     type="file"
                                                                     class="hidden"
                                                                 />
                                                             </label>
                                                         </div>
-                                                        <div className="mt-5">
-                                                            <img
-                                                                class="w-40 h-40  rounded-full"
-                                                                src="https://i.ibb.co/0mKh0Zb/profile-1-removebg-preview-3.png"
-                                                                alt="description"
-                                                            />
+                                                        <div className="my-5 flex items-center justify-center gap-5">
+                                                            {Array.from(images).map((image) => {
+                                                                return (
+                                                                    <span>
+                                                                        <img
+                                                                            class="sm:w-40 w-10 sm:h-40 h-10  sm:rounded-lg rounded-3xl"
+                                                                            src={
+                                                                                image
+                                                                                    ? URL.createObjectURL(
+                                                                                          image
+                                                                                      )
+                                                                                    : null
+                                                                            }
+                                                                            alt="description"
+                                                                        />
+                                                                    </span>
+                                                                );
+                                                            })}
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
                                                     <div className="md:w-1/5">
                                                         <h1 className="text-md font-semibold text-primary">
@@ -142,8 +155,6 @@ const BrandSingleList = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
-                                                
                                             </div>
                                         </div>
                                     </div>
@@ -156,13 +167,11 @@ const BrandSingleList = () => {
                                         >
                                             Close
                                         </button>
-                                        
 
                                         <button
                                             className="btn w-full md:w-1/5 bg-primary text-white hover:bg-white hover:text-primary hover:border-primary"
                                             onClick={() => setShowModal(false)}
                                         >
-                                            
                                             <span className="ml-1">Save Changes</span>
                                         </button>
                                     </div>
