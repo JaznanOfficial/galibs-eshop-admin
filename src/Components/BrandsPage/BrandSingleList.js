@@ -108,9 +108,7 @@ const BrandSingleList = () => {
                                                                         </span>{" "}
                                                                         or drag and drop
                                                                     </p>
-                                                                    {/* <p class="text-xs text-gray-500 dark:text-gray-400">
-                                                                SVG, PNG, JPG or GIF (MAX. 800x400px)
-                                                            </p> */}
+                                                                    
                                                                 </div>
                                                                 <input
                                                                     id="dropzone-file"
@@ -144,54 +142,7 @@ const BrandSingleList = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
-                                                    <div className="md:w-1/5">
-                                                        <h1 className="text-md font-semibold text-primary">
-                                                            Email
-                                                        </h1>
-                                                    </div>
-                                                    <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
-                                                        <div className=" w-full">
-                                                            <input
-                                                                type="text"
-                                                                placeholder="Type here"
-                                                                className="input w-full focus:bg-white bg-green-100 text-black"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
-                                                    <div className="md:w-1/5">
-                                                        <h1 className="text-md font-semibold text-primary">
-                                                            Phone Number
-                                                        </h1>
-                                                    </div>
-                                                    <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
-                                                        <div className=" w-full">
-                                                            <input
-                                                                type="Number"
-                                                                placeholder="Type here"
-                                                                className="input w-full focus:bg-white bg-green-100 text-black"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
-                                                    <div className="md:w-1/5">
-                                                        <h1 className="text-md font-semibold text-primary">
-                                                            Your role
-                                                        </h1>
-                                                    </div>
-                                                    <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
-                                                        <div className=" w-full">
-                                                            <input
-                                                                type="text"
-                                                                placeholder="Type here"
-                                                                className="input w-full focus:bg-white bg-green-100 text-black"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div> */}
+                                                
                                                 
                                             </div>
                                         </div>
@@ -205,20 +156,14 @@ const BrandSingleList = () => {
                                         >
                                             Close
                                         </button>
-                                        {/* <button
-                                            className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                            type="button"
-                                            
-                                        >
-                                            Save Changes
-                                        </button> */}
+                                        
 
                                         <button
                                             className="btn w-full md:w-1/5 bg-primary text-white hover:bg-white hover:text-primary hover:border-primary"
                                             onClick={() => setShowModal(false)}
                                         >
-                                            <i className="fa-solid fa-plus"></i>{" "}
-                                            <span className="ml-1">Add Brand</span>
+                                            
+                                            <span className="ml-1">Save Changes</span>
                                         </button>
                                     </div>
                                 </div>
