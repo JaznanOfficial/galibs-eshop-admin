@@ -19,31 +19,32 @@ const Image = () => {
                             <div class="flex flex-col items-center justify-center pt-5 pb-6">
                                 <i class="fa-solid fa-cloud-arrow-up text-primary text-3xl"></i>
                                 <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                                    <span class="font-semibold">Click to upload</span> 
+                                    <span class="font-semibold">Click to upload</span>
                                 </p>
-                                
                             </div>
                             <input
                                 onChange={(e) => {
-                                    setImages(e.target.files)
+                                    setImages(e.target.files);
                                 }}
                                 multiple
                                 id="dropzone-file"
                                 type="file"
-                                class="hidden" />
+                                class="hidden"
+                            />
                         </label>
                     </div>
-                    <div className="mt-5">
-                        {
-                            Array.from(images).map(image => {
-                                
-                            }
-                            )}
-                        <img
-                            class="w-40 h-40  rounded-full"
-                            src="https://i.ibb.co/0mKh0Zb/profile-1-removebg-preview-3.png"
-                            alt="description"
-                        />
+                    <div className="my-5 flex items-center justify-center gap-5">
+                        {Array.from(images).map((image) => {
+                            return (
+                                <span>
+                                    <img
+                                        class="sm:w-40 w-10 sm:h-40 h-10  sm:rounded-lg rounded-3xl"
+                                        src={image ? URL.createObjectURL(image) : null}
+                                        alt="description"
+                                    />
+                                </span>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
