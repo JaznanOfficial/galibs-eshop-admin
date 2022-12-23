@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProductsList from "../Components/ProductsPage/ProductsList";
 import ProductsTopBar from "../Components/ProductsPage/ProductsTopBar";
+import useFetch from "../Hooks/useFetch";
 
 const ProductsPage = () => {
+    const { getData, data } = useFetch()
+    const fetchData = () => {
+        
+    }
+    useEffect(() => {
+        getData("https://g-shop-server.onrender.com/api/v1/products")
+    }, [])
+    console.log(data);
     return (
         <div className="py-10">
             <div>
