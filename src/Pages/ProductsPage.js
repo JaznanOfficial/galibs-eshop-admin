@@ -1,26 +1,29 @@
 import React, { useEffect } from "react";
+import { createContext } from "react";
 import ProductsList from "../Components/ProductsPage/ProductsList";
 import ProductsTopBar from "../Components/ProductsPage/ProductsTopBar";
 import useFetch from "../Hooks/useFetch";
 
+const ProductsContext = createContext();
 const ProductsPage = () => {
-    const { getData, data } = useFetch()
-    const fetchData = () => {
-        
-    }
+    const { getData, data, loading } = useFetch();
+
     useEffect(() => {
-        getData("https://g-shop-server.onrender.com/api/v1/products")
-    }, [])
-    console.log(data);
+        getData("https://g-shop-server.onrender.com/api/v1/products");
+    }, []);
+    // console.log(data);
     return (
-        <div className="py-10">
-            <div>
-                <h1 className="text-2xl  font-extrabold text-black">Products</h1>
+        <ProductsContext.Provider value={{data,loading}}>
+            <div className="py-10">
+                <div>
+                    <h1 className="text-2xl  font-extrabold text-black">Products</h1>
+                </div>
+                <ProductsTopBar />
+                <ProductsList />
             </div>
-            <ProductsTopBar />
-            <ProductsList />
-        </div>
+        </ProductsContext.Provider>
     );
 };
 
 export default ProductsPage;
+export {ProductsContext}

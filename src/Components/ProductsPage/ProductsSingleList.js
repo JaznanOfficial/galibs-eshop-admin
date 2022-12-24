@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Watch } from "react-loader-spinner";
 
 
-const ProductsSingleList = () => {
-    
+const ProductsSingleList = ({product,loading}) => {
+    console.log(product)
+    const {_id,name,img,brand,price,stock,} = product
     const [images, setImages] = useState({});
     console.log(images);
 
@@ -15,12 +17,13 @@ const ProductsSingleList = () => {
         setStatus(!status);
     };
     // console.log(status);
+    
 
     return (
         <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="p-3 text-center font-medium">
                 <h1 className="break-words whitespace-wrap w-16 md:w-20  text-center">
-                    12345967894652163
+                    {_id}
                 </h1>
             </td>
             <td className="py-3 px-3 text-center">
@@ -28,24 +31,24 @@ const ProductsSingleList = () => {
                     <div className="mr-1">
                         <img
                             className="w-8 h-8 rounded-full"
-                            src="https://randomuser.me/api/portraits/men/1.jpg"
+                            src={img[0]}
                             alt="product-img"
                         />
                     </div>
                     <p className="break-words whitespace-wrap w-20 text-center">
-                        Lenovo Thinkpad t460s
+                        {name}
                     </p>
                 </div>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-16 text-center">Lenovo</p>
+                <p className="break-words whitespace-wrap w-16 text-center">{brand}</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-16 text-center">৳ 25000</p>
+                <p className="break-words whitespace-wrap w-16 text-center">৳ {price}</p>
             </td>
-            <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-16 text-center">12</p>
-            </td>
+            {/* <td className="p-3 text-center font-medium">
+                <p className="break-words whitespace-wrap w-16 text-center">{stock}</p>
+            </td> */}
             <td className="p-3 text-center font-medium">
                 <button className="btn btn-circle text-primary hover:bg-primary hover:text-white hover:border-primary">
                     <i className="fa-solid fa-file-lines"></i>
