@@ -1,43 +1,41 @@
 import React, { useState } from "react";
-import { Watch } from "react-loader-spinner";
+import useFetch from "../../Hooks/useFetch";
 
-
-const ProductsSingleList = ({product,loading}) => {
-    console.log(product)
-    const {_id,name,img,brand,price,stock,} = product
+const ProductsSingleList = ({ product }) => {
+    const { patchData } = useFetch();
+    const { _id, name, img, brand, price, status: productStatus } = product;
     const [images, setImages] = useState({});
-    console.log(images);
+    console.log(productStatus);
 
-    const [status, setStatus] = useState(false);
+    const [status, setStatus] = useState();
+    const [hide, setHide] = useState();
+
     const [showModal, setShowModal] = React.useState(false);
 
-
     const statusHandler = () => {
-
-        setStatus(!status);
+        if (productStatus === "published") {
+            setStatus("hidden");
+        } else {
+            setStatus("published");
+        }
+        const data = { status: status };
+        console.log(data);
+        setHide(!hide);
+        patchData(`https://g-shop-server.onrender.com/api/v1/products?_id=${_id}`, data);
     };
     // console.log(status);
-    
 
     return (
         <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="p-3 text-center font-medium">
-                <h1 className="break-words whitespace-wrap w-16 md:w-20  text-center">
-                    {_id}
-                </h1>
+                <h1 className="break-words whitespace-wrap w-16 md:w-20  text-center">{_id}</h1>
             </td>
             <td className="py-3 px-3 text-center">
                 <div className="flex justify-center items-center ">
                     <div className="mr-1">
-                        <img
-                            className="w-8 h-8 rounded-full"
-                            src={img[0]}
-                            alt="product-img"
-                        />
+                        <img className="w-8 h-8 rounded-full" src={img[0]} alt="product-img" />
                     </div>
-                    <p className="break-words whitespace-wrap w-20 text-center">
-                        {name}
-                    </p>
+                    <p className="break-words whitespace-wrap w-20 text-center">{name}</p>
                 </div>
             </td>
             <td className="p-3 text-center font-medium">
@@ -59,11 +57,12 @@ const ProductsSingleList = ({product,loading}) => {
                     type="checkbox"
                     className="toggle checked:toggle-error"
                     onClick={statusHandler}
+                    checked={productStatus === "published" ? false: true}
                 />
             </td>
 
             <td className="py-3 px-3 text-center">
-                {status ? (
+                {/* hide ? (
                     <span className="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs text-center">
                         Hidden
                     </span>
@@ -71,12 +70,22 @@ const ProductsSingleList = ({product,loading}) => {
                     <span className="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs text-center">
                         Published
                     </span>
-                )}
+                ) */}
+                <span
+                    className={
+                        productStatus === "published"
+                            ? "bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs text-center"
+                            : "bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs text-center"
+                    }
+                >
+                    {productStatus}
+                </span>
             </td>
             <td className="py-3 px-3 text-center">
                 <div className="flex item-center justify-center">
-                    <div className="w-4 mr-2 transform hover:text-primary hover:scale-110 cursor-pointer"
-                    onClick={() => setShowModal(true)}
+                    <div
+                        className="w-4 mr-2 transform hover:text-primary hover:scale-110 cursor-pointer"
+                        onClick={() => setShowModal(true)}
                     >
                         <i className="fa-solid fa-pen-to-square"></i>
                     </div>
@@ -107,49 +116,58 @@ const ProductsSingleList = ({product,loading}) => {
                                     <div className="h-96 overflow-y-scroll">
                                         <div className="w-full  md:px-0 my-5 flex justify-center items-center">
                                             <div className="w-11/12 mx-auto p-5 bg-white border ">
-                                                
-                                            <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
-                                            <div className="md:w-1/5">
-                                                <h1 className="text-md font-semibold text-primary">Product Picture</h1>
-                                            </div>
-                                            <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
-                                                <div class="flex items-center justify-center w-full">
-                                                    <label
-                                                        for="dropzone-file"
-                                                        class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
-                                                    >
-                                                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                                            <i class="fa-solid fa-cloud-arrow-up text-primary text-3xl"></i>
-                                                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                                                                <span class="font-semibold">Click to upload</span>
-                                                            </p>
-                                                        </div>
-                                                        <input
-                                                            onChange={(e) => {
-                                                                setImages(e.target.files);
-                                                            }}
-                                                            multiple
-                                                            id="dropzone-file"
-                                                            type="file"
-                                                            class="hidden"
-                                                        />
-                                                    </label>
-                                                </div>
-                                                <div className="my-5 flex items-center justify-center gap-5">
-                                                    {Array.from(images).map((image) => {
-                                                        return (
-                                                            <span>
-                                                                <img
-                                                                    class="sm:w-40 w-10 sm:h-40 h-10  sm:rounded-lg rounded-3xl"
-                                                                    src={image ? URL.createObjectURL(image) : null}
-                                                                    alt="description"
+                                                <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
+                                                    <div className="md:w-1/5">
+                                                        <h1 className="text-md font-semibold text-primary">
+                                                            Product Picture
+                                                        </h1>
+                                                    </div>
+                                                    <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
+                                                        <div class="flex items-center justify-center w-full">
+                                                            <label
+                                                                for="dropzone-file"
+                                                                class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+                                                            >
+                                                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                                                    <i class="fa-solid fa-cloud-arrow-up text-primary text-3xl"></i>
+                                                                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                                                                        <span class="font-semibold">
+                                                                            Click to upload
+                                                                        </span>
+                                                                    </p>
+                                                                </div>
+                                                                <input
+                                                                    onChange={(e) => {
+                                                                        setImages(e.target.files);
+                                                                    }}
+                                                                    multiple
+                                                                    id="dropzone-file"
+                                                                    type="file"
+                                                                    class="hidden"
                                                                 />
-                                                            </span>
-                                                        );
-                                                    })}
+                                                            </label>
+                                                        </div>
+                                                        <div className="my-5 flex items-center justify-center gap-5">
+                                                            {Array.from(images).map((image) => {
+                                                                return (
+                                                                    <span>
+                                                                        <img
+                                                                            class="sm:w-40 w-10 sm:h-40 h-10  sm:rounded-lg rounded-3xl"
+                                                                            src={
+                                                                                image
+                                                                                    ? URL.createObjectURL(
+                                                                                          image
+                                                                                      )
+                                                                                    : null
+                                                                            }
+                                                                            alt="description"
+                                                                        />
+                                                                    </span>
+                                                                );
+                                                            })}
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
 
                                                 <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
                                                     <div className="md:w-1/5">
@@ -355,13 +373,11 @@ const ProductsSingleList = ({product,loading}) => {
                                         >
                                             Close
                                         </button>
-                                       
 
                                         <button
                                             className="btn w-full md:w-1/5 bg-primary text-white hover:bg-white hover:text-primary hover:border-primary"
                                             onClick={() => setShowModal(false)}
                                         >
-                                            
                                             <span className="ml-1">Save Changes</span>
                                         </button>
                                     </div>

@@ -6,7 +6,7 @@ import { Watch } from "react-loader-spinner";
 
 const ProductsList = () => {
     const { data, loading } = useContext(ProductsContext);
-    console.log(data);
+    // console.log(data);
     return (
         <>
             <div>
@@ -32,7 +32,7 @@ const ProductsList = () => {
                                         <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                                             <th className="py-3 px-3 text-center">Id</th>
                                             <th className="py-3 px-3 text-center">Name</th>
-                                            <th className="py-3 px-3 text-center">Category</th>
+                                            <th className="py-3 px-3 text-center">Brand</th>
                                             <th className="py-3 px-3 text-center">Price</th>
                                             {/* <th className="py-3 px-3 text-center">Stock</th> */}
                                             <th className="py-3 px-3 text-center">Details</th>
@@ -54,7 +54,7 @@ const ProductsList = () => {
                                             return (
                                                 <ProductsSingleList
                                                     product={product}
-                                                    loading={loading}
+                                                    key={product?._id}
                                                 />
                                             );
                                         })}
