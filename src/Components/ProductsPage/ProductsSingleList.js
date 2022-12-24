@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const ProductsSingleList = () => {
@@ -47,9 +48,11 @@ const ProductsSingleList = () => {
                 <p className="break-words whitespace-wrap w-16 text-center">12</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <button className="btn btn-circle text-primary hover:bg-primary hover:text-white hover:border-primary">
+                <Link
+                    to={"/products/productDetailsPage"}
+                    className="btn btn-circle text-primary hover:bg-primary hover:text-white hover:border-primary">
                     <i className="fa-solid fa-file-lines"></i>
-                </button>
+                </Link>
             </td>
             <td className="p-3 text-center font-medium">
                 <input

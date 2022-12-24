@@ -12,12 +12,14 @@ import NotFoundPage from "../../Pages/NotFoundPage";
 import CustomerDetailsPage from "../../Pages/CustomerDetailsPage";
 import OrderInvoicePage from "../../Pages/OrderInvoicePage";
 import Login from "../../Pages/Login";
+import ProductDetailsPage from "../../Pages/ProductDetailsPage";
 
 const RoutesComponents = () => {
     return (
         <Routes>
             <Route path="/" element={<DashboardPage />}></Route>
             <Route path="/products" element={<ProductsPage />}></Route>
+            <Route path="/products/:id" element={<ProductDetailsPage />}></Route>
             <Route path="/customers/" element={<CustomersPage />}></Route>
             <Route path="/customers/:id" element={<CustomerDetailsPage />}></Route>
             <Route path="/brands" element={<BrandsPage />}></Route>
