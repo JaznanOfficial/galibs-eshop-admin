@@ -2,28 +2,37 @@ import React, { useState } from "react";
 import useFetch from "../../Hooks/useFetch";
 
 const ProductsSingleList = ({ product }) => {
-    const { patchData } = useFetch();
+    const { patchData, deleteData } = useFetch();
     const { _id, name, img, brand, price, status: productStatus } = product;
     const [images, setImages] = useState({});
     console.log(productStatus);
 
-    const [status, setStatus] = useState();
-    const [hide, setHide] = useState();
+    const [hide, setHide] = useState(productStatus);
+    const [status, setStatus] = useState(!hide);
 
     const [showModal, setShowModal] = React.useState(false);
 
-    const statusHandler = () => {
-        if (productStatus === "published") {
-            setStatus("hidden");
+    const statusHandler = (id) => {
+        if (hide) {
+            setStatus(false);
         } else {
-            setStatus("published");
+            setStatus(true);
         }
+        setHide(!hide);
         const data = { status: status };
         console.log(data);
-        setHide(!hide);
-        patchData(`https://g-shop-server.onrender.com/api/v1/products?_id=${_id}`, data);
+        
+
+        const handleRequest = () => {
+            patchData(`https://g-shop-server.onrender.com/api/v1/products?_id=${id}`, data);
+        }
+        handleRequest()
     };
     // console.log(status);
+
+    const deleteHandler = (id) => {
+        deleteData(`https://g-shop-server.onrender.com/api/v1/products?_id=${id}`);
+    };
 
     return (
         <tr className="border-b border-gray-200 hover:bg-gray-100">
@@ -56,13 +65,13 @@ const ProductsSingleList = ({ product }) => {
                 <input
                     type="checkbox"
                     className="toggle checked:toggle-error"
-                    onClick={statusHandler}
-                    checked={productStatus === "published" ? false: true}
+                    onClick={() => statusHandler(_id)}
+                    checked={productStatus ? false : true}
                 />
             </td>
 
             <td className="py-3 px-3 text-center">
-                {/* hide ? (
+                { !productStatus ? (
                     <span className="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs text-center">
                         Hidden
                     </span>
@@ -70,8 +79,8 @@ const ProductsSingleList = ({ product }) => {
                     <span className="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs text-center">
                         Published
                     </span>
-                ) */}
-                <span
+                ) }
+                {/* <span
                     className={
                         productStatus === "published"
                             ? "bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs text-center"
@@ -79,7 +88,7 @@ const ProductsSingleList = ({ product }) => {
                     }
                 >
                     {productStatus}
-                </span>
+                </span> */}
             </td>
             <td className="py-3 px-3 text-center">
                 <div className="flex item-center justify-center">
@@ -89,7 +98,10 @@ const ProductsSingleList = ({ product }) => {
                     >
                         <i className="fa-solid fa-pen-to-square"></i>
                     </div>
-                    <div className="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
+                    <div
+                        className="w-4 mr-2 transform hover:text-red-500 hover:scale-110"
+                        onClick={() => deleteHandler(_id)}
+                    >
                         <i className="fa-solid fa-trash-can"></i>
                     </div>
                 </div>
