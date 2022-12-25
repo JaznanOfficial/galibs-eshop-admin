@@ -4,175 +4,118 @@ const ProductDetailsRight = () => {
     return (
         <>
             <div class="text-gray-700 body-font overflow-hidden bg-white">
-                <div class="container px-5  ">
-                    <div class="lg:w-4/5 flex flex-wrap">
-                        <div class="lg:w-1/2 w-full  mt-6 lg:mt-0">
-                            <h2 class="text-sm title-font text-gray-500 tracking-widest">
-                                BRAND NAME
+                <div class="container px-5">
+                    <div class="lg:w-full flex ">
+                        <div class="lg:w-full w-full mt-6 lg:mt-0">
+                            <h2 class="text-base  text-gray-500 font-bold">
+                                ASUS VivoBook 15*515EA-EJ2454W 11TH Gen Core i3 4GB RAM 1TB HDD
+                                Slate Grey Laptop
                             </h2>
-                            <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
-                                The Catcher in the Rye
-                            </h1>
-                            <div class="flex mb-4">
-                                <span class="flex items-center">
-                                    <svg
-                                        fill="currentColor"
-                                        stroke="currentColor"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        class="w-4 h-4 text-red-500"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                    </svg>
-                                    <svg
-                                        fill="currentColor"
-                                        stroke="currentColor"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        class="w-4 h-4 text-red-500"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                    </svg>
-                                    <svg
-                                        fill="currentColor"
-                                        stroke="currentColor"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        class="w-4 h-4 text-red-500"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                    </svg>
-                                    <svg
-                                        fill="currentColor"
-                                        stroke="currentColor"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        class="w-4 h-4 text-red-500"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                    </svg>
-                                    <svg
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        class="w-4 h-4 text-red-500"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                    </svg>
-                                    <span class="text-gray-600 ml-3">4 Reviews</span>
-                                </span>
-                                <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
-                                    <a href="/" class="text-gray-500">
-                                        <svg
-                                            fill="currentColor"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            class="w-5 h-5"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                                        </svg>
-                                    </a>
-                                    <a href="/" class="ml-2 text-gray-500">
-                                        <svg
-                                            fill="currentColor"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            class="w-5 h-5"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                                        </svg>
-                                    </a>
-                                    <a href="/" class="ml-2 text-gray-500">
-                                        <svg
-                                            fill="currentColor"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            class="w-5 h-5"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                                        </svg>
-                                    </a>
-                                </span>
-                            </div>
-                            <p class="leading-relaxed">
-                                Fam locavore kickstarter distillery. Mixtape chillwave tumeric
-                                sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo
-                                juiceramps cornhole raw denim forage brooklyn. Everyday carry +1
-                                seitan poutine tumeric. Gastropub blue bottle austin listicle
-                                pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.
-                            </p>
-                            <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
-                                <div class="flex">
-                                    <span class="mr-3">Color</span>
-                                    <button class="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
-                                    <button class="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
-                                    <button class="border-2 border-gray-300 ml-1 bg-red-500 rounded-full w-6 h-6 focus:outline-none"></button>
+
+                            <div class="flex sm:flex-row flex-col justify-start items-start gap-1 w-full">
+                                <div class="bg-green-100 text-green-900 hover:text-gray-900 rounded px-2 py-2">
+                                    Price:$145
                                 </div>
-                                <div class="flex ml-6 items-center">
-                                    <span class="mr-3">Size</span>
-                                    <div class="relative">
-                                        <select class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
-                                            <option>SM</option>
-                                            <option>M</option>
-                                            <option>L</option>
-                                            <option>XL</option>
-                                        </select>
-                                        <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-                                            <svg
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                class="w-4 h-4"
-                                                viewBox="0 0 24 24"
-                                            >
-                                                <path d="M6 9l6 6 6-6"></path>
-                                            </svg>
-                                        </span>
-                                    </div>
+
+                                <div class="bg-green-100 text-green-900 hover:text-gray-900 rounded px-2 py-2">
+                                    Regular price:$145
                                 </div>
-                            </div>
-                            <div class="flex">
-                                <span class="title-font font-medium text-2xl text-gray-900">
-                                    $58.00
-                                </span>
-                                <button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
-                                    Button
-                                </button>
-                                <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                                    <svg
-                                        fill="currentColor"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        class="w-5 h-5"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
-                                    </svg>
-                                </button>
+
+                                <div class="bg-green-100 text-green-900 hover:text-gray-900 rounded px-2 py-2">
+                                    Status:$145
+                                </div>
+
+                                <div class="bg-green-100 text-green-900 hover:text-gray-900 rounded px-2 py-2">
+                                    Brand:$145
+                                </div>
+
+                                <div class="bg-green-100 text-green-900 hover:text-gray-900 rounded px-2 py-2">
+                                    Product code:$145
+                                </div>
                             </div>
 
                             <div>
-                                <div class="inline-block align-bottom mr-5">
+                                <p> Key Features </p>
+                                <p> MPN: T295-BSM-T295N </p>
+                                <p> Model: Galaxy Tab A 8.0 </p>
+                                <p> Display: 8-inch WXGA Display </p>
+                                <p> Storage: 2GB RAM, 32GB ROM </p>
+                                <p> MPN: T295-BSM-T295N </p>
+                                <p>CPU: Helio P22T, GPU: PowerVR GE8320</p>
+                                <p class="text-blue-600 underline">View more info</p>
+                            </div>
+
+                            <div>
+                                <h3 class="mt-10 mb-5 text-lg font-medium text-gray-900 dark:text-white">
+                                    Payment Method
+                                </h3>
+
+                                <div class="grid gap-10 w-full md:grid-cols-2">
+                                    <label class="cursor-pointer">
+                                        <input type="radio" class="peer sr-only" name="pricing" />
+
+                                        <div
+                                            class="w-64 h-28 max-w-xl shadow rounded-md bg-gray-100 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-green-600 peer-checked:ring-green-400
+                                        peer-checked:bg-green-100
+                                        peer-checked:ring-offset-2"
+                                        >
+                                            <div class="flex flex-col gap-1">
+                                                <div class="flex items-center justify-between">
+                                                    <p class="text-sm font-semibold uppercase text-black">
+                                                        $12378
+                                                    </p>
+                                                    <div>
+                                                        <svg
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                        >
+                                                            <path
+                                                                fill="currentColor"
+                                                                d="m10.6 13.8l-2.175-2.175q-.275-.275-.675-.275t-.7.3q-.275.275-.275.7q0 .425.275.7L9.9 15.9q.275.275.7.275q.425 0 .7-.275l5.675-5.675q.275-.275.275-.675t-.3-.7q-.275-.275-.7-.275q-.425 0-.7.275ZM12 22q-2.075 0-3.9-.788q-1.825-.787-3.175-2.137q-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175q1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138q1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175q-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
+                                                            />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <p>Pay on credit card/Debit card/Dbbl</p>
+                                            </div>
+                                        </div>
+                                    </label>
+
+                                    <label class="cursor-pointer">
+                                        <input type="radio" class="peer sr-only" name="pricing" />
+
+                                        <div
+                                            class="w-64 h-28 max-w-xl shadow bg-gray-100 rounded-md p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-green-600 peer-checked:ring-green-400 
+                                        peer-checked:bg-green-100
+                                        peer-checked:ring-offset-2"
+                                        >
+                                            <div class="flex flex-col gap-1">
+                                                <div class="flex items-center justify-between">
+                                                    <p class="text-sm font-semibold uppercase text-black">$12378</p>
+
+                                                    <div>
+                                                        <svg
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                        >
+                                                            <path
+                                                                fill="currentColor"
+                                                                d="m10.6 13.8l-2.175-2.175q-.275-.275-.675-.275t-.7.3q-.275.275-.275.7q0 .425.275.7L9.9 15.9q.275.275.7.275q.425 0 .7-.275l5.675-5.675q.275-.275.275-.675t-.3-.7q-.275-.275-.7-.275q-.425 0-.7.275ZM12 22q-2.075 0-3.9-.788q-1.825-.787-3.175-2.137q-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175q1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138q1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175q-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
+                                                            />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <p>Cash on delivery</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div className="mt-10">
+                                <div class="inline-block align-bottom mr-10">
                                     <span class="text-2xl leading-none align-baseline">$</span>
                                     <span class="font-bold text-5xl leading-none align-baseline">
                                         59
@@ -180,8 +123,8 @@ const ProductDetailsRight = () => {
                                     <span class="text-2xl leading-none align-baseline">.99</span>
                                 </div>
                                 <div class="inline-block align-bottom">
-                                    <button class="bg-yellow-300 opacity-75 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold">
-                                        <i class="mdi mdi-cart -ml-2 mr-2"></i> BUY NOW
+                                    <button class="bg-green-300 opacity-75 hover:opacity-100 text-green-900 hover:text-gray-900 rounded px-10 py-2 font-semibold">
+                                         BUY NOW
                                     </button>
                                 </div>
                             </div>
