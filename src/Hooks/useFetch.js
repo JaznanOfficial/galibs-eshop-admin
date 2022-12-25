@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const useFetch = () => {
     const [data, setData] = useState([]);
     const [dataLoading, setDataLoading] = useState(true);
     const [error, setError] = useState();
+    const [success, setSuccess] = useState();
 
     const getData = async (url) => {
         console.log(url);
@@ -12,9 +14,10 @@ const useFetch = () => {
             const res = await axios.get(url);
             setData(res.data);
             setDataLoading(false);
-        } catch (error) {
+        } catch (err) {
             // Handle errors
             console.log(error);
+            setError(err)
         }
     };
     const postData = async (url, data) => {
@@ -31,10 +34,17 @@ const useFetch = () => {
         axios
             .patch(url, data)
             .then((res) => {
-                console.log(res);
+                console.log(res.data);
+                if (res.data.status === "Successful") {
+                    setSuccess(true)
+                    if (success) {
+                        toast.success('Hurray! your data update successfull, ', );
+                    }
+                }
             })
             .catch((err) => {
                 console.log(err);
+                setError(err)
             });
     };
     const deleteData = async (url) => {
@@ -52,6 +62,8 @@ const useFetch = () => {
         postData,
         patchData,
         deleteData,
+        success,
+        error,
         loading: dataLoading,
     };
 };
