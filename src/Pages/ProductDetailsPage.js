@@ -1,4 +1,5 @@
 import React from "react";
+import ProductDescription from "../Components/ProductDetailsPage/ProductDescription";
 import ProductDetailsLeft from "../Components/ProductDetailsPage/ProductDetailsLeft";
 import ProductDetailsRight from "../Components/ProductDetailsPage/ProductDetailsRight";
 import ProductDetailsSpecifications from "../Components/ProductDetailsPage/ProductDetailsSpecifications";
@@ -27,16 +28,14 @@ const ProductDetailsPage = () => {
 
                 <div className="flex gap-5 w-full px-10 mb-5">
                     <ProductDetailsSpecifications />
-                    
 
-                    <div class="w-4/12 h-96 bg-white shadow-xl sm:p-5 p-0 text-gray-800 relative md:text-left">
-                    </div>
+                    <div class="w-4/12 h-96 bg-white shadow-xl sm:p-5 p-0 text-gray-800 relative md:text-left"></div>
                 </div>
 
-                <div className="flex gap-5 w-full px-10 mb-10">
+                <div className=" w-full px-10 mb-5">
                     
-                    <div class="w-full bg-white shadow-xl sm:p-5 p-0 text-gray-800 relative md:text-left">
-                    </div>
+                    <ProductDescription />
+                    
                 </div>
             </div>
         </>
