@@ -1,5 +1,6 @@
 // import { Route, Routes } from "react-router-dom";
 import { Watch } from "react-loader-spinner";
+import { ToastContainer } from "react-toastify";
 import "./App.css";
 import Navigation from "./Components/Navigation/Navigation";
 import RoutesComponents from "./Components/Routes/RoutesComponents";
@@ -33,6 +34,18 @@ function App() {
     } else {
         return (
             <div className="App ">
+            <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+        />
                 <Navigation />
                 <div className="md:hidden bg-green-50">
                     <RoutesComponents />

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import useFetch from "../../Hooks/useFetch";
 
 const ProductsSingleList = ({ product }) => {
@@ -35,18 +36,7 @@ const ProductsSingleList = ({ product }) => {
 
     return (
         <>
-            <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
+            
 
             <tr className="border-b border-gray-200 hover:bg-gray-100">
                 <td className="p-3 text-center font-medium">

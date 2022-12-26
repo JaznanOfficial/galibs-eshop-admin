@@ -38,13 +38,16 @@ const useFetch = () => {
                 if (res.data.status === "Successful") {
                     setSuccess(true)
                     if (success) {
-                        toast.success('Hurray! your data update successfull, ', );
+                        toast.success('Hurray! your data updated successfully ', );
                     }
                 }
             })
             .catch((err) => {
                 console.log(err);
                 setError(err)
+                if (error) {
+                    toast.error('Hurray! your data updated successfully ', );
+                }
             });
     };
     const deleteData = async (url) => {
