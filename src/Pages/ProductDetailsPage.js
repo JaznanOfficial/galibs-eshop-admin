@@ -12,6 +12,32 @@ const ProductDetailsPage = () => {
 
                         <ProductDetailsRight />
                     </div>
+                    <div className="flex sm:flex-row flex-col  gap-2  sm:ml-10 m-2">
+                        <div class="w-28 p-5 mb-10 md:mb-0 border-2 border-green-200 flex justify-center items-center ">
+                            <img
+                                src="https://media.istockphoto.com/id/1186325137/video/mens-hands-are-typing-on-the-laptop-keyboard-close-up.jpg?s=640x640&k=20&c=C_7_hQp7j472bs7tSN1ghMDoOi2U8gQqz7VxnkQnHFY="
+                                class="w-20 h-20 "
+                                alt=""
+                            />
+                        </div>
+
+                        <div class="w-28 p-5 mb-10 md:mb-0 border-2 border-green-200 flex justify-center items-center ">
+                            <img
+                                src="https://media.istockphoto.com/id/1186325137/video/mens-hands-are-typing-on-the-laptop-keyboard-close-up.jpg?s=640x640&k=20&c=C_7_hQp7j472bs7tSN1ghMDoOi2U8gQqz7VxnkQnHFY="
+                                class="w-20 h-20 "
+                                alt=""
+                            />
+                        </div>
+
+                        <div class="w-28 p-5 mb-10 md:mb-0 border-2 border-green-200 flex justify-center items-center ">
+                            <img
+                                src="https://media.istockphoto.com/id/1186325137/video/mens-hands-are-typing-on-the-laptop-keyboard-close-up.jpg?s=640x640&k=20&c=C_7_hQp7j472bs7tSN1ghMDoOi2U8gQqz7VxnkQnHFY="
+                                class="w-20 h-20 "
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
 

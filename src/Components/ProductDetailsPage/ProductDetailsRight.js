@@ -92,7 +92,9 @@ const ProductDetailsRight = () => {
                                         >
                                             <div class="flex flex-col gap-1">
                                                 <div class="flex items-center justify-between">
-                                                    <p class="text-sm font-semibold uppercase text-black">$12378</p>
+                                                    <p class="text-sm font-semibold uppercase text-black">
+                                                        $12378
+                                                    </p>
 
                                                     <div>
                                                         <svg
@@ -114,17 +116,32 @@ const ProductDetailsRight = () => {
                                 </div>
                             </div>
 
-                            <div className="mt-10">
-                                <div class="inline-block align-bottom mr-10">
-                                    <span class="text-2xl leading-none align-baseline">$</span>
-                                    <span class="font-bold text-5xl leading-none align-baseline">
-                                        59
-                                    </span>
-                                    <span class="text-2xl leading-none align-baseline">.99</span>
+                            <div className="mt-10 flex gap-5 justify-start items-center">
+                                <div class="flex flex-row h-10 w-32 rounded-lg relative bg-transparent mt-1">
+                                    <button
+                                        data-action="decrement"
+                                        class=" bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none"
+                                    >
+                                        <span class="m-auto text-2xl font-thin">−</span>
+                                    </button>
+                                    <input
+                                        type="text"
+                                        class="outline-none focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700 "
+                                        name="custom-input-number"
+                                        value="1"
+                                    ></input>
+
+                                    <button
+                                        data-action="increment"
+                                        class="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer"
+                                    >
+                                        <span class="m-auto text-2xl font-thin">+</span>
+                                    </button>
                                 </div>
+
                                 <div class="inline-block align-bottom">
                                     <button class="bg-green-300 opacity-75 hover:opacity-100 text-green-900 hover:text-gray-900 rounded px-10 py-2 font-semibold">
-                                         BUY NOW
+                                        BUY NOW
                                     </button>
                                 </div>
                             </div>
