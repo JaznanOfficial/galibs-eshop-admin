@@ -4,7 +4,7 @@ const ProductDetailsRight = () => {
     return (
         <>
             <div class="text-gray-700 body-font overflow-hidden bg-white">
-                <div class="container px-5">
+                <div class="container px-5 sm:px-2">
                     <div class="lg:w-full flex ">
                         <div class="lg:w-full w-full mt-6 lg:mt-0">
                             <h2 class="text-base  text-gray-500 font-bold">
@@ -50,7 +50,7 @@ const ProductDetailsRight = () => {
                                     Payment Method
                                 </h3>
 
-                                <div class="grid gap-10 w-full md:grid-cols-2">
+                                <div class="grid gap-8 w-full md:grid-cols-2">
                                     <label class="cursor-pointer">
                                         <input type="radio" class="peer sr-only" name="pricing" />
 
@@ -116,7 +116,7 @@ const ProductDetailsRight = () => {
                                 </div>
                             </div>
 
-                            <div className="mt-10 flex gap-5 justify-start items-center">
+                            <div className="my-10 flex gap-5 justify-start items-center">
                                 <div class="flex flex-row h-10 w-32 rounded-lg relative bg-transparent mt-1">
                                     <button
                                         data-action="decrement"
