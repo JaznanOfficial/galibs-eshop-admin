@@ -3,6 +3,7 @@ import ProductDescription from "../Components/ProductDetailsPage/ProductDescript
 import ProductDetailsLeft from "../Components/ProductDetailsPage/ProductDetailsLeft";
 import ProductDetailsRight from "../Components/ProductDetailsPage/ProductDetailsRight";
 import ProductDetailsSpecifications from "../Components/ProductDetailsPage/ProductDetailsSpecifications";
+import ProductRelated from "../Components/ProductDetailsPage/ProductRelated";
 
 const ProductDetailsPage = () => {
     return (
@@ -26,16 +27,14 @@ const ProductDetailsPage = () => {
                     </div>
                 </div>
 
-                <div className="flex gap-5 w-full px-10 mb-5">
+                <div className="flex sm:flex-row flex-col gap-5 sm:w-full px-10 mb-5">
                     <ProductDetailsSpecifications />
 
-                    <div class="w-4/12 h-96 bg-white shadow-xl sm:p-5 p-0 text-gray-800 relative md:text-left"></div>
+                    <ProductRelated />
                 </div>
 
                 <div className=" w-full px-10 mb-5">
-                    
                     <ProductDescription />
-                    
                 </div>
             </div>
         </>

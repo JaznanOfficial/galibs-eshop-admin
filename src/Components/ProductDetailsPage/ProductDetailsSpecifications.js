@@ -5,7 +5,7 @@ import ProductDetailsTable from "./ProductDetailsTable";
 const ProductDetailsSpecifications = () => {
     return (
         <>
-            <div class="w-8/12 bg-white shadow-xl sm:p-5 p-0 text-gray-800 relative md:text-left">
+            <div class="sm:w-8/12 w-full bg-white shadow-xl p-5 text-gray-800 relative md:text-left">
                 <div class="overflow-x-auto relative">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         
