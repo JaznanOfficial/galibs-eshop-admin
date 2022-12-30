@@ -208,7 +208,7 @@ const TopNavigation = () => {
                     </div>
                     <div className="avatar">
                         <div className="w-8 rounded-full">
-                            <img src={user.photoURL} alt="user" />
+                            <img src={user?.photoURL} alt="user" />
                         </div>
                     </div>
                 </div>

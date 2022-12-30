@@ -21,14 +21,13 @@ const useFetch = () => {
         }
     };
     const postData = async (url, data) => {
-        axios
-            .post(url, data, { headers: { "Content-Type": "application/json" } })
-            .then((res) => {
-                console.log(res);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        try {
+            const res = await axios.post(url,data, { headers: { "Content-Type": "application/json" } });
+            console.log(res);
+        } catch (err) {
+            setError(err);
+        }
+    
     };
     const patchData = async (url, data) => {
         axios

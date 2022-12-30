@@ -8,9 +8,11 @@ import {
     signOut,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import useFetch from "./useFetch";
 
 InitializeConfig();
 const useFirebase = () => {
+    const { postData } = useFetch();
     const navigate = useNavigate();
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
@@ -27,6 +29,14 @@ const useFirebase = () => {
                 setLoading(false);
                 console.log(location);
                 // navigate(location?.state?.from || "/");
+                // user data fetch--------->
+                const name = user.displayName;
+                const email = user.email;
+                const img = user.photoURL;
+                const role = 'user';
+                const status = 'active';
+                const data = { name, email, img, role, status }
+                postData("https://g-shop-server.onrender.com/api/v1/users", data)
             })
             .catch((error) => {
                 console.log(error);
