@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import useFetch from "../../Hooks/useFetch";
+import { Link } from "react-router-dom";
 
 const ProductsSingleList = ({ product }) => {
     const { patchData, deleteData, success, error } = useFetch();
@@ -35,8 +36,9 @@ const ProductsSingleList = ({ product }) => {
     };
 
     return (
-        <>
+        
             
+        
 
             <tr className="border-b border-gray-200 hover:bg-gray-100">
                 <td className="p-3 text-center font-medium">
@@ -60,9 +62,9 @@ const ProductsSingleList = ({ product }) => {
                 <p className="break-words whitespace-wrap w-16 text-center">{stock}</p>
             </td> */}
                 <td className="p-3 text-center font-medium">
-                    <button className="btn btn-circle text-primary hover:bg-primary hover:text-white hover:border-primary">
+                    <Link to={`/products/${_id}`} className="btn btn-circle text-primary hover:bg-primary hover:text-white hover:border-primary">
                         <i className="fa-solid fa-file-lines"></i>
-                    </button>
+                    </Link>
                 </td>
                 <td className="p-3 text-center font-medium">
                     <input
@@ -111,7 +113,7 @@ const ProductsSingleList = ({ product }) => {
                     {/* modal */}
 
                     {showModal ? (
-                        <>
+                        
                             <div className="w-11/12 md:w-full mx-auto justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                                 <div className="relative w-full my-6 mx-auto max-w-6xl">
                                     {/*content*/}
@@ -401,11 +403,11 @@ const ProductsSingleList = ({ product }) => {
                                     </div>
                                 </div>
                             </div>
-                        </>
+                        
                     ) : null}
                 </td>
             </tr>
-        </>
+        
     );
 };
 

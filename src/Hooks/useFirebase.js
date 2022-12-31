@@ -29,14 +29,7 @@ const useFirebase = () => {
                 setLoading(false);
                 console.log(location);
                 // navigate(location?.state?.from || "/");
-                // user data fetch--------->
-                const name = user.displayName;
-                const email = user.email;
-                const img = user.photoURL;
-                const role = 'user';
-                const status = 'active';
-                const data = { name, email, img, role, status }
-                postData("https://g-shop-server.onrender.com/api/v1/users", data)
+                
             })
             .catch((error) => {
                 console.log(error);
@@ -62,6 +55,14 @@ const useFirebase = () => {
             if (user) {
                 setLoading(false);
                 setUser(user);
+                // user data fetch--------->
+                const name = user.displayName;
+                const email = user.email;
+                const img = user.photoURL;
+                const role = 'user';
+                const status = 'active';
+                const data = { name, email, img, role, status }
+                postData("https://g-shop-server.onrender.com/api/v1/users", data)
                 
             } else {
                 setUser({});
