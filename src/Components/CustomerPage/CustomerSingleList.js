@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const CustomerSingleList = () => {
+const CustomerSingleList = ({ customer }) => {
+    const { _id, name, img, email, role, status:userStatus, createdAt, phone } = customer || {};
+    // console.log(customer);
     const [status, setStatus] = useState(false);
 
     const statusHandler = () => {
@@ -12,33 +14,34 @@ const CustomerSingleList = () => {
     return (
         <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-16">12345967894652163</p>
+                <p className="break-words whitespace-wrap w-16">{_id}</p>
             </td>
             <td className="py-3 px-3 text-center">
                 <div className="flex items-center justify-center">
                     <div className="">
                         <img
                             className="w-6 h-6 rounded-full"
-                            src="https://randomuser.me/api/portraits/men/1.jpg"
+                            src={img}
                             alt="user-img"
                         />
                     </div>
-                    <p className="break-words whitespace-wrap w-20">Abdur Rahman</p>
+                    <p className="break-words whitespace-wrap w-20">{ name}</p>
                 </div>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap  text-center">12-12-2022</p>
+                <p className="break-words whitespace-wrap  text-center"> {createdAt.slice(0,10)} </p>
+                <p className="break-words whitespace-wrap  text-center"> {createdAt.slice(12,19)} </p>
             </td>
             <td className="p-3 text-center font-medium">
                 <p className="break-words whitespace-wrap text-center w-24 mx-auto">
-                    jaznanofficial@gmail.com
+{email}
                 </p>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-24 mx-auto text-center">01643282147</p>
+                <p className="break-words whitespace-wrap w-24 mx-auto text-center">{ phone}</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <Link to={'customers-details'} className="btn btn-circle text-primary hover:bg-primary hover:text-white hover:border-primary">
+                <Link to={'customers-details'} state={customer} className="btn btn-circle text-primary hover:bg-primary hover:text-white hover:border-primary">
                     <i className="fa-solid fa-file-lines"></i>
                 </Link>
             </td>
