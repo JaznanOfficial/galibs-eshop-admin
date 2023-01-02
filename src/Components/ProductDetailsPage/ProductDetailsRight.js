@@ -1,24 +1,21 @@
 import React from "react";
 
-const ProductDetailsRight = () => {
+const ProductDetailsRight = ({ location }) => {
+    console.log(location);
+    const { name,id,img, price } = location.state;
     return (
         <>
             <div class="text-gray-700 body-font overflow-hidden bg-white">
-                <div class="container px-5 sm:px-2">
+                <div class="container px-5 sm:px-2 mt-16">
                     <div class="lg:w-full flex ">
                         <div class="lg:w-full w-full mt-6 lg:mt-0">
-                            <h2 class="text-base  text-gray-500 font-bold">
-                                ASUS VivoBook 15*515EA-EJ2454W 11TH Gen Core i3 4GB RAM 1TB HDD
-                                Slate Grey Laptop
+                            <h2 class="text-base  text-gray-500 font-bold mb-8">
+                                {name}
                             </h2>
 
-                            <div class="flex sm:flex-row flex-col justify-start items-start gap-1 w-full">
+                            <div class="flex sm:flex-row flex-col justify-start items-start gap-1 w-full mb-8">
                                 <div class="bg-green-100 text-green-900 hover:text-gray-900 rounded px-2 py-2">
-                                    Price:$145
-                                </div>
-
-                                <div class="bg-green-100 text-green-900 hover:text-gray-900 rounded px-2 py-2">
-                                    Regular price:$145
+                                    {price}
                                 </div>
 
                                 <div class="bg-green-100 text-green-900 hover:text-gray-900 rounded px-2 py-2">
@@ -42,10 +39,10 @@ const ProductDetailsRight = () => {
                                 <p> Storage: 2GB RAM, 32GB ROM </p>
                                 <p> MPN: T295-BSM-T295N </p>
                                 <p>CPU: Helio P22T, GPU: PowerVR GE8320</p>
-                                <p class="text-blue-600 underline">View more info</p>
+                                {/* <p class="text-blue-600 underline">View more info</p> */}
                             </div>
 
-                            <div>
+                            {/* <div>
                                 <h3 class="mt-10 mb-5 text-lg font-medium text-gray-900 dark:text-white">
                                     Payment Method
                                 </h3>
@@ -114,7 +111,7 @@ const ProductDetailsRight = () => {
                                         </div>
                                     </label>
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div className="my-10 flex gap-5 justify-start items-center">
                                 <div class="flex flex-row h-10 w-32 rounded-lg relative bg-transparent mt-1">

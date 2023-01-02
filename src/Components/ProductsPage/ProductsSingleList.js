@@ -26,8 +26,6 @@ const ProductsSingleList = ({ product }) => {
         console.log(data);
 
         patchData(`https://g-shop-server.onrender.com/api/v1/products?_id=${id}`, data);
-
-        
     };
     // console.log(status);
 
@@ -36,10 +34,6 @@ const ProductsSingleList = ({ product }) => {
     };
 
     return (
-        
-            
-        
-
             <tr className="border-b border-gray-200 hover:bg-gray-100">
                 <td className="p-3 text-center font-medium">
                     <h1 className="break-words whitespace-wrap w-16 md:w-20  text-center">{_id}</h1>
@@ -58,11 +52,8 @@ const ProductsSingleList = ({ product }) => {
                 <td className="p-3 text-center font-medium">
                     <p className="break-words whitespace-wrap w-16 text-center">৳ {price}</p>
                 </td>
-                {/* <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-16 text-center">{stock}</p>
-            </td> */}
                 <td className="p-3 text-center font-medium">
-                    <Link to={`/products/${_id}`} className="btn btn-circle text-primary hover:bg-primary hover:text-white hover:border-primary">
+                    <Link to={`/products/${_id}`} state={product} className="btn btn-circle text-primary hover:bg-primary hover:text-white hover:border-primary">
                         <i className="fa-solid fa-file-lines"></i>
                     </Link>
                 </td>

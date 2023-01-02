@@ -1,19 +1,22 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import ProductDescription from "../Components/ProductDetailsPage/ProductDescription";
 import ProductDetailsLeft from "../Components/ProductDetailsPage/ProductDetailsLeft";
 import ProductDetailsRight from "../Components/ProductDetailsPage/ProductDetailsRight";
 import ProductDetailsSpecifications from "../Components/ProductDetailsPage/ProductDetailsSpecifications";
 import ProductRelated from "../Components/ProductDetailsPage/ProductRelated";
 
-const ProductDetailsPage = () => {
+const ProductDetailsPage = ({ product }) => {
+    const location = useLocation();
+    console.log(location.state);
     return (
         <>
             <div class=" flex-col bg-green-50 flex items-center">
-                <div class=" min-h-screen bg-white shadow-xl sm:p-5 p-0 text-gray-800 relative md:text-left">
+                <div class="w-full min-h-screen bg-white shadow-xl sm:p-5 p-0 text-gray-800 relative md:text-left">
                     <div class="md:flex items-start mt-10">
-                        <ProductDetailsLeft />
+                        <ProductDetailsLeft location={ location} />
 
-                        <ProductDetailsRight />
+                        <ProductDetailsRight location={ location } />
                     </div>
                 </div>
 
