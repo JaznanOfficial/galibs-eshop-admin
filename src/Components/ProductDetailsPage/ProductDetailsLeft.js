@@ -1,10 +1,10 @@
 import React from "react";
 
 const ProductDetailsLeft = ({location}) => {
-    console.log(location);
+    // console.log(location);
     const { img } = location.state;
     return (
-        <div className="mr-10 sm:ml-20 ml-0" >
+        <div className="mr-10 sm:ml-10 ml-0" >
             
             <div class="w-full px-5 mb-10 md:mb-0 border-2 border-green-200 flex justify-center items-center sm:mx-2 mx-5  ">
                 {/* <img
