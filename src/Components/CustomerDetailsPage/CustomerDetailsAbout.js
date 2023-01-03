@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CustomerDetailsAbout = ({customer}) => {
-    const { _id, name, phone, email, createdAt } = customer;
+    const { name, phone, email, createdAt, address } = customer || {};
     
     return (
         <div class="my-4 flex flex-col 2xl:flex-row space-y-4 2xl:space-y-0 2xl:space-x-4 w-11/12 mx-auto">
@@ -25,7 +25,7 @@ const CustomerDetailsAbout = ({customer}) => {
                         </li>
                         <li class="flex border-b py-2">
                             <span class="font-bold w-24">Address:</span>
-                            <span class="text-gray-700">New York, US</span>
+                            <span class="text-gray-700">{address}</span>
                         </li>
                         <li class="flex border-b py-2">
                             <span class="font-bold w-24">Joined:</span>

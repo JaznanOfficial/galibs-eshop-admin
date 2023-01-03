@@ -2,7 +2,7 @@ import React from "react";
 
 const CustomerDetailsTop = ({ customer }) => {
     console.log(customer);
-    const { img, profession, name } = customer 
+    const { img, profession, name, address } = customer || {}
     return (
         <div class="bg-white rounded-lg shadow-xl pb-8 w-11/12 mx-auto my-5">
             <div class="w-full h-[250px]">
@@ -39,7 +39,7 @@ const CustomerDetailsTop = ({ customer }) => {
                     </span>
                 </div>
                 <p class="text-gray-700">{profession}</p>
-                <p class="text-sm text-gray-500">New York, USA</p>
+                <p class="text-sm text-gray-500">{address}</p>
             </div>
             
         </div>
