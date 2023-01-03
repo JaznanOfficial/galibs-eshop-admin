@@ -6,15 +6,15 @@ import CustomerDetailsOrders from "../Components/CustomerDetailsPage/CustomerDet
 import CustomerDetailsOrderSearch from "../Components/CustomerDetailsPage/CustomerDetailsOrderSearch";
 import CustomerDetailsTop from "../Components/CustomerDetailsPage/CustomerDetailsTop";
 
-const CustomerDetailsPage = () => {
-    const { customer } = useLocation();
-    console.log(customer);
+const CustomerDetailsPage = ({ customer }) => {
+    const { state } = useLocation();
+    console.log(state);
     return (
         <div className="py-10">
-            <CustomerDetailsTop />
-            <CustomerDetailsAbout />
-            <CustomerDetailsOrderSearch />
-            <CustomerDetailsOrders />
+            <CustomerDetailsTop customer={ state } />
+            <CustomerDetailsAbout customer={ state }/>
+            <CustomerDetailsOrderSearch customer={ state }/>
+            <CustomerDetailsOrders customer={ state }/>
         </div>
     );
 };
