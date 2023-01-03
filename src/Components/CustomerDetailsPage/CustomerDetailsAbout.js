@@ -1,6 +1,8 @@
 import React from 'react';
 
-const CustomerDetailsAbout = () => {
+const CustomerDetailsAbout = ({customer}) => {
+    const { name, phone, email, createdAt, address } = customer || {};
+    
     return (
         <div class="my-4 flex flex-col 2xl:flex-row space-y-4 2xl:space-y-0 2xl:space-x-4 w-11/12 mx-auto">
             <div class="w-full flex flex-col 2xl:w-1/3">
@@ -9,25 +11,25 @@ const CustomerDetailsAbout = () => {
                     <ul class="mt-2 text-gray-700 text-start">
                         <li class="flex border-y py-2">
                             <span class="font-bold w-24">Full name:</span>
-                            <span class="text-gray-700">Amanda S. Ross</span>
+                            <span class="text-gray-700">{name}</span>
                         </li>
                         
                         
                         <li class="flex border-b py-2">
                             <span class="font-bold w-24">Mobile:</span>
-                            <span class="text-gray-700">(123) 123-1234</span>
+                            <span class="text-gray-700">{phone}</span>
                         </li>
                         <li class="flex border-b py-2">
                             <span class="font-bold w-24">Email:</span>
-                            <span class="text-gray-700">amandaross@example.com</span>
+                            <span class="text-gray-700">{email}</span>
                         </li>
                         <li class="flex border-b py-2">
                             <span class="font-bold w-24">Address:</span>
-                            <span class="text-gray-700">New York, US</span>
+                            <span class="text-gray-700">{address}</span>
                         </li>
                         <li class="flex border-b py-2">
                             <span class="font-bold w-24">Joined:</span>
-                            <span class="text-gray-700">10 Jan 2022 (25 days ago)</span>
+                            <span class="text-gray-700">{createdAt}</span>
                         </li>
                         
                     </ul>
