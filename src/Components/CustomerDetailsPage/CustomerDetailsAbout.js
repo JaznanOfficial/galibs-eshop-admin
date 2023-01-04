@@ -29,7 +29,7 @@ const CustomerDetailsAbout = ({customer}) => {
                         </li>
                         <li class="flex border-b py-2">
                             <span class="font-bold w-24">Joined:</span>
-                            <span class="text-gray-700">{createdAt}</span>
+                            <span class="text-gray-700">{createdAt.slice(0,20).replace("T", ",")}</span>
                         </li>
                         
                     </ul>

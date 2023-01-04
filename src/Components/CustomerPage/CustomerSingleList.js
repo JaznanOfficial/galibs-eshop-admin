@@ -4,7 +4,7 @@ import useFetch from "../../Hooks/useFetch";
 
 const CustomerSingleList = ({ customer }) => {
     const { _id, name, img, email, role, status: userStatus, createdAt, phone } = customer || {};
-    // console.log(customer);
+    console.log(userStatus);
     const { deleteData } = useFetch();
     const [status, setStatus] = useState(false);
 
