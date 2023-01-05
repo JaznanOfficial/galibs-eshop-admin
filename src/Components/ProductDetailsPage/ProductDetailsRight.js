@@ -1,8 +1,8 @@
 import React from "react";
 
 const ProductDetailsRight = ({ location }) => {
-    // console.log(location);
-    const { name,id,img, price,monitor} = location.state;
+    console.log(location);
+    const { name,_id,status, price,monitor,brand, ram,ssd, hdd, processor, short_details} = location.state || {};
     return (
         <>
             <div class="text-gray-700 body-font overflow-hidden bg-white">
@@ -19,26 +19,23 @@ const ProductDetailsRight = ({ location }) => {
                                 </div>
 
                                 <div class="bg-green-100 text-green-900 hover:text-gray-900 rounded px-2 py-2">
-                                    Status:$145
+                                    Status: $145
                                 </div>
 
                                 <div class="bg-green-100 text-green-900 hover:text-gray-900 rounded px-2 py-2">
-                                    Brand:$145
-                                </div>
-
-                                <div class="bg-green-100 text-green-900 hover:text-gray-900 rounded px-2 py-2">
-                                    Product code:$145
+                                    Product code: {_id}
                                 </div>
                             </div>
 
                             <div>
                                 <p> Key Features </p>
-                                <p> MPN: T295-BSM-T295N </p>
-                                <p> Model: Galaxy Tab A 8.0 </p>
+                                <p> SSD: {ssd} </p>
+                                <p> HDD: {hdd} </p>
+                                <p> Model: {brand} </p>
                                 <p> Display: {monitor} </p>
-                                <p> Storage: 2GB RAM, 32GB ROM </p>
-                                <p> MPN: T295-BSM-T295N </p>
-                                <p>CPU: Helio P22T, GPU: PowerVR GE8320</p>
+                                <p> Storage: {ram} RAM </p>
+                                <p> Processor: {processor} </p>
+                                <p> Short Details: {short_details}</p>
                                 {/* <p class="text-blue-600 underline">View more info</p> */}
                             </div>
 
