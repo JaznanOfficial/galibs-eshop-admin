@@ -2,7 +2,9 @@ import React from "react";
 import ProductDetailsTable from "./ProductDetailsTable";
 
 
-const ProductDetailsSpecifications = () => {
+const ProductDetailsSpecifications = ({ location }) => {
+    console.log(location);
+    const { name,_id, price,monitor,brand, ram,ssd, hdd, processor, createdAt, quantity } = location.state || {};
     return (
         <>
             <div class="sm:w-8/12 w-full bg-white shadow-xl p-5 text-gray-800 relative md:text-left">
@@ -23,13 +25,13 @@ const ProductDetailsSpecifications = () => {
 
                         <tbody>
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <td>Display</td>
-                                <td class="py-4 px-6">TFT</td>
+                                <td>Name</td>
+                                <td class="py-4 px-6">{ name }</td>
                             </tr>
 
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <td>Display</td>
-                                <td class="py-4 px-6">TFT</td>
+                                <td>Price</td>
+                                <td class="py-4 px-6">{price}</td>
                             </tr>
 
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">

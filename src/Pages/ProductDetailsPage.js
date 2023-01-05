@@ -31,7 +31,7 @@ const ProductDetailsPage = ({ product }) => {
                 </div>
 
                 <div className="flex sm:flex-row flex-col gap-5 sm:w-full px-10 mb-5">
-                    <ProductDetailsSpecifications />
+                    <ProductDetailsSpecifications location={location} />
 
                     <ProductRelated />
                 </div>
