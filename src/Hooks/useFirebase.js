@@ -60,8 +60,8 @@ const useFirebase = () => {
                 const email = user.email;
                 const img = user.photoURL;
                 const role = 'user';
-                const status = 'active';
-                const data = { name, email, img, role, status }
+                // const status = 'active';
+                const data = { name, email, img, role }
                 postData("https://g-shop-server.onrender.com/api/v1/users", data)
                 
             } else {

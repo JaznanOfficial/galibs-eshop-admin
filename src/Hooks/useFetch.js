@@ -31,7 +31,7 @@ const useFetch = () => {
             if (res.data.status === "Successful") {
                 setSuccess(true);
 
-                toast.success("Your data successfully added");
+                toast.success("Your data successfully added. If you can't see any update, please refresh the page. we're working on real-time data fetching. that's coming soon. inshallah!");
             }
         } catch (err) {
             setError(err);
@@ -48,7 +48,7 @@ const useFetch = () => {
                 if (res.data.status === "Successful") {
                     setSuccess(true);
 
-                    toast.success("Hurray! your data updated successfully ");
+                    toast.success("Hurray! your data updated successfully. If you can't see any update, please refresh the page. we're working on real-time data fetching. that's coming soon. inshallah! ");
                 }
             })
             .catch((err) => {
@@ -66,7 +66,7 @@ const useFetch = () => {
             if (res.data.status === "Successful") {
                 setSuccess(true);
 
-                toast.success("Hurray! your data deleted successfully ");
+                toast.success("Hurray! your data deleted successfully. If you can't see any update, please refresh the page. we're working on real-time data fetching. that's coming soon. inshallah! ");
             }
         } catch (err) {
             setError(err);
