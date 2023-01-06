@@ -11,7 +11,7 @@ const CustomersPage = () => {
     useEffect(() => {
         getData("https://g-shop-server.onrender.com/api/v1/users");
     }, []);
-    // console.log(data);
+    console.log(data);
 
     return (
         <CustomersContext.Provider value={{ data, loading }}>
