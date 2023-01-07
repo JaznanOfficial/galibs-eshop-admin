@@ -9,7 +9,7 @@ const OrdersPage = () => {
     const { getData, data, loading } = useFetch();
 
     useEffect(() => {
-        getData("https://g-shop-server.onrender.com/api/v1/users");
+        getData("https://g-shop-server.onrender.com/api/v1/orders");
     }, []);
     console.log(data);
     return (
@@ -26,3 +26,4 @@ const OrdersPage = () => {
 };
 
 export default OrdersPage;
+export {OrdersContext}

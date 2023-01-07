@@ -1,54 +1,59 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const OrderSingleList = () => {
-    // {<span className="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs text-center">
-    //     Blocked
-    // </span>
+const OrderSingleList = ({order}) => {
+    
 
-    // <span className="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs text-center">
-    //     Active
-    // </span>}
+    const { _id, name, img, email, payment_method, products, status, createdAt, phone } = order || {};
+    const price = []
+     products.map(product => {
+        return price.push(product.price)
+        
+    })
+    console.log(price);
+     for (const total_price in price) {
+        console.log(total_price);
+     }
 
     return (
         <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-16">12345967894652163</p>
+                <p className="break-words whitespace-wrap w-16">{_id}</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap  text-center">12-12-2022</p>
+                <p className="break-words whitespace-wrap  text-center">{createdAt.slice(0,10)}</p>
             </td>
             <td className="py-3 px-3 text-center">
                 <div className="flex items-center justify-center">
                     <div className="">
                         <img
                             className="w-6 h-6 rounded-full"
-                            src="https://randomuser.me/api/portraits/men/1.jpg"
-                            alt="user-img"
+                            src={img}
+                            alt="order-img"
                         />
                     </div>
-                    <p className="break-words whitespace-wrap w-20">Abdur Rahman</p>
+                    <p className="break-words whitespace-wrap w-20">{ name}</p>
                 </div>
             </td>
 
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap text-center w-24 mx-auto">01643282147</p>
+                <p className="break-words whitespace-wrap text-center w-24 mx-auto">{phone}</p>
             </td>
             <td className="p-3 text-center font-medium">
                 <p className="break-words whitespace-wrap w-24 mx-auto text-center">৳ 40000</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-24 mx-auto text-center">cod</p>
+                <p className="break-words whitespace-wrap w-24 mx-auto text-center">{payment_method}</p>
             </td>
             <td className="p-3 text-center font-medium">
                 <span className="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs text-center">
-                    Active
+                    {status}
                 </span>
             </td>
 
             <td className="p-3  text-center">
                 <select className="select w-28 select-primary ">
-                    <option selected>Status</option>
+                    <option selected disabled>Status</option>
                     <option>Pending</option>
                     <option>Processing</option>
                     <option>Shipping</option>
