@@ -8,7 +8,7 @@ import ProductRelated from "../Components/ProductDetailsPage/ProductRelated";
 
 const ProductDetailsPage = ({ product }) => {
     const location = useLocation();
-    console.log(location.state);
+    // console.log(location.state);
     return (
         <>
             <div class=" flex-col bg-green-50 flex items-center">
@@ -30,14 +30,14 @@ const ProductDetailsPage = ({ product }) => {
                     </div>
                 </div>
 
-                <div className="flex sm:flex-row flex-col gap-5 sm:w-full px-10 mb-5">
-                    <ProductDetailsSpecifications />
+                <div className="flex sm:flex-row flex-col gap-5 w-full px-10 mb-5">
+                    <ProductDetailsSpecifications location={location} />
 
                     <ProductRelated />
                 </div>
 
                 <div className=" w-full px-10 mb-5">
-                    <ProductDescription />
+                    <ProductDescription location={location} />
                 </div>
             </div>
         </>
