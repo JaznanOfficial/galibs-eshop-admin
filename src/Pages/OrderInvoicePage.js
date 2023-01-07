@@ -1,9 +1,13 @@
 import React from "react";
 import { useRef } from "react";
+import { useLocation } from "react-router-dom";
 import ReactToPrint from "react-to-print";
 
 const OrderInvoicePage = () => {
     const printContent = useRef();
+    const { state } = useLocation();
+    console.log(state);
+    const { _id, name, email, img, phone, createdAt, products } = state;
 
     return (
         <div>
@@ -31,7 +35,7 @@ const OrderInvoicePage = () => {
                                 </div>
                                 <div className="text-black flex flex-col justify-center md:items-end items-center">
                                     <h2 className="text-xl font-bold">Invoice Id:</h2>
-                                    <h3 className="text-gray-600">0123489646515648456</h3>
+                                    <h3 className="text-gray-600">{_id}</h3>
                                 </div>
                             </div>
                             <div className="bg-green-100">
@@ -40,21 +44,15 @@ const OrderInvoicePage = () => {
                                         <p className="text-black text-lg font-bold text-start">
                                             Date:
                                         </p>
-                                        <p className="text-gray-600">10 Dec 2022</p>
+                                        <p className="text-gray-600">{createdAt.slice(0, 10)}</p>
                                     </div>
                                     <div>
                                         <p className="text-black text-lg font-bold text-start">
                                             To:
                                         </p>
-                                        <p className="text-gray-600  text-start">
-                                            {" "}
-                                            Md Abdur Rahman
-                                        </p>
-                                        <p className="text-gray-600  text-start">
-                                            {" "}
-                                            jaznanofficial@gmail.com
-                                        </p>
-                                        <p className="text-gray-600  text-start"> 01641254841</p>
+                                        <p className="text-gray-600  text-start"> {name}</p>
+                                        <p className="text-gray-600  text-start"> {email}</p>
+                                        <p className="text-gray-600  text-start"> {phone}</p>
                                     </div>
                                 </div>
                             </div>
@@ -86,49 +84,36 @@ const OrderInvoicePage = () => {
                                                     scope="col"
                                                     class="py-3.5 pl-3 pr-4 text-right text-sm font-normal text-slate-700 sm:pr-6 md:pr-0"
                                                 >
-                                                    Amount
+                                                    Total Amount
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="border-b border-slate-200">
-                                                <td class="py-4 pl-4 pr-3 text-sm sm:pl-6 md:pl-0">
-                                                    <div class="font-medium text-slate-700">
-                                                        Tesla Truck
-                                                    </div>
-                                                    <div class="mt-0.5 text-slate-500 sm:hidden">
-                                                        1 unit at $0.00
-                                                    </div>
-                                                </td>
-                                                <td class="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
-                                                    <strong>48</strong>
-                                                </td>
-                                                <td class="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
-                                                    <strong>$0.00</strong>
-                                                </td>
-                                                <td class="py-4 pl-3 pr-4 text-sm text-right text-primary sm:pr-6 md:pr-0">
-                                                    <strong>$0.00</strong>
-                                                </td>
-                                            </tr>
-                                            <tr class="border-b border-slate-200">
-                                                <td class="py-4 pl-4 pr-3 text-sm sm:pl-6 md:pl-0">
-                                                    <div class="font-medium text-slate-700">
-                                                        Tesla Charging Station
-                                                    </div>
-                                                    <div class="mt-0.5 text-slate-500 sm:hidden">
-                                                        1 unit at $75.00
-                                                    </div>
-                                                </td>
-                                                <td class="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
-                                                    <strong>4</strong>
-                                                </td>
-                                                <td class="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
-                                                    <strong>$0.00</strong>
-                                                </td>
-                                                <td class="py-4 pl-3 pr-4 text-sm text-right text-primary sm:pr-6 md:pr-0">
-                                                    <strong>$0.00</strong>
-                                                </td>
-                                            </tr>
+                                            {products.map((product) => {
+                                                const { quantity, price, img } = product;
+                                                var sub_total = quantity * price;
+                                                return (
+                                                    <tr class="border-b border-slate-200">
+                                                        <td class="py-4 pl-4 pr-3 text-sm sm:pl-6 md:pl-0">
+                                                            <div class="font-medium text-slate-700">
+                                                                Lenovo Thinkpad t70s
+                                                            </div>
+                                                            <div class="mt-0.5 text-slate-500 sm:hidden">
+                                                                1 unit at $0.00
+                                                            </div>
+                                                        </td>
+                                                        <td class="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
+                                                            <strong>{quantity}</strong>
+                                                        </td>
+                                                        <td class="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
+                                                            <strong>${price}</strong>
+                                                        </td>
+                                                        <td class="py-4 pl-3 pr-4 text-sm text-right text-primary sm:pr-6 md:pr-0">
+                                                            <strong>${quantity*price}</strong>
+                                                        </td>
+                                                    </tr>
+                                                );
+                                            })}
                                         </tbody>
                                         <tfoot>
                                             <tr>
@@ -146,7 +131,7 @@ const OrderInvoicePage = () => {
                                                     Subtotal
                                                 </th>
                                                 <td class="pt-6 pl-3 pr-4 text-sm text-right text-primary sm:pr-6 md:pr-0">
-                                                <strong>$0.00</strong>
+                                                    <strong>${60000}</strong>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -164,7 +149,7 @@ const OrderInvoicePage = () => {
                                                     Discount
                                                 </th>
                                                 <td class="pt-6 pl-3 pr-4 text-sm text-right text-primary sm:pr-6 md:pr-0">
-                                                <strong>$0.00</strong>
+                                                    <strong>$0.00</strong>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -182,7 +167,7 @@ const OrderInvoicePage = () => {
                                                     Tax
                                                 </th>
                                                 <td class="pt-4 pl-3 pr-4 text-sm text-right text-primary sm:pr-6 md:pr-0">
-                                                <strong>$0.00</strong>
+                                                    <strong>$0.00</strong>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -200,7 +185,7 @@ const OrderInvoicePage = () => {
                                                     Total
                                                 </th>
                                                 <td class="pt-4 pl-3 pr-4 text-sm font-normal text-right text-primary sm:pr-6 md:pr-0">
-                                                <strong>$0.00</strong>
+                                                    <strong>${60000}</strong>
                                                 </td>
                                             </tr>
                                         </tfoot>

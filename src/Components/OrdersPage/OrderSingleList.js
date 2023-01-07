@@ -5,15 +5,20 @@ const OrderSingleList = ({order}) => {
     
 
     const { _id, name, img, email, payment_method, products, status, createdAt, phone } = order || {};
-    const price = []
+    const all_price = []
      products.map(product => {
-        return price.push(product.price)
+        return all_price.push(product.price)
         
-    })
-    console.log(price);
-     for (const total_price in price) {
-        console.log(total_price);
-     }
+     })
+    
+      let price = 0
+    console.log(all_price);
+    for (const single_price of all_price) {
+        // console.log(single_price);
+        //  console.log(single_price);
+         price += single_price;
+        }
+         console.log(price);
 
     return (
         <tr className="border-b border-gray-200 hover:bg-gray-100">
@@ -40,7 +45,7 @@ const OrderSingleList = ({order}) => {
                 <p className="break-words whitespace-wrap text-center w-24 mx-auto">{phone}</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-24 mx-auto text-center">৳ 40000</p>
+                <p className="break-words whitespace-wrap w-24 mx-auto text-center">৳{price} </p>
             </td>
             <td className="p-3 text-center font-medium">
                 <p className="break-words whitespace-wrap w-24 mx-auto text-center">{payment_method}</p>
@@ -62,7 +67,7 @@ const OrderSingleList = ({order}) => {
                 </select>
             </td>
             <td className="py-3 px-3 text-center">
-                <Link to={'/orders/12648'} className="btn btn-circle hover:bg-green-500 hover:text-white hover:border-green-500 text-green-500">
+                <Link to={`/orders/${_id}` } className="btn btn-circle hover:bg-green-500 hover:text-white hover:border-green-500 text-green-500" state ={order}>
                     <i class="fa-solid fa-magnifying-glass-plus"></i>
                 </Link>
             </td>
