@@ -18,7 +18,7 @@ const OrdersPage = () => {
                 <div>
                     <h1 className="text-2xl  font-extrabold text-black">Orders</h1>
                 </div>
-                <OrdersTopBar />
+                {/* <OrdersTopBar /> */}
                 <OrdersList />
             </div>
         </OrdersContext.Provider>
