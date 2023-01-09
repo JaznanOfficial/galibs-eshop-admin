@@ -3,16 +3,14 @@ import CustomerSingleList from "./CustomerSingleList";
 import { CustomersContext } from "../../Pages/CustomersPage";
 import { Watch } from "react-loader-spinner";
 
-
 const CustomerList = () => {
     const { data, loading } = useContext(CustomersContext);
 
     return (
         <>
-            <div>
-                <div className="  flex items-top justify-center  font-sans overflow-auto">
-                    <div className="w-11/12 mx-auto">
-                        <div className="w-auto overflow-auto bg-white shadow-md rounded">
+            <div className=" mt-10 flex items-top justify-center  font-sans overflow-auto">
+                <div className="w-11/12 mx-auto">
+                    <div className="w-auto overflow-auto bg-white shadow-md rounded">
                         {loading ? (
                             <div className="flex justify-center items-center w-full mx-auto py-10">
                                 <Watch
@@ -43,25 +41,23 @@ const CustomerList = () => {
                                     </tr>
                                 </thead>
                                 <tbody
-                                        className={
-                                            loading
-                                                ? "text-gray-600 text-sm font-light flex justify-center"
-                                                : "text-gray-600 text-sm font-light"
-                                        }
-                                    >
-                                        {data.map((customer) => {
-                                            return (
-                                                <CustomerSingleList
-                                                    customer={customer}
-                                                    key={customer?._id}
-                                                />
-                                            );
-                                        })}
-                                    </tbody>
+                                    className={
+                                        loading
+                                            ? "text-gray-600 text-sm font-light flex justify-center"
+                                            : "text-gray-600 text-sm font-light"
+                                    }
+                                >
+                                    {data.map((customer) => {
+                                        return (
+                                            <CustomerSingleList
+                                                customer={customer}
+                                                key={customer?._id}
+                                            />
+                                        );
+                                    })}
+                                </tbody>
                             </table>
                         )}
-                            
-                        </div>
                     </div>
                 </div>
             </div>
