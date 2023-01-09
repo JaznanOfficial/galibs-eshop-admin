@@ -19,7 +19,7 @@ const CustomersPage = () => {
                 <div>
                     <h1 className="text-2xl  font-extrabold text-black">Customers</h1>
                 </div>
-                <CustomerTopBar />
+                {/* <CustomerTopBar /> */}
                 <CustomerList />
             </div>
         </CustomersContext.Provider>

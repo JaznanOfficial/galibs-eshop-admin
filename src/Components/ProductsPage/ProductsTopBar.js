@@ -10,13 +10,13 @@ const ProductsTopBar = () => {
         <>
             <div className="w-full  md:px-0 my-5 flex justify-center items-center">
                 <div className="w-11/12 mx-auto p-5 bg-white border flex flex-col md:flex-row justify-center items-center gap-5">
-                    <div className=" w-full">
+                    {/* <div className=" w-full">
                         <input
                             type="text"
                             placeholder="Type here"
                             className="input w-full focus:bg-white bg-green-100 text-black"
                         />
-                    </div>
+                    </div> */}
                     <div className=" w-full">
                         <select className="select w-full focus:bg-white bg-green-100 text-black">
                             <option disabled selected>

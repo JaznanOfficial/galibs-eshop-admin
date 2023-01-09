@@ -25,11 +25,21 @@ const useFetch = () => {
     };
     const postData = async (url, data) => {
         try {
-            const res = await axios.post(url, data, {
-                headers: { "Content-Type": "application/json" },
-            });
+            const res = await axios.post(url, data);
+            // console.log(res);
+            
             if (res.data.status === "Successful") {
                 setSuccess(true);
+
+                setDataLoading(false);
+
+                toast.success("Your data successfully added. If you can't see any update, please refresh the page. we're working on real-time data fetching. that's coming soon. inshallah!");
+            }
+            else if (res.status === 200) {
+                
+                setDataLoading(false);
+                setData(res);
+
 
                 toast.success("Your data successfully added. If you can't see any update, please refresh the page. we're working on real-time data fetching. that's coming soon. inshallah!");
             }
