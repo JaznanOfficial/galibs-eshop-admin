@@ -1,34 +1,38 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Watch } from "react-loader-spinner";
 import useFetch from "../../Hooks/useFetch";
 
 const BrandTopBar = () => {
-
-    const { postData, data, loading } = useFetch();
-    // const [images, setImages] = useState({});
+    const { postData } = useFetch();
+    const [data, setData] = useState({});
+    const [loading, setLoading] = useState(false);
     // console.log(images);
     const [showModal, setShowModal] = React.useState(false);
 
-    const [imageUpload, setImageUpload] = useState(null)||{};
+    const [imageUpload, setImageUpload] = useState("") || {};
 
-    const handleImage = (e) => {
+    const handleImage = async (e) => {
+        setLoading(true);
         const image = e.target.files[0];
         const formData = new FormData();
         formData.set("key", "1cbd6d1d311a1b351898b64918af6ef1");
         formData.append("image", image);
 
-
-        postData("https://api.imgbb.com/1/upload", formData)
-        console.log(data);
-        // setImageUpload()
+        const imgUpload = await postData("https://api.imgbb.com/1/upload", formData);
+        if (imgUpload.status === 200) {
+            setLoading(false);
+            setImageUpload(imgUpload.data.data.url);
+            console.log(imageUpload);
+        }
     };
+
     const nameRef = useRef();
     const handleSubmit = () => {
         const name = nameRef.current.value;
         const img = imageUpload;
-        
-        console.log(name);
-        console.log(img);
-    }
+
+        console.log({ name, img });
+    };
 
     return (
         <div className="w-full  md:px-0 my-5 flex justify-center items-center">
@@ -91,44 +95,60 @@ const BrandTopBar = () => {
                                                             </h1>
                                                         </div>
 
-                           <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
-                                <div class="flex items-center justify-center w-full">
-                                    <label
-                                        for="dropzone-file"
-                                        class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                                        
-                                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                            <i class="fa-solid fa-cloud-arrow-up text-primary text-3xl"></i>
-                                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                                                <span class="font-semibold">
-                                                    Click to upload
-                                                </span>
-                                            </p>
-                                        </div>
-                                        
-                                         <input
-                                            onChange={handleImage}
-                                            id="dropzone-file"
-                                            type="file"
-                                            class="hidden"
-                                            accept="image/*"
-                                        />
-                                    </label>
-                                </div>
-                                <div className="my-5 flex items-center justify-center gap-5">
-                                {
-                                    imageUpload &&
-                                    <span>
-                                        <img
-                                        class="sm:w-40 w-10 sm:h-40 h-10  sm:rounded-lg rounded-3xl"
-                                        src={imageUpload}
-                                        alt="description"/>
-                                    </span>
-                                }
-                                    
-                                </div> 
-                        </div>
-                            </div>
+                                                        <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
+                                                            <div class="flex items-center justify-center w-full">
+                                                                <label
+                                                                    for="dropzone-file"
+                                                                    class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+                                                                >
+                                                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                                                        <i class="fa-solid fa-cloud-arrow-up text-primary text-3xl"></i>
+                                                                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                                                                            <span class="font-semibold">
+                                                                                Click to upload
+                                                                            </span>
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <input
+                                                                        onChange={handleImage}
+                                                                        id="dropzone-file"
+                                                                        type="file"
+                                                                        class="hidden"
+                                                                        accept="image/*"
+                                                                    />
+                                                                </label>
+                                                            </div>
+                                                            <div className="my-5 flex items-center justify-center gap-5">
+                                                                {loading ? (
+                                                                    <div className="flex justify-center items-center w-full mx-auto py-10">
+                                                                        <Watch
+                                                                            height="80"
+                                                                            width="80"
+                                                                            color="#4fa94d"
+                                                                            ariaLabel="bars-loading"
+                                                                            wrapperStyle={{}}
+                                                                            wrapperClass=""
+                                                                            visible={true}
+                                                                            style={{
+                                                                                margin: "0 auto",
+                                                                            }}
+                                                                        />
+                                                                    </div>
+                                                                ) : (
+                                                                    imageUpload && (
+                                                                        <span>
+                                                                            <img
+                                                                                class="sm:w-40 w-10 sm:h-40 h-10  sm:rounded-lg rounded-3xl"
+                                                                                src={imageUpload}
+                                                                                alt="description"
+                                                                            />
+                                                                        </span>
+                                                                    )
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
                                                     <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
                                                         <div className="md:w-1/5">
