@@ -7,7 +7,7 @@ const OrderInvoicePage = () => {
     const printContent = useRef();
     const { state } = useLocation();
     console.log(state);
-    const { _id, name, email, img, phone, createdAt, products } = state;
+    const { _id, name, email, img, phone, createdAt, products } = state || {};
 
     return (
         <div>
@@ -44,7 +44,7 @@ const OrderInvoicePage = () => {
                                         <p className="text-black text-lg font-bold text-start">
                                             Date:
                                         </p>
-                                        <p className="text-gray-600">{createdAt.slice(0, 10)}</p>
+                                        <p className="text-gray-600">{createdAt?.slice(0, 10)}</p>
                                     </div>
                                     <div>
                                         <p className="text-black text-lg font-bold text-start">
@@ -89,7 +89,7 @@ const OrderInvoicePage = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {products.map((product) => {
+                                            {products?.map((product) => {
                                                 const { quantity, price, img } = product;
                                                 var sub_total = quantity * price;
                                                 return (
