@@ -6,13 +6,24 @@ const BrandSingleList = ({ brand }) => {
     const { _id, name, img, status: brandStatus } = brand;
 
     const [images, setImages] = useState({});
-    console.log(images);
+    console.log(brandStatus);
+
+    const [hide, setHide] = useState(brandStatus);
 
     const [status, setStatus] = useState(false);
     const [showModal, setShowModal] = React.useState(false);
 
-    const statusHandler = () => {
-        setStatus(!status);
+    const statusHandler = async(id) => {
+        if (hide) {
+            setStatus(false);
+        } else {
+            setStatus(true);
+        }
+        setHide(!hide);
+        const data = { status: status };
+        console.log(data);
+
+        await patchData(`https://g-shop-server.onrender.com/api/v1/brands?_id=${id}`, data);
     };
 
     const deleteHandler = (id) => {
@@ -39,12 +50,13 @@ const BrandSingleList = ({ brand }) => {
                 <input
                     type="checkbox"
                     className="toggle checked:toggle-error"
-                    onClick={statusHandler}
+                    onClick={() => statusHandler(_id)}
+                    checked={brandStatus ? false : true}
                 />
             </td>
 
             <td className="py-3 px-3 text-center">
-                {status ? (
+                {!brandStatus ? (
                     <span className="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs text-center">
                         Hidden
                     </span>
