@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import useFetch from "../../Hooks/useFetch";
 
-const BrandSingleList = () => {
+const BrandSingleList = ({ brand }) => {
+    const { patchData, deleteData, success, error } = useFetch();
+    const { _id, name, img, status: brandStatus } = brand;
 
     const [images, setImages] = useState({});
     console.log(images);
-    
+
     const [status, setStatus] = useState(false);
     const [showModal, setShowModal] = React.useState(false);
 
@@ -12,26 +15,24 @@ const BrandSingleList = () => {
         setStatus(!status);
     };
 
+    const deleteHandler = (id) => {
+        deleteData(`https://g-shop-server.onrender.com/api/v1/brands?_id=${id}`);
+    };
+
     return (
         <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="p-3 text-center font-medium">
-                <h1 className="break-words whitespace-wrap w-full md:w-full  text-center">
-                    12345967894652163
-                </h1>
+                <h1 className="break-words whitespace-wrap w-full md:w-full  text-center">{_id}</h1>
             </td>
             <td className="py-3 px-3 text-center">
                 <div className="flex justify-center items-center ">
                     <div className="mr-1">
-                        <img
-                            className="w-8 h-8 rounded-full"
-                            src="https://randomuser.me/api/portraits/men/1.jpg"
-                            alt="product-img"
-                        />
+                        <img className="w-8 h-8 rounded-full" src={img} alt="product-img" />
                     </div>
                 </div>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-full text-center">Lenovo</p>
+                <p className="break-words whitespace-wrap w-full text-center">{name}</p>
             </td>
 
             <td className="p-3 text-center font-medium">
@@ -62,7 +63,10 @@ const BrandSingleList = () => {
                         <i className="fa-solid fa-pen-to-square"></i>
                     </div>
 
-                    <div className="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
+                    <div
+                        onClick={() => deleteHandler(_id)}
+                        className="w-4 mr-2 transform hover:text-red-500 hover:scale-110"
+                    >
                         <i className="fa-solid fa-trash-can"></i>
                     </div>
                 </div>

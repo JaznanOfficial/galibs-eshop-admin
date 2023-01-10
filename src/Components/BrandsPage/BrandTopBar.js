@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Watch } from "react-loader-spinner";
+import { toast } from "react-toastify";
 import useFetch from "../../Hooks/useFetch";
 
 const BrandTopBar = () => {
@@ -27,11 +28,21 @@ const BrandTopBar = () => {
     };
 
     const nameRef = useRef();
-    const handleSubmit = () => {
+    const handleSubmit = async() => {
         const name = nameRef.current.value;
         const img = imageUpload;
+        const brandData = {name,img}
+        console.log(brandData);
+        const brandUpload = await postData("https://g-shop-server.onrender.com/api/v1/brands", brandData);
+        console.log(brandUpload);
+        if (brandUpload.data.status === "Successful") {
+                    // setSuccess(true);
+    
+                    // setDataLoading(false);
+    
+                    toast.success("Your data successfully added. If you can't see any update, please refresh the page. we're working on real-time data fetching. that's coming soon. inshallah!");
+                }
 
-        console.log({ name, img });
     };
 
     return (
