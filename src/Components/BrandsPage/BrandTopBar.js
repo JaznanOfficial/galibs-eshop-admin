@@ -54,7 +54,7 @@ const BrandTopBar = () => {
                         placeholder="Search by brand name"
                         className="input w-full focus:bg-white bg-green-100 text-black"
                     />
-                </div> */}
+                </div> 
                 <div className=" w-full">
                     <select className="select w-full focus:bg-white bg-green-100 text-black">
                         <option disabled selected>
@@ -66,7 +66,7 @@ const BrandTopBar = () => {
                         <option>Dell</option>
                         <option>Hp</option>
                     </select>
-                </div>
+                </div> */}
 
                 <div className=" w-full">
                     <button

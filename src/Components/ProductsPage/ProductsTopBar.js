@@ -1,11 +1,75 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { Watch } from "react-loader-spinner";
+import { toast } from "react-toastify";
+import useFetch from "../../Hooks/useFetch";
 
 
 const ProductsTopBar = () => {
-    const [images, setImages] = useState({});
-    console.log(images);
+
+    const { postData } = useFetch();
+    const [loading, setLoading] = useState(false);
+
+    const [imageUpload, setImageUpload] = useState("") || {};
+
+    const handleImage = async (e) => {
+        setLoading(true);
+        const image = e.target.files[0];
+        const formData = new FormData();
+        formData.set("key", "1cbd6d1d311a1b351898b64918af6ef1");
+        formData.append("image", image);
+
+        const imgUpload = await postData("https://api.imgbb.com/1/upload", formData);
+        if (imgUpload.status === 200) {
+            setLoading(false);
+            setImageUpload(imgUpload.data.data.url);
+            // console.log(imageUpload);
+        }
+    };
+
+
+    const nameRef = useRef();
+    const priceRef = useRef();
+    const quantityRef = useRef();
+    const brandRef = useRef();
+    const ssdRef = useRef();
+    const hddRef = useRef();
+    const ramRef = useRef();
+    const monitorRef = useRef();
+    const processorRef = useRef();
+    const short_detailsRef = useRef();
+    const details_descriptionRef = useRef();
+
+    const handleSubmit = async() => {
+        const name = nameRef.current.value;
+        const img = imageUpload;
+        const price = priceRef.current.value;
+        const quantity = quantityRef.current.value;
+        const brand = brandRef.current.value;
+        const ssd = ssdRef.current.value;
+        const hdd = hddRef.current.value;
+        const ram = ramRef.current.value;
+        const monitor = monitorRef.current.value;
+        const processor = processorRef.current.value;
+        const short_details = short_detailsRef.current.value;
+        const details_description = details_descriptionRef.current.value;
+
+        const productData = {name,img, price, quantity, brand, ssd, hdd, ram, monitor, processor,short_details, details_description}
+        console.log(productData);
+        const productUpload = await postData("https://g-shop-server.onrender.com/api/v1/products", productData);
+        console.log(productUpload);
+        if (productUpload.data.status === "Successful") {
+                    // setSuccess(true);
+    
+                    // setDataLoading(false);
+    
+                    toast.success("Your data successfully added. If you can't see any update, please refresh the page. we're working on real-time data fetching. that's coming soon. inshallah!");
+                }
+
+    };
 
     const [showModal, setShowModal] = React.useState(false);
+
+
     return (
         <>
             <div className="w-full  md:px-0 my-5 flex justify-center items-center">
@@ -16,8 +80,8 @@ const ProductsTopBar = () => {
                             placeholder="Type here"
                             className="input w-full focus:bg-white bg-green-100 text-black"
                         />
-                    </div> */}
-                    <div className=" w-full">
+                    </div> 
+                     <div className=" w-full">
                         <select className="select w-full focus:bg-white bg-green-100 text-black">
                             <option disabled selected>
                                 Brands
@@ -28,7 +92,7 @@ const ProductsTopBar = () => {
                             <option>Apple</option>
                             <option>Msi</option>
                         </select>
-                    </div>
+                    </div> 
                     <div className=" w-full">
                         <select className="select w-full focus:bg-white bg-green-100 text-black">
                             <option disabled selected>
@@ -37,7 +101,7 @@ const ProductsTopBar = () => {
                             <option>Low to high</option>
                             <option>High to low</option>
                         </select>
-                    </div>
+                    </div> */}
                     <div className=" w-full">
                         <button
                             className="btn btn-block bg-primary text-white hover:bg-white hover:text-primary hover:border-primary"
@@ -88,29 +152,43 @@ const ProductsTopBar = () => {
                                                                     </p>
                                                                 </div>
                                                                 <input
-                                                                    onChange={(e) => {
-                                                                        setImages(e.target.files);
-                                                                    }}
+                                                                onChange={handleImage}
                                                                     multiple
                                                                     id="dropzone-file"
                                                                     type="file"
                                                                     class="hidden"
+                                                                    accept="image/*"
                                                                 />
                                                             </label>
                                                         </div>
                                                         <div className="my-5 flex items-center justify-center gap-5">
-                                                            {Array.from(images).map((image) => {
-                                                                return (
-                                                                    <span>
-                                                                        <img
-                                                                            class="sm:w-40 w-10 sm:h-40 h-10  sm:rounded-lg rounded-3xl"
-                                                                            src={image ? URL.createObjectURL(image) : null}
-                                                                            alt="description"
+                                                                {loading ? (
+                                                                    <div className="flex justify-center items-center w-full mx-auto py-10">
+                                                                        <Watch
+                                                                            height="80"
+                                                                            width="80"
+                                                                            color="#4fa94d"
+                                                                            ariaLabel="bars-loading"
+                                                                            wrapperStyle={{}}
+                                                                            wrapperClass=""
+                                                                            visible={true}
+                                                                            style={{
+                                                                                margin: "0 auto",
+                                                                            }}
                                                                         />
-                                                                    </span>
-                                                                );
-                                                            })}
-                                                        </div>
+                                                                    </div>
+                                                                ) : (
+                                                                    imageUpload && (
+                                                                        <span>
+                                                                            <img
+                                                                                class="sm:w-40 w-10 sm:h-40 h-10  sm:rounded-lg rounded-3xl"
+                                                                                src={imageUpload}
+                                                                                alt="description"
+                                                                            />
+                                                                        </span>
+                                                                    )
+                                                                )}
+                                                            </div>
                                                     </div>
                                                 </div>
 
@@ -124,6 +202,7 @@ const ProductsTopBar = () => {
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
                                                                     <input
+                                                                        ref={nameRef}
                                                                         type="text"
                                                                         placeholder="Type here"
                                                                         className="input w-full focus:bg-white bg-green-100 text-black"
@@ -140,6 +219,7 @@ const ProductsTopBar = () => {
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
                                                                     <input
+                                                                    ref={priceRef}
                                                                         type="number"
                                                                         placeholder="Price"
                                                                         className="input w-full focus:bg-white bg-green-100 text-black"
@@ -156,6 +236,7 @@ const ProductsTopBar = () => {
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
                                                                     <input
+                                                                    ref={quantityRef}
                                                                         type="number"
                                                                         placeholder="Quantity"
                                                                         className="input w-full focus:bg-white bg-green-100 text-black"
@@ -172,12 +253,14 @@ const ProductsTopBar = () => {
 
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
-                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black">
+                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black"
+                                                                    ref={brandRef}
+                                                                    >
                                                                         <option disabled selected>
                                                                             Brand
                                                                         </option>
-                                                                        <option>Admin</option>
-                                                                        <option>Moderator</option>
+                                                                        <option>Asus</option>
+                                                                        <option>Lenovo</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -191,12 +274,15 @@ const ProductsTopBar = () => {
 
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
-                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black">
+                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black"
+                                                                    ref={ssdRef}
+                                                                    >
                                                                         <option disabled selected>
                                                                             SSD
                                                                         </option>
-                                                                        <option>Admin</option>
-                                                                        <option>Moderator</option>
+                                                                        <option>120gb</option>
+                                                                        <option>256gb</option>
+                                                                        <option>500gb</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -210,12 +296,14 @@ const ProductsTopBar = () => {
 
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
-                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black">
+                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black"
+                                                                    ref={hddRef}
+                                                                    >
                                                                         <option disabled selected>
                                                                             HDD
                                                                         </option>
-                                                                        <option>Admin</option>
-                                                                        <option>Moderator</option>
+                                                                        <option>500gb</option>
+                                                                        <option>1tb</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -229,12 +317,15 @@ const ProductsTopBar = () => {
 
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
-                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black">
+                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black"
+                                                                    ref={ramRef}
+                                                                    >
                                                                         <option disabled selected>
                                                                             RAM
                                                                         </option>
-                                                                        <option>Admin</option>
-                                                                        <option>Moderator</option>
+                                                                        <option>4gb</option>
+                                                                        <option>8gb</option>
+                                                                        <option>16gb</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -248,12 +339,14 @@ const ProductsTopBar = () => {
 
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
-                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black">
+                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black"
+                                                                    ref={monitorRef}
+                                                                    >
                                                                         <option disabled selected>
                                                                             Monitor
                                                                         </option>
-                                                                        <option>Admin</option>
-                                                                        <option>Moderator</option>
+                                                                        <option>14inc</option>
+                                                                        <option>21inc</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -267,6 +360,7 @@ const ProductsTopBar = () => {
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
                                                                     <input
+                                                                    ref={processorRef}
                                                                         type="text"
                                                                         placeholder="Processor"
                                                                         className="input w-full focus:bg-white bg-green-100 text-black"
@@ -286,6 +380,7 @@ const ProductsTopBar = () => {
                                                                         type="text"
                                                                         placeholder="Short Details"
                                                                         className="textarea w-full h-32 focus:bg-white bg-green-100 text-black"
+                                                                        ref={short_detailsRef}
                                                                     />
                                                                 </div>
                                                             </div>
@@ -303,6 +398,7 @@ const ProductsTopBar = () => {
                                                                         placeholder="Description"
                                                                         className="textarea w-full h-96 focus:bg-white bg-green-100 text-black"
                                                                         defaultValue={""}
+                                                                        ref={details_descriptionRef}
                                                                     />
                                                                 </div>
                                                             </div>
@@ -329,7 +425,10 @@ const ProductsTopBar = () => {
 
                                                 <button
                                                     className="btn w-full md:w-1/5 bg-primary text-white hover:bg-white hover:text-primary hover:border-primary"
-                                                    onClick={() => setShowModal(false)}
+                                                    onClick={() => {
+                                                        setShowModal(false);
+                                                        handleSubmit();
+                                                    }}
                                                 >
                                                     <i className="fa-solid fa-plus"></i>{" "}
                                                     <span className="ml-1">Add Product</span>

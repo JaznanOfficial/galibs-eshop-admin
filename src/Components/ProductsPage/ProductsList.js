@@ -50,7 +50,7 @@ const ProductsList = () => {
                                                 : "text-gray-600 text-sm font-light"
                                         }
                                     >
-                                        {data.map((product) => {
+                                        {data.reverse().map((product) => {
                                             return (
                                                 <ProductsSingleList
                                                     product={product}
