@@ -1,8 +1,54 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { Watch } from "react-loader-spinner";
+import { toast } from "react-toastify";
+import useFetch from "../../Hooks/useFetch";
 
 const StaffsTopBar = () => {
+    const { postData } = useFetch();
+    const [loading, setLoading] = useState(false);
+    // console.log(images);
     const [images, setImages] = useState({});
     console.log(images);
+
+    const [imageUpload, setImageUpload] = useState("") || {};
+
+    const handleImage = async (e) => {
+        setLoading(true);
+        const image = e.target.files[0];
+        const formData = new FormData();
+        formData.set("key", "1cbd6d1d311a1b351898b64918af6ef1");
+        formData.append("image", image);
+
+        const imgUpload = await postData("https://api.imgbb.com/1/upload", formData);
+        if (imgUpload.status === 200) {
+            setLoading(false);
+            setImageUpload(imgUpload.data.data.url);
+            console.log(imageUpload);
+        }
+    };
+
+    const nameRef = useRef();
+    const emailRef = useRef();
+    const phoneRef = useRef();
+    const roleRef = useRef();
+    const handleSubmit = async() => {
+        const name = nameRef.current.value;
+        const email = emailRef.current.value;
+        const role = roleRef.current.value;
+        const img = imageUpload;
+        const staffData = {name,img, email, role}
+        console.log(staffData);
+        const staffUpload = await postData("https://g-shop-server.onrender.com/api/v1/brands", staffData);
+        console.log(staffUpload);
+        if (staffUpload.data.status === "Successful") {
+                    // setSuccess(true);
+    
+                    // setDataLoading(false);
+    
+                    toast.success("Your data successfully added. If you can't see any update, please refresh the page. we're working on real-time data fetching. that's coming soon. inshallah!");
+                }
+
+    };
 
     const [showModal, setShowModal] = React.useState(false);
 
@@ -15,7 +61,7 @@ const StaffsTopBar = () => {
                         placeholder="Search by brand name"
                         className="input w-full focus:bg-white bg-green-100 text-black"
                     />
-                </div> */}
+                </div> 
                 <div className=" w-full">
                     <select className="select w-full focus:bg-white bg-green-100 text-black">
                         <option disabled selected>
@@ -24,7 +70,7 @@ const StaffsTopBar = () => {
                         <option>Admin</option>
                         <option>Moderator</option>
                     </select>
-                </div>
+                </div> */}
 
                 <div className=" w-full">
                     <button
@@ -79,10 +125,7 @@ const StaffsTopBar = () => {
                                                                     </p>
                                                                 </div>
                                                                 <input
-                                                                    onChange={(e) => {
-                                                                        setImages(e.target.files);
-                                                                    }}
-                                                                    
+                                                                onChange={handleImage}
                                                                     id="dropzone-file"
                                                                     type="file"
                                                                     class="hidden"
@@ -90,24 +133,33 @@ const StaffsTopBar = () => {
                                                             </label>
                                                         </div>
                                                         <div className="my-5 flex items-center justify-center gap-5">
-                                                            {Array.from(images).map((image) => {
-                                                                return (
-                                                                    <span>
-                                                                        <img
-                                                                            class="sm:w-40 w-10 sm:h-40 h-10  sm:rounded-lg rounded-3xl"
-                                                                            src={
-                                                                                image
-                                                                                    ? URL.createObjectURL(
-                                                                                          image
-                                                                                      )
-                                                                                    : null
-                                                                            }
-                                                                            alt="description"
-                                                                        />
-                                                                    </span>
-                                                                );
-                                                            })}
-                                                        </div>
+                                                        {loading ? (
+                                                            <div className="flex justify-center items-center w-full mx-auto py-10">
+                                                                <Watch
+                                                                    height="80"
+                                                                    width="80"
+                                                                    color="#4fa94d"
+                                                                    ariaLabel="bars-loading"
+                                                                    wrapperStyle={{}}
+                                                                    wrapperClass=""
+                                                                    visible={true}
+                                                                    style={{
+                                                                        margin: "0 auto",
+                                                                    }}
+                                                                />
+                                                            </div>
+                                                        ) : (
+                                                            imageUpload && (
+                                                                <span>
+                                                                    <img
+                                                                        class="sm:w-40 w-10 sm:h-40 h-10  sm:rounded-lg rounded-3xl"
+                                                                        src={imageUpload}
+                                                                        alt="description"
+                                                                    />
+                                                                </span>
+                                                            )
+                                                        )}
+                                                    </div>
                                                     </div>
                                                 </div>
 
@@ -120,6 +172,7 @@ const StaffsTopBar = () => {
                                                     <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                         <div className=" w-full">
                                                             <input
+                                                                ref={nameRef}
                                                                 type="text"
                                                                 placeholder="Type here"
                                                                 className="input w-full focus:bg-white bg-green-100 text-black"
@@ -136,6 +189,7 @@ const StaffsTopBar = () => {
                                                     <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                         <div className=" w-full">
                                                             <input
+                                                            ref={emailRef}
                                                                 type="email"
                                                                 placeholder="Type here"
                                                                 className="input w-full focus:bg-white bg-green-100 text-black"
@@ -152,6 +206,7 @@ const StaffsTopBar = () => {
                                                     <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                         <div className=" w-full">
                                                             <input
+                                                            ref={phoneRef}
                                                                 type="Number"
                                                                 placeholder="Type here"
                                                                 className="input w-full focus:bg-white bg-green-100 text-black"
@@ -169,7 +224,9 @@ const StaffsTopBar = () => {
 
                                                     <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                         <div className=" w-full">
-                                                            <select className="select w-full focus:bg-white bg-green-100 text-black">
+                                                            <select className="select w-full focus:bg-white bg-green-100 text-black"
+                                                            ref={roleRef}
+                                                            >
                                                                 <option disabled selected>
                                                                     Role
                                                                 </option>
@@ -193,7 +250,10 @@ const StaffsTopBar = () => {
                                         </button>
                                         <button
                                             className="btn w-full md:w-1/5 bg-primary text-white hover:bg-white hover:text-primary hover:border-primary"
-                                            onClick={() => setShowModal(false)}
+                                            onClick={() => {
+                                                setShowModal(false);
+                                                handleSubmit();
+                                            }}
                                         >
                                             <i className="fa-solid fa-plus"></i>{" "}
                                             <span className="ml-1">Add Staff</span>

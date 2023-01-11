@@ -1,32 +1,40 @@
 import React from "react";
+import useFetch from "../../Hooks/useFetch";
 
-const CouponSingleList = () => {
+const CouponSingleList = ({ coupon }) => {
+    console.log(coupon);
+    const { deleteData } = useFetch();
+    const { _id, name, code,percent, starting_date, ending_date} = coupon;
    
     const [showModal, setShowModal] = React.useState(false);
+
+    const deleteHandler = (id) => {
+        deleteData(`https://g-shop-server.onrender.com/api/v1/coupons?_id=${id}`);
+    };
 
 
     return (
         <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-16">12345967894652163</p>
+                <p className="break-words whitespace-wrap w-16">{_id}</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap  text-center">2023 Eid Offer</p>
+                <p className="break-words whitespace-wrap  text-center">{name}</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap  text-center">eid2023</p>
+                <p className="break-words whitespace-wrap  text-center">{code}</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap text-center w-24 mx-auto">10%</p>
+                <p className="break-words whitespace-wrap text-center w-24 mx-auto">{percent}</p>
             </td>
-            <td className="p-3 text-center font-medium">
+            {/* <td className="p-3 text-center font-medium">
                 <p className="break-words whitespace-wrap w-24 mx-auto text-center">Asus ROG</p>
+            </td> */}
+            <td className="p-3 text-center font-medium">
+                <p className="break-words whitespace-wrap w-24 mx-auto text-center">{starting_date}</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-24 mx-auto text-center">June 1, 2023</p>
-            </td>
-            <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-24 mx-auto text-center">June 5, 2023</p>
+                <p className="break-words whitespace-wrap w-24 mx-auto text-center">{ending_date}</p>
             </td>
 
             <td className="py-3 px-3 text-center">
@@ -41,24 +49,26 @@ const CouponSingleList = () => {
 
             <td className="py-3 px-3 text-center">
                 <div className="flex item-center justify-center">
-                    <div
+                    {/* <div
                         className="w-4 mr-2 transform hover:text-primary hover:scale-110 cursor-pointer"
                         onClick={() => setShowModal(true)}
                     >
                         <i className="fa-solid fa-pen-to-square"></i>
-                    </div>
+                    </div> */}
 
-                    <div className="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
+                    <div className="w-4 mr-2 transform hover:text-red-500 hover:scale-110"
+                    onClick={()=>deleteHandler(_id)}
+                    >
                         <i className="fa-solid fa-trash-can"></i>
-                    </div>
+                    </div> 
                 </div>
-                {showModal ? (
+                {/* showModal ? (
                     <>
                             <div className="w-11/12 md:w-full mx-auto justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                                 <div className="relative w-full my-6 mx-auto max-w-6xl">
-                                    {/*content*/}
+                                    
                                     <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                                        {/*header*/}
+                                        
                                         <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                                             <button
                                                 className="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -69,7 +79,7 @@ const CouponSingleList = () => {
                                                 </span>
                                             </button>
                                         </div>
-                                        {/*body*/}
+                                        
                                         <div className="h-96 overflow-y-scroll">
                                             <div className="w-full  md:px-0 my-5 flex justify-center items-center">
                                                 <div className="w-11/12 mx-auto p-5 bg-white border ">
@@ -173,7 +183,7 @@ const CouponSingleList = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        {/*footer*/}
+                                        
                                         <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
                                             <button
                                                 className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
@@ -193,7 +203,7 @@ const CouponSingleList = () => {
                                 </div>
                             </div>
                         </>
-                ) : null}
+                ) : null */}
             </td>
         </tr>
     );

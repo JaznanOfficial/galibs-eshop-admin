@@ -1,6 +1,9 @@
 import React from "react";
 
 const CustomerTopBar = () => {
+
+
+    
     return (
         
             <div className="w-full  md:px-0 my-5 flex justify-center items-center">
