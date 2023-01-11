@@ -14,7 +14,7 @@ const BrandsPage = () => {
 
     useEffect(() => {
         getData("https://g-shop-server.onrender.com/api/v1/brands");
-    }, []);
+    }, [data]);
     console.log(data);
     return (
         <BrandsContext.Provider value={{data,loading}}>

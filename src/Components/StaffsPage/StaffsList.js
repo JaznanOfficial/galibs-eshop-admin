@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { StaffsContext } from '../../Pages/StaffsPage';
 import StaffsSingleList from './StaffsSingleList';
 
 const StaffsList = () => {
+    const { data, loading } = useContext(StaffsContext);
     return (
         <>
             <div>
@@ -21,9 +23,23 @@ const StaffsList = () => {
                                         <th className="py-3 px-3 text-center">Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody className="text-gray-600 text-sm font-light">
-                                    <StaffsSingleList />
-                                </tbody>
+                                <tbody
+                                        className={
+                                            loading
+                                                ? "text-gray-600 text-sm font-light flex justify-center"
+                                                : "text-gray-600 text-sm font-light"
+                                        }
+                                    >
+                                        {data.reverse().map((staff) => {
+                                            return (
+                                                <StaffsSingleList
+                                                    staff={staff}
+                                                    key={staff?._id}
+                                                />
+                                            );
+                                        })}
+                                    </tbody>
+                                
                             </table>
                         </div>
                     </div>
