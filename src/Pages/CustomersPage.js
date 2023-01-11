@@ -27,4 +27,4 @@ const CustomersPage = () => {
 };
 
 export default CustomersPage;
-export {CustomersContext}
+export { CustomersContext };
