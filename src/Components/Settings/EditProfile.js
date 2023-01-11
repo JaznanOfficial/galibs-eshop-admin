@@ -1,8 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import useFetch from "../../Hooks/useFetch";
+import useFirebase from "../../Hooks/useFirebase";
 
 const EditProfile = () => {
+    const { getData, data, loading } = useFetch();
+    const { user } = useFirebase();
+    console.log(user.email);
+
     const [images, setImages] = useState({});
     console.log(images);
+
+    useEffect(() => {
+        getData(`https://g-shop-server.onrender.com/api/v1/users?email=${user?.email}`);
+    }, [user]);
+    console.log(data);
+    const { name, email, phone,role } = data[0] || {};
 
     return (
         <div>
@@ -60,6 +72,7 @@ const EditProfile = () => {
                                     type="text"
                                     placeholder="Type here"
                                     className="input w-full focus:bg-white bg-green-100 text-black"
+                                    defaultValue={name}
                                 />
                             </div>
                         </div>
@@ -74,6 +87,7 @@ const EditProfile = () => {
                                     type="text"
                                     placeholder="Type here"
                                     className="input w-full focus:bg-white bg-green-100 text-black"
+                                    defaultValue={email}
                                 />
                             </div>
                         </div>
@@ -88,6 +102,7 @@ const EditProfile = () => {
                                     type="Number"
                                     placeholder="Type here"
                                     className="input w-full focus:bg-white bg-green-100 text-black"
+                                    defaultValue={phone}
                                 />
                             </div>
                         </div>
@@ -102,6 +117,8 @@ const EditProfile = () => {
                                     type="text"
                                     placeholder="Type here"
                                     className="input w-full focus:bg-white bg-green-100 text-black"
+                                    defaultValue={role}
+                                    disabled
                                 />
                             </div>
                         </div>
