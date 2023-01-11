@@ -10,7 +10,7 @@ const OrdersPage = () => {
 
     useEffect(() => {
         getData("https://g-shop-server.onrender.com/api/v1/orders");
-    }, []);
+    }, [data]);
     console.log(data);
     return (
         <OrdersContext.Provider value={{ data, loading }}>

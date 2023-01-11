@@ -10,7 +10,7 @@ const CustomersPage = () => {
 
     useEffect(() => {
         getData("https://g-shop-server.onrender.com/api/v1/users");
-    }, []);
+    }, [data]);
     console.log(data);
 
     return (

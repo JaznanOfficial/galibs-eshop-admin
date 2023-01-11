@@ -1,17 +1,26 @@
 import React, { useState } from "react";
 import useFetch from "../../Hooks/useFetch";
 
-const StaffsSingleList = () => {
+const StaffsSingleList = ({ staff }) => {
+    console.log(staff);
+    const { deleteData } = useFetch();   
+    
+    const { _id, name, img,email, phone,role} = staff;
     const [images, setImages] = useState({});
     console.log(images);
 
     const [showModal, setShowModal] = React.useState(false);
 
+    
+    const deleteHandler = (id) => {
+        deleteData(`https://g-shop-server.onrender.com/api/v1/staffs?_id=${id}`);
+    };
+
     return (
         <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="p-3 text-center font-medium">
                 <h1 className="break-words whitespace-wrap w-full md:w-full  text-center">
-                    12345967894652163
+                    {_id}
                 </h1>
             </td>
             <td className="py-3 px-3 text-center">
@@ -19,25 +28,25 @@ const StaffsSingleList = () => {
                     <div className="">
                         <img
                             className="w-6 h-6 rounded-full"
-                            src="https://randomuser.me/api/portraits/men/1.jpg"
+                            src={img}
                             alt="user-img"
                         />
                     </div>
-                    <p className="break-words whitespace-wrap w-20">Abdur Rahman</p>
+                    <p className="break-words whitespace-wrap w-20">{name}</p>
                 </div>
             </td>
             <td className="p-3 text-center font-medium">
                 <p className="break-words whitespace-wrap w-full text-center">
-                    jaznanofficial@gmail.com
+                    {email}
                 </p>
             </td>
 
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-full text-center">+8801643282147</p>
+                <p className="break-words whitespace-wrap w-full text-center">{phone}</p>
             </td>
 
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-full text-center">Admin</p>
+                <p className="break-words whitespace-wrap w-full text-center">{role}</p>
             </td>
             <td className="py-3 px-3 text-center">
                 <div className="flex item-center justify-center">
@@ -48,7 +57,9 @@ const StaffsSingleList = () => {
                         <i className="fa-solid fa-pen-to-square"></i>
                     </div> */}
 
-                    <div className="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
+                    <div className="w-4 mr-2 transform hover:text-red-500 hover:scale-110"
+                    onClick={()=>deleteHandler(_id)}
+                    >
                         <i className="fa-solid fa-trash-can"></i>
                     </div>
                 </div>

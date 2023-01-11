@@ -7,8 +7,8 @@ const StaffsTopBar = () => {
     const { postData } = useFetch();
     const [loading, setLoading] = useState(false);
     // console.log(images);
-    const [images, setImages] = useState({});
-    console.log(images);
+    // const [images, setImages] = useState({});
+    // console.log(images);
 
     const [imageUpload, setImageUpload] = useState("") || {};
 
@@ -35,10 +35,11 @@ const StaffsTopBar = () => {
         const name = nameRef.current.value;
         const email = emailRef.current.value;
         const role = roleRef.current.value;
+        const phone = phoneRef.current.value;
         const img = imageUpload;
-        const staffData = {name,img, email, role}
+        const staffData = {name,img, email, role, phone}
         console.log(staffData);
-        const staffUpload = await postData("https://g-shop-server.onrender.com/api/v1/brands", staffData);
+        const staffUpload = await postData("https://g-shop-server.onrender.com/api/v1/staffs", staffData);
         console.log(staffUpload);
         if (staffUpload.data.status === "Successful") {
                     // setSuccess(true);
@@ -230,8 +231,8 @@ const StaffsTopBar = () => {
                                                                 <option disabled selected>
                                                                     Role
                                                                 </option>
-                                                                <option>Admin</option>
-                                                                <option>Moderator</option>
+                                                                <option>admin</option>
+                                                                <option>moderator</option>
                                                             </select>
                                                         </div>
                                                     </div>
