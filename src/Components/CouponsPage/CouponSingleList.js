@@ -1,32 +1,40 @@
 import React from "react";
+import useFetch from "../../Hooks/useFetch";
 
-const CouponSingleList = () => {
+const CouponSingleList = ({ coupon }) => {
+    console.log(coupon);
+    const { deleteData } = useFetch();
+    const { _id, name, code,percent, starting_date, ending_date} = coupon;
    
     const [showModal, setShowModal] = React.useState(false);
+
+    const deleteHandler = (id) => {
+        deleteData(`https://g-shop-server.onrender.com/api/v1/coupons?_id=${id}`);
+    };
 
 
     return (
         <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-16">12345967894652163</p>
+                <p className="break-words whitespace-wrap w-16">{_id}</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap  text-center">2023 Eid Offer</p>
+                <p className="break-words whitespace-wrap  text-center">{name}</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap  text-center">eid2023</p>
+                <p className="break-words whitespace-wrap  text-center">{code}</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap text-center w-24 mx-auto">10%</p>
+                <p className="break-words whitespace-wrap text-center w-24 mx-auto">{percent}</p>
             </td>
-            <td className="p-3 text-center font-medium">
+            {/* <td className="p-3 text-center font-medium">
                 <p className="break-words whitespace-wrap w-24 mx-auto text-center">Asus ROG</p>
+            </td> */}
+            <td className="p-3 text-center font-medium">
+                <p className="break-words whitespace-wrap w-24 mx-auto text-center">{starting_date}</p>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-24 mx-auto text-center">June 1, 2023</p>
-            </td>
-            <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-24 mx-auto text-center">June 5, 2023</p>
+                <p className="break-words whitespace-wrap w-24 mx-auto text-center">{ending_date}</p>
             </td>
 
             <td className="py-3 px-3 text-center">
@@ -48,7 +56,9 @@ const CouponSingleList = () => {
                         <i className="fa-solid fa-pen-to-square"></i>
                     </div> */}
 
-                    <div className="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
+                    <div className="w-4 mr-2 transform hover:text-red-500 hover:scale-110"
+                    onClick={()=>deleteHandler(_id)}
+                    >
                         <i className="fa-solid fa-trash-can"></i>
                     </div> 
                 </div>

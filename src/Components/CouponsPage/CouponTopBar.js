@@ -9,11 +9,19 @@ const CouponTopBar = () => {
     // console.log(images);
 
     const nameRef = useRef();
+    const codeRef = useRef();
+    const percentRef = useRef();
+    const starting_dateRef = useRef();
+    const ending_dateRef = useRef();
     const handleSubmit = async() => {
         const name = nameRef.current.value;
-        const couponData = {name}
+        const code = codeRef.current.value;
+        const percent = percentRef.current.value;
+        const starting_date = starting_dateRef.current.value;
+        const ending_date = ending_dateRef.current.value;
+        const couponData = {name, code, percent, starting_date, ending_date}
         console.log(couponData);
-        const couponUpload = await postData("https://g-shop-server.onrender.com/api/v1/brands", couponData);
+        const couponUpload = await postData("https://g-shop-server.onrender.com/api/v1/coupons", couponData);
         console.log(couponUpload);
         if (couponUpload.data.status === "Successful") {
                     // setSuccess(true);
@@ -80,6 +88,7 @@ const CouponTopBar = () => {
                                                         <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                             <div className=" w-full">
                                                                 <input
+                                                                    ref={nameRef}
                                                                     type="text"
                                                                     placeholder="Type here"
                                                                     className="input w-full focus:bg-white bg-green-100 text-black"
@@ -96,6 +105,7 @@ const CouponTopBar = () => {
                                                         <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                             <div className=" w-full">
                                                                 <input
+                                                                    ref={codeRef}
                                                                     type="text"
                                                                     placeholder="Type here"
                                                                     className="input w-full focus:bg-white bg-green-100 text-black"
@@ -112,6 +122,7 @@ const CouponTopBar = () => {
                                                         <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                             <div className=" w-full">
                                                                 <input
+                                                                    ref={percentRef}
                                                                     type="Number"
                                                                     placeholder="Type here"
                                                                     className="input w-full focus:bg-white bg-green-100 text-black"
@@ -119,7 +130,7 @@ const CouponTopBar = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
+                                                    {/* <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
                                                         <div className="md:w-1/5">
                                                             <h1 className="text-md font-semibold text-primary">
                                                                 PRODUCT
@@ -134,7 +145,7 @@ const CouponTopBar = () => {
                                                                 />
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> */}
 
                                                     <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
                                                         <div className="md:w-1/5">
@@ -145,6 +156,7 @@ const CouponTopBar = () => {
                                                         <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                             <div className=" w-full">
                                                                 <input
+                                                                    ref={starting_dateRef}
                                                                     type="date"
                                                                     className="input w-full focus:bg-white bg-green-100 text-gray-400"
                                                                 />
@@ -161,6 +173,7 @@ const CouponTopBar = () => {
                                                         <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                             <div className=" w-full">
                                                                 <input
+                                                                ref={ending_dateRef}
                                                                     type="date"
                                                                     className="input w-full focus:bg-white bg-green-100 text-gray-400"
                                                                 />
@@ -175,16 +188,17 @@ const CouponTopBar = () => {
                                             <button
                                                 className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                                 type="button"
-                                                onClick={() => {
-                                                    setShowModal(false);
-                                                    handleSubmit();
-                                                }}
+                                                onClick={() => setShowModal(false)}
+                                                
                                             >
                                                 Close
                                             </button>
                                             <button
                                                 className="btn w-full md:w-1/5 bg-primary text-white hover:bg-white hover:text-primary hover:border-primary"
-                                                onClick={() => setShowModal(false)}
+                                                onClick={() => {
+                                                    setShowModal(false);
+                                                    handleSubmit();
+                                                }}
                                             >
                                                 <i className="fa-solid fa-plus"></i>{" "}
                                                 <span className="ml-1">Add Coupon</span>

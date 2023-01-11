@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CouponContext } from "../../Pages/CouponsPage";
 import CouponSingleList from "./CouponSingleList";
 
 const CouponList = () => {
+
+    const { data, loading } = useContext(CouponContext); 
     return (
         <>
             <div>
@@ -15,7 +18,7 @@ const CouponList = () => {
                                         <th className="py-3 px-3 text-center">Campaign Name</th>
                                         <th className="py-3 px-3 text-center">Code</th>
                                         <th className="py-3 px-3 text-center">Percentage</th>
-                                        <th className="py-3 px-3 text-center">Product</th>
+                                        {/* <th className="py-3 px-3 text-center">Product</th> */}
                                         <th className="py-3 px-3 text-center">Starting Date</th>
 
                                         <th className="py-3 px-3 text-center">Ending Date</th>
@@ -23,9 +26,22 @@ const CouponList = () => {
                                         <th className="py-3 px-3 text-center">Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody className="text-gray-600 text-sm font-light">
-                                    <CouponSingleList />
-                                </tbody>
+                                <tbody
+                                        className={
+                                            loading
+                                                ? "text-gray-600 text-sm font-light flex justify-center"
+                                                : "text-gray-600 text-sm font-light"
+                                        }
+                                    >
+                                        {data.reverse().map((coupon) => {
+                                            return (
+                                                <CouponSingleList
+                                                    coupon={coupon}
+                                                    key={coupon?._id}
+                                                />
+                                            );
+                                        })}
+                                    </tbody>
                             </table>
                         </div>
                     </div>
