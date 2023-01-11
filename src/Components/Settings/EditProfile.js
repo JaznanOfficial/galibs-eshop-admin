@@ -1,20 +1,69 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import useFetch from "../../Hooks/useFetch";
 import useFirebase from "../../Hooks/useFirebase";
+import { Watch } from "react-loader-spinner";
+import { toast } from "react-toastify";
 
 const EditProfile = () => {
-    const { getData, data, loading } = useFetch();
-    const { user } = useFirebase();
+    const { getData, data, postData, patchData } = useFetch();
+
+    const [loading, setLoading] = useState(false);
+
+    const { user } = useFirebase() || {};
     console.log(user.email);
 
-    const [images, setImages] = useState({});
-    console.log(images);
+    const [imageUpload, setImageUpload] = useState("") || {};
 
     useEffect(() => {
         getData(`https://g-shop-server.onrender.com/api/v1/users?email=${user?.email}`);
-    }, [user]);
+    }, [user,data]);
+    // if (user) {
+    //             getData(`https://g-shop-server.onrender.com/api/v1/users?email=${user?.email}`);
+
+    // }
     console.log(data);
-    const { name, email, phone,role } = data[0] || {};
+    const { name, email, phone, role } = data[0] || {};
+
+    const handleImage = async (e) => {
+        setLoading(true);
+        const image = e.target.files[0];
+        const formData = new FormData();
+        formData.set("key", "1cbd6d1d311a1b351898b64918af6ef1");
+        formData.append("image", image);
+
+        const imgUpload = await postData("https://api.imgbb.com/1/upload", formData);
+        if (imgUpload.status === 200) {
+            setLoading(false);
+            setImageUpload(imgUpload.data.data.url);
+            console.log(imageUpload);
+        }
+    };
+
+    const nameRef = useRef();
+    const emailRef = useRef();
+    const phoneRef = useRef();
+    const handleSubmit = async () => {
+        const name = nameRef.current.value;
+        const email = emailRef.current.value;
+        const phone = phoneRef.current.value;
+        const img = imageUpload;
+        const userData = { name, img, email, phone };
+        console.log(userData);
+        const userUpload = await patchData(
+            `https://g-shop-server.onrender.com/api/v1/users?email=${user?.email}`,
+            userData
+        );
+        console.log(userUpload);
+        if (userUpload.data.status === "Successful") {
+            // setSuccess(true);
+
+            // setDataLoading(false);
+
+            toast.success(
+                "Your data successfully added. If you can't see any update, please refresh the page. we're working on real-time data fetching. that's coming soon. inshallah!"
+            );
+        }
+    };
 
     return (
         <div>
@@ -37,9 +86,7 @@ const EditProfile = () => {
                                         </p>
                                     </div>
                                     <input
-                                        onChange={(e) => {
-                                            setImages(e.target.files);
-                                        }}
+                                        onChange={handleImage}
                                         id="dropzone-file"
                                         type="file"
                                         class="hidden"
@@ -47,17 +94,32 @@ const EditProfile = () => {
                                 </label>
                             </div>
                             <div className="my-5 flex items-center justify-center gap-5">
-                                {Array.from(images).map((image) => {
-                                    return (
+                                {loading ? (
+                                    <div className="flex justify-center items-center w-full mx-auto py-10">
+                                        <Watch
+                                            height="80"
+                                            width="80"
+                                            color="#4fa94d"
+                                            ariaLabel="bars-loading"
+                                            wrapperStyle={{}}
+                                            wrapperClass=""
+                                            visible={true}
+                                            style={{
+                                                margin: "0 auto",
+                                            }}
+                                        />
+                                    </div>
+                                ) : (
+                                    imageUpload && (
                                         <span>
                                             <img
-                                                class="sm:w-40 w-10 sm:h-40 h-10   rounded-full"
-                                                src={image ? URL.createObjectURL(image) : null}
+                                                class="sm:w-40 w-10 sm:h-40 h-10  sm:rounded-lg rounded-3xl"
+                                                src={imageUpload}
                                                 alt="description"
                                             />
                                         </span>
-                                    );
-                                })}
+                                    )
+                                )}
                             </div>
                         </div>
                     </div>
@@ -73,6 +135,7 @@ const EditProfile = () => {
                                     placeholder="Type here"
                                     className="input w-full focus:bg-white bg-green-100 text-black"
                                     defaultValue={name}
+                                    ref={nameRef}
                                 />
                             </div>
                         </div>
@@ -88,6 +151,7 @@ const EditProfile = () => {
                                     placeholder="Type here"
                                     className="input w-full focus:bg-white bg-green-100 text-black"
                                     defaultValue={email}
+                                    ref={emailRef}
                                 />
                             </div>
                         </div>
@@ -99,10 +163,11 @@ const EditProfile = () => {
                         <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                             <div className=" w-full">
                                 <input
-                                    type="Number"
+                                    type="number"
                                     placeholder="Type here"
                                     className="input w-full focus:bg-white bg-green-100 text-black"
                                     defaultValue={phone}
+                                    ref={phoneRef}
                                 />
                             </div>
                         </div>
@@ -115,8 +180,7 @@ const EditProfile = () => {
                             <div className=" w-full">
                                 <input
                                     type="text"
-                                    placeholder="Type here"
-                                    className="input w-full focus:bg-white bg-green-100 text-black"
+                                    className="input w-full  bg-green-100"
                                     defaultValue={role}
                                     disabled
                                 />
@@ -124,7 +188,9 @@ const EditProfile = () => {
                         </div>
                     </div>
                     <div className=" w-full flex justify-end items-center">
-                        <button className="btn w-full md:w-1/5 bg-primary text-white hover:bg-white hover:text-primary hover:border-primary">
+                        <button className="btn w-full md:w-1/5 bg-primary text-white hover:bg-white hover:text-primary hover:border-primary"
+                        onClick={handleSubmit}
+                        >
                             <i className="fa-solid fa-plus"></i>{" "}
                             <span className="ml-1">Update Profile</span>
                         </button>
