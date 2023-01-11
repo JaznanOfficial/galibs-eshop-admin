@@ -1,13 +1,13 @@
 import React from "react";
 
 const CustomerDetailsTop = ({ customer }) => {
-    console.log(customer);
-    const { img, profession, name, address } = customer || {}
+    // //console.log(customer);
+    const { img, profession, name, address } = customer || {};
     return (
         <div class="bg-white rounded-lg shadow-xl pb-8 w-11/12 mx-auto my-5">
             <div class="w-full h-[250px]">
-            <img
-                     src="https://i.pinimg.com/originals/54/54/52/54545221509ad97d8632e5108e5d8d13.jpg" 
+                <img
+                    src="https://i.pinimg.com/originals/54/54/52/54545221509ad97d8632e5108e5d8d13.jpg"
                     /* src="https://freedesignfile.com/upload/2017/05/Flowers-green-leaves-spring-background.jpg" */
                     class="w-full h-full rounded-tl-lg rounded-tr-lg"
                     alt="banner img"
@@ -41,7 +41,6 @@ const CustomerDetailsTop = ({ customer }) => {
                 <p class="text-gray-700">{profession}</p>
                 <p class="text-sm text-gray-500">{address}</p>
             </div>
-            
         </div>
     );
 };

@@ -6,7 +6,7 @@ import { Watch } from "react-loader-spinner";
 
 const ProductsList = () => {
     const { data, loading } = useContext(ProductsContext);
-    // console.log(data);
+    // //console.log(data);
     return (
         <>
             <div>

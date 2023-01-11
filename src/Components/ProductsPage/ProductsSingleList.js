@@ -8,7 +8,7 @@ const ProductsSingleList = ({ product }) => {
     const { patchData, deleteData, success, error } = useFetch();
     const { _id, name, img, brand, price, status: productStatus } = product;
     const [images, setImages] = useState({});
-    // console.log(productStatus);
+    // //console.log(productStatus);
 
     const [hide, setHide] = useState(productStatus);
     const [status, setStatus] = useState(!hide);
@@ -23,11 +23,11 @@ const ProductsSingleList = ({ product }) => {
         }
         setHide(!hide);
         const data = { status: status };
-        console.log(data);
+        //console.log(data);
 
         patchData(`https://g-shop-server.onrender.com/api/v1/products?_id=${id}`, data);
     };
-    // console.log(status);
+    // //console.log(status);
 
     const deleteHandler = (id) => {
         deleteData(`https://g-shop-server.onrender.com/api/v1/products?_id=${id}`);

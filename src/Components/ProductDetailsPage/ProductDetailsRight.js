@@ -1,17 +1,16 @@
 import React from "react";
 
 const ProductDetailsRight = ({ location }) => {
-    console.log(location);
-    const { name,_id,status, price,monitor,brand, ram,ssd, hdd, processor, short_details} = location.state || {};
+    // //console.log(location);
+    const { name, _id, status, price, monitor, brand, ram, ssd, hdd, processor, short_details } =
+        location.state || {};
     return (
         <>
             <div class="text-gray-700 body-font overflow-hidden bg-white">
                 <div class="container px-5 sm:px-2 mt-16">
                     <div class="lg:w-full flex ">
                         <div class="lg:w-full w-full mt-6 lg:mt-0">
-                            <h2 class="text-base  text-gray-500 font-bold mb-8">
-                                {name}
-                            </h2>
+                            <h2 class="text-base  text-gray-500 font-bold mb-8">{name}</h2>
 
                             <div class="flex sm:flex-row flex-col justify-start items-start gap-1 w-full mb-8">
                                 <div class="bg-green-100 text-green-900 hover:text-gray-900 rounded px-2 py-2">

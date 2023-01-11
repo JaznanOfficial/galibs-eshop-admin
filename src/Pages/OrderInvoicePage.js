@@ -6,7 +6,7 @@ import ReactToPrint from "react-to-print";
 const OrderInvoicePage = () => {
     const printContent = useRef();
     const { state } = useLocation();
-    console.log(state);
+    //console.log(state);
     const { _id, name, email, img, phone, createdAt, products } = state || {};
 
     return (
@@ -109,7 +109,7 @@ const OrderInvoicePage = () => {
                                                             <strong>${price}</strong>
                                                         </td>
                                                         <td class="py-4 pl-3 pr-4 text-sm text-right text-primary sm:pr-6 md:pr-0">
-                                                            <strong>${quantity*price}</strong>
+                                                            <strong>${quantity * price}</strong>
                                                         </td>
                                                     </tr>
                                                 );

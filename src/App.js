@@ -10,7 +10,7 @@ import Login from "./Pages/Login";
 
 function App() {
     const { user, loading } = useFirebase();
-    console.log(user);
+    // //console.log(user);
     if (loading) {
         return (
             <div className="flex justify-center items-center w-screen h-screen">
@@ -34,18 +34,18 @@ function App() {
     } else {
         return (
             <div className="App ">
-            <ToastContainer
-            position="top-center"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-        />
+                <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
                 <Navigation />
                 <div className="md:hidden bg-green-50">
                     <RoutesComponents />

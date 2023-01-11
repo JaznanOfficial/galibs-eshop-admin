@@ -11,7 +11,7 @@ const CouponsPage = () => {
     useEffect(() => {
         getData("https://g-shop-server.onrender.com/api/v1/coupons");
     }, [data]);
-    console.log(data);
+    //console.log(data);
     return (
         <CouponContext.Provider value={{ data, loading }}>
             <div className="py-10">

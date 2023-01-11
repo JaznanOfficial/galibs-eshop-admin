@@ -11,9 +11,9 @@ const ProductsPage = () => {
     useEffect(() => {
         getData("https://g-shop-server.onrender.com/api/v1/products");
     }, [data]);
-    // console.log(data);
+    // //console.log(data);
     return (
-        <ProductsContext.Provider value={{data,loading}}>
+        <ProductsContext.Provider value={{ data, loading }}>
             <div className="py-10">
                 <div>
                     <h1 className="text-2xl  font-extrabold text-black">Products</h1>
@@ -26,4 +26,4 @@ const ProductsPage = () => {
 };
 
 export default ProductsPage;
-export {ProductsContext}
+export { ProductsContext };

@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 import useFirebase from "../../Hooks/useFirebase";
 
 const TopNavigation = () => {
-    const { user,logOut } = useFirebase()
-    // console.log(user);
+    const { user, logOut } = useFirebase();
+    // //console.log(user);
 
     const activeStyle = {
         backgroundColor: "#0E9F6E",
@@ -137,8 +137,9 @@ const TopNavigation = () => {
                                 </NavLink>
                             </li>
                             <div>
-                                <button className="btn w-full flex text-start justify-start rounded-md bg-rose-600 border-none hover:bg-rose-700"
-                                onClick={logOut}
+                                <button
+                                    className="btn w-full flex text-start justify-start rounded-md bg-rose-600 border-none hover:bg-rose-700"
+                                    onClick={logOut}
                                 >
                                     <h1>
                                         <i className="fa-solid fa-right-from-bracket"></i>

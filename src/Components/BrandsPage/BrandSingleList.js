@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import useFetch from "../../Hooks/useFetch";
 
 const BrandSingleList = ({ brand }) => {
-    const {  patchData, deleteData, success, error } = useFetch();
+    const { patchData, deleteData, success, error } = useFetch();
     const { _id, name, img, status: brandStatus } = brand;
 
     const [images, setImages] = useState({});
-    console.log(brandStatus);
+    // //console.log(brandStatus);
 
     const [hide, setHide] = useState(brandStatus);
 
@@ -21,7 +21,7 @@ const BrandSingleList = ({ brand }) => {
         }
         setHide(!hide);
         const data = { status: status };
-        console.log(data);
+        // //console.log(data);
 
         await patchData(`https://g-shop-server.onrender.com/api/v1/brands?_id=${id}`, data);
     };
@@ -68,7 +68,7 @@ const BrandSingleList = ({ brand }) => {
             </td>
             <td className="py-3 px-3 text-center">
                 <div className="flex item-center justify-center">
-                   {/*  <div
+                    {/*  <div
                         className="w-4 mr-2 transform hover:text-primary hover:scale-110 cursor-pointer"
                         onClick={() => setShowModal(true)}
                     >
@@ -82,7 +82,7 @@ const BrandSingleList = ({ brand }) => {
                         <i className="fa-solid fa-trash-can"></i>
                     </div>
                 </div>
-                
+
                 {/* showModal ? (
                     <>
                         <div className="w-11/12 md:w-full mx-auto justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">

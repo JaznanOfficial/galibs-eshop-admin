@@ -14,8 +14,8 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const LeftChart = ({label}) => {
-    console.log({label});
+const LeftChart = ({ label }) => {
+    // //console.log({label});
     const options = {
         responsive: true,
         plugins: {
@@ -47,7 +47,6 @@ const LeftChart = ({label}) => {
             },
         ],
     };
-    
 
     return (
         <div className="md:w-full w-full bg-white border border-solid rounded-lg p-5 ">

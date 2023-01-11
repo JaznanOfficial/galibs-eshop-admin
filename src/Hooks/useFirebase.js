@@ -19,7 +19,6 @@ const useFirebase = () => {
     const [error, setError] = useState({});
     const auth = getAuth();
 
-
     const googleProvider = new GoogleAuthProvider();
 
     const signInWithGoogle = (location) => {
@@ -27,24 +26,19 @@ const useFirebase = () => {
             .then((result) => {
                 setUser(result.user);
                 setLoading(false);
-                console.log(location);
+                //console.log(location);
                 // navigate(location?.state?.from || "/");
-                
             })
             .catch((error) => {
-                console.log(error);
+                //console.log(error);
             });
     };
-
-    
-
-    
 
     const logOut = () => {
         return signOut(auth)
             .then((result) => {})
             .catch((error) => {
-                console.log(error);
+                //console.log(error);
             });
     };
 
@@ -59,11 +53,10 @@ const useFirebase = () => {
                 const name = user.displayName;
                 const email = user.email;
                 const img = user.photoURL;
-                const role = 'user';
+                const role = "user";
                 // const status = 'active';
-                const data = { name, email, img, role }
-                postData("https://g-shop-server.onrender.com/api/v1/users", data)
-                
+                const data = { name, email, img, role };
+                postData("https://g-shop-server.onrender.com/api/v1/users", data);
             } else {
                 setUser({});
                 setLoading(false);
@@ -77,8 +70,7 @@ const useFirebase = () => {
         user,
         loading,
         logOut,
-        error
-        
+        error,
     };
 };
 

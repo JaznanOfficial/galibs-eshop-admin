@@ -4,11 +4,10 @@ import useFetch from "../../Hooks/useFetch";
 
 const CustomerSingleList = ({ customer }) => {
     const { _id, name, img, email, role, status: userStatus, createdAt, phone } = customer || {};
-    console.log(userStatus);
+    // //console.log(userStatus);
     const { deleteData, patchData } = useFetch();
     const [hide, setHide] = useState(userStatus);
     const [status, setStatus] = useState(!hide);
-
 
     const statusHandler = (id) => {
         if (hide) {
@@ -18,14 +17,14 @@ const CustomerSingleList = ({ customer }) => {
         }
         setHide(!hide);
         const data = { status: status };
-        console.log(data);
+        // //console.log(data);
 
         patchData(`https://g-shop-server.onrender.com/api/v1/users?_id=${id}`, data);
     };
-    // console.log(status);
+    // //console.log(status);
 
     const deleteHandler = (id) => {
-        console.log(id);
+        // //console.log(id);
         deleteData(`https://g-shop-server.onrender.com/api/v1/users?_id=${id}`);
     };
 

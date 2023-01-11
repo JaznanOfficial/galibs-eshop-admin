@@ -3,9 +3,7 @@ import { Watch } from "react-loader-spinner";
 import { toast } from "react-toastify";
 import useFetch from "../../Hooks/useFetch";
 
-
 const ProductsTopBar = () => {
-
     const { postData } = useFetch();
     const [loading, setLoading] = useState(false);
 
@@ -22,10 +20,9 @@ const ProductsTopBar = () => {
         if (imgUpload.status === 200) {
             setLoading(false);
             setImageUpload(imgUpload.data.data.url);
-            // console.log(imageUpload);
+            // //console.log(imageUpload);
         }
     };
-
 
     const nameRef = useRef();
     const priceRef = useRef();
@@ -39,7 +36,7 @@ const ProductsTopBar = () => {
     const short_detailsRef = useRef();
     const details_descriptionRef = useRef();
 
-    const handleSubmit = async() => {
+    const handleSubmit = async () => {
         const name = nameRef.current.value;
         const img = imageUpload;
         const price = priceRef.current.value;
@@ -53,22 +50,38 @@ const ProductsTopBar = () => {
         const short_details = short_detailsRef.current.value;
         const details_description = details_descriptionRef.current.value;
 
-        const productData = {name,img, price, quantity, brand, ssd, hdd, ram, monitor, processor,short_details, details_description}
-        console.log(productData);
-        const productUpload = await postData("https://g-shop-server.onrender.com/api/v1/products", productData);
-        console.log(productUpload);
+        const productData = {
+            name,
+            img,
+            price,
+            quantity,
+            brand,
+            ssd,
+            hdd,
+            ram,
+            monitor,
+            processor,
+            short_details,
+            details_description,
+        };
+        // //console.log(productData);
+        const productUpload = await postData(
+            "https://g-shop-server.onrender.com/api/v1/products",
+            productData
+        );
+        // //console.log(productUpload);
         if (productUpload.data.status === "Successful") {
-                    // setSuccess(true);
-    
-                    // setDataLoading(false);
-    
-                    toast.success("Your data successfully added. If you can't see any update, please refresh the page. we're working on real-time data fetching. that's coming soon. inshallah!");
-                }
+            // setSuccess(true);
 
+            // setDataLoading(false);
+
+            toast.success(
+                "Your data successfully added. If you can't see any update, please refresh the page. we're working on real-time data fetching. that's coming soon. inshallah!"
+            );
+        }
     };
 
     const [showModal, setShowModal] = React.useState(false);
-
 
     return (
         <>
@@ -134,64 +147,68 @@ const ProductsTopBar = () => {
                                             <div className="h-96 overflow-y-scroll">
                                                 <div className="w-full  md:px-0 my-5 flex justify-center items-center">
                                                     <div className="w-11/12 mx-auto p-5 bg-white border ">
-                                                    
-                                                    <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
-                                                    <div className="md:w-1/5">
-                                                        <h1 className="text-md font-semibold text-primary">Product Picture</h1>
-                                                    </div>
-                                                    <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
-                                                        <div class="flex items-center justify-center w-full">
-                                                            <label
-                                                                for="dropzone-file"
-                                                                class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
-                                                            >
-                                                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                                                    <i class="fa-solid fa-cloud-arrow-up text-primary text-3xl"></i>
-                                                                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                                                                        <span class="font-semibold">Click to upload</span>
-                                                                    </p>
-                                                                </div>
-                                                                <input
-                                                                onChange={handleImage}
-                                                                    multiple
-                                                                    id="dropzone-file"
-                                                                    type="file"
-                                                                    class="hidden"
-                                                                    accept="image/*"
-                                                                />
-                                                            </label>
-                                                        </div>
-                                                        <div className="my-5 flex items-center justify-center gap-5">
-                                                                {loading ? (
-                                                                    <div className="flex justify-center items-center w-full mx-auto py-10">
-                                                                        <Watch
-                                                                            height="80"
-                                                                            width="80"
-                                                                            color="#4fa94d"
-                                                                            ariaLabel="bars-loading"
-                                                                            wrapperStyle={{}}
-                                                                            wrapperClass=""
-                                                                            visible={true}
-                                                                            style={{
-                                                                                margin: "0 auto",
-                                                                            }}
-                                                                        />
-                                                                    </div>
-                                                                ) : (
-                                                                    imageUpload && (
-                                                                        <span>
-                                                                            <img
-                                                                                class="sm:w-40 w-10 sm:h-40 h-10  sm:rounded-lg rounded-3xl"
-                                                                                src={imageUpload}
-                                                                                alt="description"
-                                                                            />
-                                                                        </span>
-                                                                    )
-                                                                )}
+                                                        <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
+                                                            <div className="md:w-1/5">
+                                                                <h1 className="text-md font-semibold text-primary">
+                                                                    Product Picture
+                                                                </h1>
                                                             </div>
-                                                    </div>
-                                                </div>
-
+                                                            <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
+                                                                <div class="flex items-center justify-center w-full">
+                                                                    <label
+                                                                        for="dropzone-file"
+                                                                        class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+                                                                    >
+                                                                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                                                            <i class="fa-solid fa-cloud-arrow-up text-primary text-3xl"></i>
+                                                                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                                                                                <span class="font-semibold">
+                                                                                    Click to upload
+                                                                                </span>
+                                                                            </p>
+                                                                        </div>
+                                                                        <input
+                                                                            onChange={handleImage}
+                                                                            multiple
+                                                                            id="dropzone-file"
+                                                                            type="file"
+                                                                            class="hidden"
+                                                                            accept="image/*"
+                                                                        />
+                                                                    </label>
+                                                                </div>
+                                                                <div className="my-5 flex items-center justify-center gap-5">
+                                                                    {loading ? (
+                                                                        <div className="flex justify-center items-center w-full mx-auto py-10">
+                                                                            <Watch
+                                                                                height="80"
+                                                                                width="80"
+                                                                                color="#4fa94d"
+                                                                                ariaLabel="bars-loading"
+                                                                                wrapperStyle={{}}
+                                                                                wrapperClass=""
+                                                                                visible={true}
+                                                                                style={{
+                                                                                    margin: "0 auto",
+                                                                                }}
+                                                                            />
+                                                                        </div>
+                                                                    ) : (
+                                                                        imageUpload && (
+                                                                            <span>
+                                                                                <img
+                                                                                    class="sm:w-40 w-10 sm:h-40 h-10  sm:rounded-lg rounded-3xl"
+                                                                                    src={
+                                                                                        imageUpload
+                                                                                    }
+                                                                                    alt="description"
+                                                                                />
+                                                                            </span>
+                                                                        )
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
                                                         <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
                                                             <div className="md:w-1/5">
@@ -219,7 +236,7 @@ const ProductsTopBar = () => {
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
                                                                     <input
-                                                                    ref={priceRef}
+                                                                        ref={priceRef}
                                                                         type="number"
                                                                         placeholder="Price"
                                                                         className="input w-full focus:bg-white bg-green-100 text-black"
@@ -236,7 +253,7 @@ const ProductsTopBar = () => {
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
                                                                     <input
-                                                                    ref={quantityRef}
+                                                                        ref={quantityRef}
                                                                         type="number"
                                                                         placeholder="Quantity"
                                                                         className="input w-full focus:bg-white bg-green-100 text-black"
@@ -253,8 +270,9 @@ const ProductsTopBar = () => {
 
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
-                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black"
-                                                                    ref={brandRef}
+                                                                    <select
+                                                                        className="select w-full focus:bg-white bg-green-100 text-black"
+                                                                        ref={brandRef}
                                                                     >
                                                                         <option disabled selected>
                                                                             Brand
@@ -274,8 +292,9 @@ const ProductsTopBar = () => {
 
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
-                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black"
-                                                                    ref={ssdRef}
+                                                                    <select
+                                                                        className="select w-full focus:bg-white bg-green-100 text-black"
+                                                                        ref={ssdRef}
                                                                     >
                                                                         <option disabled selected>
                                                                             SSD
@@ -296,8 +315,9 @@ const ProductsTopBar = () => {
 
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
-                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black"
-                                                                    ref={hddRef}
+                                                                    <select
+                                                                        className="select w-full focus:bg-white bg-green-100 text-black"
+                                                                        ref={hddRef}
                                                                     >
                                                                         <option disabled selected>
                                                                             HDD
@@ -317,8 +337,9 @@ const ProductsTopBar = () => {
 
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
-                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black"
-                                                                    ref={ramRef}
+                                                                    <select
+                                                                        className="select w-full focus:bg-white bg-green-100 text-black"
+                                                                        ref={ramRef}
                                                                     >
                                                                         <option disabled selected>
                                                                             RAM
@@ -339,8 +360,9 @@ const ProductsTopBar = () => {
 
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
-                                                                    <select className="select w-full focus:bg-white bg-green-100 text-black"
-                                                                    ref={monitorRef}
+                                                                    <select
+                                                                        className="select w-full focus:bg-white bg-green-100 text-black"
+                                                                        ref={monitorRef}
                                                                     >
                                                                         <option disabled selected>
                                                                             Monitor
@@ -360,7 +382,7 @@ const ProductsTopBar = () => {
                                                             <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
                                                                 <div className=" w-full">
                                                                     <input
-                                                                    ref={processorRef}
+                                                                        ref={processorRef}
                                                                         type="text"
                                                                         placeholder="Processor"
                                                                         className="input w-full focus:bg-white bg-green-100 text-black"

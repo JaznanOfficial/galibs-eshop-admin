@@ -2,16 +2,15 @@ import React from "react";
 import useFetch from "../../Hooks/useFetch";
 
 const CouponSingleList = ({ coupon }) => {
-    console.log(coupon);
+    // //console.log(coupon);
     const { deleteData } = useFetch();
-    const { _id, name, code,percent, starting_date, ending_date} = coupon;
-   
+    const { _id, name, code, percent, starting_date, ending_date } = coupon;
+
     const [showModal, setShowModal] = React.useState(false);
 
     const deleteHandler = (id) => {
         deleteData(`https://g-shop-server.onrender.com/api/v1/coupons?_id=${id}`);
     };
-
 
     return (
         <tr className="border-b border-gray-200 hover:bg-gray-100">
@@ -31,10 +30,14 @@ const CouponSingleList = ({ coupon }) => {
                 <p className="break-words whitespace-wrap w-24 mx-auto text-center">Asus ROG</p>
             </td> */}
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-24 mx-auto text-center">{starting_date}</p>
+                <p className="break-words whitespace-wrap w-24 mx-auto text-center">
+                    {starting_date}
+                </p>
             </td>
             <td className="p-3 text-center font-medium">
-                <p className="break-words whitespace-wrap w-24 mx-auto text-center">{ending_date}</p>
+                <p className="break-words whitespace-wrap w-24 mx-auto text-center">
+                    {ending_date}
+                </p>
             </td>
 
             <td className="py-3 px-3 text-center">
@@ -56,11 +59,12 @@ const CouponSingleList = ({ coupon }) => {
                         <i className="fa-solid fa-pen-to-square"></i>
                     </div> */}
 
-                    <div className="w-4 mr-2 transform hover:text-red-500 hover:scale-110"
-                    onClick={()=>deleteHandler(_id)}
+                    <div
+                        className="w-4 mr-2 transform hover:text-red-500 hover:scale-110"
+                        onClick={() => deleteHandler(_id)}
                     >
                         <i className="fa-solid fa-trash-can"></i>
-                    </div> 
+                    </div>
                 </div>
                 {/* showModal ? (
                     <>

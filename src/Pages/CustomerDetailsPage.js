@@ -8,13 +8,13 @@ import CustomerDetailsTop from "../Components/CustomerDetailsPage/CustomerDetail
 
 const CustomerDetailsPage = ({ customer }) => {
     const { state } = useLocation();
-    console.log(state);
+    //console.log(state);
     return (
         <div className="py-10">
-            <CustomerDetailsTop customer={ state } />
-            <CustomerDetailsAbout customer={ state }/>
-            <CustomerDetailsOrderSearch customer={ state }/>
-            <CustomerDetailsOrders customer={ state }/>
+            <CustomerDetailsTop customer={state} />
+            <CustomerDetailsAbout customer={state} />
+            <CustomerDetailsOrderSearch customer={state} />
+            <CustomerDetailsOrders customer={state} />
         </div>
     );
 };

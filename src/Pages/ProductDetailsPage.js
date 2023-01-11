@@ -8,15 +8,15 @@ import ProductRelated from "../Components/ProductDetailsPage/ProductRelated";
 
 const ProductDetailsPage = ({ product }) => {
     const location = useLocation();
-    // console.log(location.state);
+    // //console.log(location.state);
     return (
         <>
             <div class=" flex-col bg-green-50 flex items-center">
                 <div class="w-full min-h-screen bg-white shadow-xl sm:p-5 p-0 text-gray-800 relative md:text-left">
                     <div class="md:flex items-start mt-10">
-                        <ProductDetailsLeft location={ location} />
+                        <ProductDetailsLeft location={location} />
 
-                        <ProductDetailsRight location={ location } />
+                        <ProductDetailsRight location={location} />
                     </div>
                 </div>
 

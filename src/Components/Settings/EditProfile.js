@@ -10,18 +10,18 @@ const EditProfile = () => {
     const [loading, setLoading] = useState(false);
 
     const { user } = useFirebase() || {};
-    console.log(user.email);
+    // //console.log(user.email);
 
     const [imageUpload, setImageUpload] = useState("") || {};
 
     useEffect(() => {
         getData(`https://g-shop-server.onrender.com/api/v1/users?email=${user?.email}`);
-    }, [user,data]);
+    }, [user, data]);
     // if (user) {
     //             getData(`https://g-shop-server.onrender.com/api/v1/users?email=${user?.email}`);
 
     // }
-    console.log(data);
+    // //console.log(data);
     const { name, email, phone, role } = data[0] || {};
 
     const handleImage = async (e) => {
@@ -35,7 +35,7 @@ const EditProfile = () => {
         if (imgUpload.status === 200) {
             setLoading(false);
             setImageUpload(imgUpload.data.data.url);
-            console.log(imageUpload);
+            // //console.log(imageUpload);
         }
     };
 
@@ -48,12 +48,12 @@ const EditProfile = () => {
         const phone = phoneRef.current.value;
         const img = imageUpload;
         const userData = { name, img, email, phone };
-        console.log(userData);
+        // //console.log(userData);
         const userUpload = await patchData(
             `https://g-shop-server.onrender.com/api/v1/users?email=${user?.email}`,
             userData
         );
-        console.log(userUpload);
+        // //console.log(userUpload);
         if (userUpload.data.status === "Successful") {
             // setSuccess(true);
 
@@ -188,8 +188,9 @@ const EditProfile = () => {
                         </div>
                     </div>
                     <div className=" w-full flex justify-end items-center">
-                        <button className="btn w-full md:w-1/5 bg-primary text-white hover:bg-white hover:text-primary hover:border-primary"
-                        onClick={handleSubmit}
+                        <button
+                            className="btn w-full md:w-1/5 bg-primary text-white hover:bg-white hover:text-primary hover:border-primary"
+                            onClick={handleSubmit}
                         >
                             <i className="fa-solid fa-plus"></i>{" "}
                             <span className="ml-1">Update Profile</span>
