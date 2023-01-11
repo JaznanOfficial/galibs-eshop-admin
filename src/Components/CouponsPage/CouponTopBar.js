@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import { toast } from "react-toastify";
+import useFetch from "../../Hooks/useFetch";
 
 const CouponTopBar = () => {
+
+    const { postData } = useFetch();
+    const [loading, setLoading] = useState(false);
+    // console.log(images);
+
+    const nameRef = useRef();
+    const handleSubmit = async() => {
+        const name = nameRef.current.value;
+        const couponData = {name}
+        console.log(couponData);
+        const couponUpload = await postData("https://g-shop-server.onrender.com/api/v1/brands", couponData);
+        console.log(couponUpload);
+        if (couponUpload.data.status === "Successful") {
+                    // setSuccess(true);
+    
+                    // setDataLoading(false);
+    
+                    toast.success("Your data successfully added. If you can't see any update, please refresh the page. we're working on real-time data fetching. that's coming soon. inshallah!");
+                }
+
+    };
+
     const [showModal, setShowModal] = React.useState(false);
 
     return (
@@ -46,45 +70,7 @@ const CouponTopBar = () => {
                                         <div className="h-96 overflow-y-scroll">
                                             <div className="w-full  md:px-0 my-5 flex justify-center items-center">
                                                 <div className="w-11/12 mx-auto p-5 bg-white border ">
-                                                    {/* <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
-                                                        <div className="md:w-1/5">
-                                                            <h1 className="text-md font-semibold text-primary">
-                                                                Brand Picture
-                                                            </h1>
-                                                        </div>
-
-                                                        <div className="w-full md:w-2/3 flex flex-col justify-center items-center">
-                                                            <div class="flex items-center justify-center w-full">
-                                                                <label
-                                                                    for="dropzone-file"
-                                                                    class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
-                                                                >
-                                                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                                                        <i class="fa-solid fa-cloud-arrow-up text-primary text-3xl"></i>
-                                                                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                                                                            <span class="font-semibold">
-                                                                                Click to upload
-                                                                            </span>{" "}
-                                                                            or drag and drop
-                                                                        </p>
-                                                                       
-                                                                    </div>
-                                                                    <input
-                                                                        id="dropzone-file"
-                                                                        type="file"
-                                                                        class="hidden"
-                                                                    />
-                                                                </label>
-                                                            </div>
-                                                            <div className="mt-5">
-                                                                <img
-                                                                    class="w-40 h-40  rounded-full"
-                                                                    src="https://i.ibb.co/0mKh0Zb/profile-1-removebg-preview-3.png"
-                                                                    alt="description"
-                                                                />
-                                                            </div>
-                                                        </div> 
-                                                    </div>*/}
+                                                    
                                                     <div className="w-full flex flex-col md:flex-row justify-between items-start my-3">
                                                         <div className="md:w-1/5">
                                                             <h1 className="text-md font-semibold text-primary">
@@ -189,7 +175,10 @@ const CouponTopBar = () => {
                                             <button
                                                 className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                                 type="button"
-                                                onClick={() => setShowModal(false)}
+                                                onClick={() => {
+                                                    setShowModal(false);
+                                                    handleSubmit();
+                                                }}
                                             >
                                                 Close
                                             </button>
